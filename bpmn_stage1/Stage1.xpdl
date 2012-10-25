@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://www.wfmc.org/2008/XPDL2.1" Id="fa29a6ac-8195-b0bf-c691-dda41ba0849b">
+  <PackageHeader>
+    <XPDLVersion>2.1</XPDLVersion>
+    <Vendor>WebRatio</Vendor>
+    <Created>2012-10-25T18:28:23.218+0200</Created>
+    <Description xml:space="preserve"></Description>
+  </PackageHeader>
+  <RedefinableHeader>
+    <Countrykey>DE</Countrykey>
+  </RedefinableHeader>
+  <ExternalPackages/>
+  <Participants/>
+  <Pools>
+    <Pool Id="df55fd4a-61dc-826f-87a1-43639224ad79" Name="User" BoundaryVisible="true" Process="9f616eb6-320e-a7e1-8d58-ed2d9f1151d1">
+      <Lanes>
+        <Lane Id="f098602f-b771-483f-09b5-e777f4f5cb40" Name="Lane 1" ParentPool="df55fd4a-61dc-826f-87a1-43639224ad79">
+          <Description xml:space="preserve"></Description>
+          <NodeGraphicsInfos>
+            <NodeGraphicsInfo BorderColor="-11513776" FillColor="-1315861" Height="650" Width="735">
+              <Coordinates XCoordinate="50" YCoordinate="0"/>
+            </NodeGraphicsInfo>
+          </NodeGraphicsInfos>
+        </Lane>
+      </Lanes>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo BorderColor="-16777216" FillColor="-1" Height="650" Width="765">
+          <Coordinates XCoordinate="30" YCoordinate="30"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+    </Pool>
+    <Pool Id="7d37f8c8-0165-b39e-cf00-11518c2ae329" Name="System" BoundaryVisible="true" Process="c4e13c86-5426-0ad3-ba6c-a5b5823f398a">
+      <Lanes>
+        <Lane Id="b3b835a5-fde8-fe88-4f95-69fa280b5a3b" Name="Lane 2" ParentPool="7d37f8c8-0165-b39e-cf00-11518c2ae329">
+          <Description xml:space="preserve"></Description>
+          <NodeGraphicsInfos>
+            <NodeGraphicsInfo BorderColor="-11513776" FillColor="-1315861" Height="160" Width="455">
+              <Coordinates XCoordinate="50" YCoordinate="0"/>
+            </NodeGraphicsInfo>
+          </NodeGraphicsInfos>
+        </Lane>
+      </Lanes>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo BorderColor="-16777216" FillColor="-1" Height="160" Width="485">
+          <Coordinates XCoordinate="30" YCoordinate="710"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+    </Pool>
+  </Pools>
+  <MessageFlows>
+    <MessageFlow Id="9719b4ac-6f98-113b-5ccd-d93411902b83" Name="" Source="df55fd4a-61dc-826f-87a1-43639224ad79" Target="7d37f8c8-0165-b39e-cf00-11518c2ae329">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo>
+          <Coordinates XCoordinate="30" YCoordinate="30"/>
+          <Coordinates XCoordinate="30" YCoordinate="710"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </MessageFlow>
+  </MessageFlows>
+  <Associations/>
+  <Artifacts/>
+  <WorkflowProcesses>
+    <WorkflowProcess Id="9f616eb6-320e-a7e1-8d58-ed2d9f1151d1" Name="User">
+      <ActivitySets/>
+      <Activities>
+        <Activity Id="3e114096-ef8d-983b-438b-7ede51295a4a" Name="Registration" WRLaneId="f098602f-b771-483f-09b5-e777f4f5cb40">
+          <Description xml:space="preserve"></Description>
+          <Implementation>
+            <Task>
+              <TaskUser/>
+            </Task>
+          </Implementation>
+          <NodeGraphicsInfos>
+            <NodeGraphicsInfo BorderColor="-16553830" FillColor="-1249281" Height="60" Width="100">
+              <Coordinates XCoordinate="310" YCoordinate="116"/>
+            </NodeGraphicsInfo>
+          </NodeGraphicsInfos>
+        </Activity>
+        <Activity Id="d6383820-caa1-6c89-04d2-5db29c28adff" Name="Start Event 1" WRLaneId="f098602f-b771-483f-09b5-e777f4f5cb40">
+          <Description xml:space="preserve"></Description>
+          <Event>
+            <StartEvent Trigger="None"/>
+          </Event>
+          <NodeGraphicsInfos>
+            <NodeGraphicsInfo BorderColor="-10311914" FillColor="-1638505" Height="30" Width="30">
+              <Coordinates XCoordinate="168" YCoordinate="154"/>
+            </NodeGraphicsInfo>
+          </NodeGraphicsInfos>
+        </Activity>
+        <Activity Id="994a7a26-7607-046a-7f97-4f9965578b49" Name="is registered?" WRLaneId="f098602f-b771-483f-09b5-e777f4f5cb40">
+          <Description xml:space="preserve"></Description>
+          <Route GatewayType="OR"/>
+          <TransitionRestrictions>
+            <TransitionRestriction>
+              <Split Type="OR">
+                <TransitionRefs>
+                  <TransitionRef Id="ff0bd36c-6dfb-feae-53fa-7fc1ca7d435f"/>
+                  <TransitionRef Id="33c211da-2e5b-1ecf-eeb7-32e57787d9e7"/>
+                </TransitionRefs>
+              </Split>
+            </TransitionRestriction>
+          </TransitionRestrictions>
+          <NodeGraphicsInfos>
+            <NodeGraphicsInfo BorderColor="-5855715" FillColor="-52" Height="40" Width="40">
+              <Coordinates XCoordinate="226" YCoordinate="254"/>
+            </NodeGraphicsInfo>
+          </NodeGraphicsInfos>
+        </Activity>
+        <Activity Id="134b1199-ca77-4544-9be1-b8d27d3e498b" Name="Login" WRLaneId="f098602f-b771-483f-09b5-e777f4f5cb40">
+          <Description xml:space="preserve"></Description>
+          <Implementation>
+            <Task>
+              <TaskUser/>
+            </Task>
+          </Implementation>
+          <NodeGraphicsInfos>
+            <NodeGraphicsInfo BorderColor="-16553830" FillColor="-1249281" Height="60" Width="100">
+              <Coordinates XCoordinate="315" YCoordinate="376"/>
+            </NodeGraphicsInfo>
+          </NodeGraphicsInfos>
+        </Activity>
+        <Activity Id="586453fa-474d-1fc4-e9fc-b751b363f320" Name="check statistics?" WRLaneId="f098602f-b771-483f-09b5-e777f4f5cb40">
+          <Description xml:space="preserve"></Description>
+          <Route GatewayType="OR"/>
+          <TransitionRestrictions>
+            <TransitionRestriction>
+              <Split Type="OR">
+                <TransitionRefs>
+                  <TransitionRef Id="d8998778-e94d-b0a3-7b85-a142bbc220d9"/>
+                  <TransitionRef Id="978b4a57-165c-4dbb-3e02-4a97d2ae5ca3"/>
+                </TransitionRefs>
+              </Split>
+            </TransitionRestriction>
+          </TransitionRestrictions>
+          <NodeGraphicsInfos>
+            <NodeGraphicsInfo BorderColor="-5855715" FillColor="-52" Height="40" Width="40">
+              <Coordinates XCoordinate="401" YCoordinate="394"/>
+            </NodeGraphicsInfo>
+          </NodeGraphicsInfos>
+        </Activity>
+        <Activity Id="4c0a2773-fe71-de48-9e09-b8d188a2a6e0" Name="Watch Statistics to given company" WRLaneId="f098602f-b771-483f-09b5-e777f4f5cb40">
+          <Description xml:space="preserve"></Description>
+          <Implementation>
+            <Task>
+              <TaskUser/>
+            </Task>
+          </Implementation>
+          <NodeGraphicsInfos>
+            <NodeGraphicsInfo BorderColor="-16553830" FillColor="-1249281" Height="60" Width="100">
+              <Coordinates XCoordinate="520" YCoordinate="290"/>
+            </NodeGraphicsInfo>
+          </NodeGraphicsInfos>
+        </Activity>
+        <Activity Id="1e8f487a-31dc-ad46-b138-d338f0ce5132" Name="Billing Page" WRLaneId="f098602f-b771-483f-09b5-e777f4f5cb40">
+          <Description xml:space="preserve"></Description>
+          <Implementation>
+            <Task>
+              <TaskUser/>
+            </Task>
+          </Implementation>
+          <NodeGraphicsInfos>
+            <NodeGraphicsInfo BorderColor="-16553830" FillColor="-1249281" Height="60" Width="100">
+              <Coordinates XCoordinate="535" YCoordinate="460"/>
+            </NodeGraphicsInfo>
+          </NodeGraphicsInfos>
+        </Activity>
+        <Activity Id="50eab64a-6a49-eb40-be4b-f58766ea6941" Name="Registration TImer" WRLaneId="f098602f-b771-483f-09b5-e777f4f5cb40">
+          <Description xml:space="preserve">Registration is Timed out</Description>
+          <Event>
+            <IntermediateEvent Trigger="Timer">
+              <TriggerTimer>
+                <ItemElementName>TimeCycle</ItemElementName>
+              </TriggerTimer>
+            </IntermediateEvent>
+          </Event>
+          <NodeGraphicsInfos>
+            <NodeGraphicsInfo BorderColor="-6909623" FillColor="-66833" Height="30" Width="30">
+              <Coordinates XCoordinate="456" YCoordinate="92"/>
+            </NodeGraphicsInfo>
+          </NodeGraphicsInfos>
+        </Activity>
+        <Activity Id="41fba702-cf76-3e3a-3928-4890f6b3b64e" Name="Registration validated?" WRLaneId="f098602f-b771-483f-09b5-e777f4f5cb40">
+          <Description xml:space="preserve"></Description>
+          <Route GatewayType="OR"/>
+          <TransitionRestrictions>
+            <TransitionRestriction>
+              <Split Type="OR">
+                <TransitionRefs>
+                  <TransitionRef Id="20506a4f-b5bb-1af8-6793-6c7fb800cdd4"/>
+                  <TransitionRef Id="2668aed0-74ef-bc9c-3687-9f2f393f87cc"/>
+                </TransitionRefs>
+              </Split>
+            </TransitionRestriction>
+          </TransitionRestrictions>
+          <NodeGraphicsInfos>
+            <NodeGraphicsInfo BorderColor="-5855715" FillColor="-52" Height="40" Width="40">
+              <Coordinates XCoordinate="401" YCoordinate="238"/>
+            </NodeGraphicsInfo>
+          </NodeGraphicsInfos>
+        </Activity>
+        <Activity Id="19007283-3aeb-6128-4a89-7bb3517d9233" Name="deregister user" WRLaneId="f098602f-b771-483f-09b5-e777f4f5cb40">
+          <Description xml:space="preserve"></Description>
+          <Event>
+            <IntermediateEvent Trigger="Message">
+              <TriggerResultMessage/>
+            </IntermediateEvent>
+          </Event>
+          <NodeGraphicsInfos>
+            <NodeGraphicsInfo BorderColor="-6909623" FillColor="-66833" Height="30" Width="30">
+              <Coordinates XCoordinate="486" YCoordinate="202"/>
+            </NodeGraphicsInfo>
+          </NodeGraphicsInfos>
+        </Activity>
+        <Activity Id="a5b7d3e3-15f8-2d64-e4b9-2664c5f5d466" Name="Pay billing" WRLaneId="f098602f-b771-483f-09b5-e777f4f5cb40">
+          <Description xml:space="preserve"></Description>
+          <Implementation>
+            <Task>
+              <TaskUser/>
+            </Task>
+          </Implementation>
+          <NodeGraphicsInfos>
+            <NodeGraphicsInfo BorderColor="-16553830" FillColor="-1249281" Height="60" Width="100">
+              <Coordinates XCoordinate="675" YCoordinate="420"/>
+            </NodeGraphicsInfo>
+          </NodeGraphicsInfos>
+        </Activity>
+        <Activity Id="898997a6-82b2-6e41-67fe-8f747c0a30d0" Name="Logout" WRLaneId="f098602f-b771-483f-09b5-e777f4f5cb40">
+          <Description xml:space="preserve"></Description>
+          <Implementation>
+            <Task>
+              <TaskUser/>
+            </Task>
+          </Implementation>
+          <NodeGraphicsInfos>
+            <NodeGraphicsInfo BorderColor="-16553830" FillColor="-1249281" Height="60" Width="100">
+              <Coordinates XCoordinate="315" YCoordinate="540"/>
+            </NodeGraphicsInfo>
+          </NodeGraphicsInfos>
+        </Activity>
+        <Activity Id="a3d018d9-7d4b-9169-0d91-7cfe89746685" Name="Watch billing details" WRLaneId="f098602f-b771-483f-09b5-e777f4f5cb40">
+          <Description xml:space="preserve"></Description>
+          <Implementation>
+            <Task>
+              <TaskUser/>
+            </Task>
+          </Implementation>
+          <NodeGraphicsInfos>
+            <NodeGraphicsInfo BorderColor="-16553830" FillColor="-1249281" Height="60" Width="100">
+              <Coordinates XCoordinate="660" YCoordinate="580"/>
+            </NodeGraphicsInfo>
+          </NodeGraphicsInfos>
+        </Activity>
+        <Activity Id="d2ce7e36-c34b-91c7-abff-ffd5ff208afb" Name="logout?" WRLaneId="f098602f-b771-483f-09b5-e777f4f5cb40">
+          <Description xml:space="preserve"></Description>
+          <Route GatewayType="OR"/>
+          <TransitionRestrictions>
+            <TransitionRestriction>
+              <Split Type="OR">
+                <TransitionRefs>
+                  <TransitionRef Id="d2b739f5-b0d5-6531-4e1e-91c2d2ca57fb"/>
+                  <TransitionRef Id="d42076cf-e603-596a-0beb-a42bcd90f22d"/>
+                  <TransitionRef Id="364471b0-93b3-12ef-badd-9105bf34c009"/>
+                </TransitionRefs>
+              </Split>
+            </TransitionRestriction>
+          </TransitionRestrictions>
+          <NodeGraphicsInfos>
+            <NodeGraphicsInfo BorderColor="-5855715" FillColor="-52" Height="40" Width="40">
+              <Coordinates XCoordinate="411" YCoordinate="518"/>
+            </NodeGraphicsInfo>
+          </NodeGraphicsInfos>
+        </Activity>
+      </Activities>
+      <Transitions>
+        <Transition Id="f2fb13c9-25f9-31e0-26cf-55e05d0ea737" Name="" From="3e114096-ef8d-983b-438b-7ede51295a4a" To="41fba702-cf76-3e3a-3928-4890f6b3b64e"/>
+        <Transition Id="620069d0-bfef-e641-7bf2-842f7884811b" Name="" From="d6383820-caa1-6c89-04d2-5db29c28adff" To="994a7a26-7607-046a-7f97-4f9965578b49"/>
+        <Transition Id="ff0bd36c-6dfb-feae-53fa-7fc1ca7d435f" Name="yes" From="994a7a26-7607-046a-7f97-4f9965578b49" To="3e114096-ef8d-983b-438b-7ede51295a4a"/>
+        <Transition Id="33c211da-2e5b-1ecf-eeb7-32e57787d9e7" Name="" From="994a7a26-7607-046a-7f97-4f9965578b49" To="134b1199-ca77-4544-9be1-b8d27d3e498b"/>
+        <Transition Id="df61c698-5241-c03a-c730-575c4595e277" Name="" From="134b1199-ca77-4544-9be1-b8d27d3e498b" To="586453fa-474d-1fc4-e9fc-b751b363f320"/>
+        <Transition Id="d8998778-e94d-b0a3-7b85-a142bbc220d9" Name="yes" From="586453fa-474d-1fc4-e9fc-b751b363f320" To="4c0a2773-fe71-de48-9e09-b8d188a2a6e0"/>
+        <Transition Id="978b4a57-165c-4dbb-3e02-4a97d2ae5ca3" Name="no" From="586453fa-474d-1fc4-e9fc-b751b363f320" To="1e8f487a-31dc-ad46-b138-d338f0ce5132"/>
+        <Transition Id="dc92cd80-16d4-6e54-f491-f478f60716bd" Name="" From="4c0a2773-fe71-de48-9e09-b8d188a2a6e0" To="d2ce7e36-c34b-91c7-abff-ffd5ff208afb"/>
+        <Transition Id="f749ec7e-4ac8-f1ba-27c6-9f60bb8aa09f" Name="" From="1e8f487a-31dc-ad46-b138-d338f0ce5132" To="d2ce7e36-c34b-91c7-abff-ffd5ff208afb"/>
+        <Transition Id="1e00dacb-1aef-3f48-3ceb-896540d71b35" Name="" From="50eab64a-6a49-eb40-be4b-f58766ea6941" To="19007283-3aeb-6128-4a89-7bb3517d9233"/>
+        <Transition Id="20506a4f-b5bb-1af8-6793-6c7fb800cdd4" Name="" From="41fba702-cf76-3e3a-3928-4890f6b3b64e" To="586453fa-474d-1fc4-e9fc-b751b363f320"/>
+        <Transition Id="2668aed0-74ef-bc9c-3687-9f2f393f87cc" Name="12 Stunden vergangen?" From="41fba702-cf76-3e3a-3928-4890f6b3b64e" To="50eab64a-6a49-eb40-be4b-f58766ea6941"/>
+        <Transition Id="d2b739f5-b0d5-6531-4e1e-91c2d2ca57fb" Name="yes" From="d2ce7e36-c34b-91c7-abff-ffd5ff208afb" To="898997a6-82b2-6e41-67fe-8f747c0a30d0"/>
+        <Transition Id="d42076cf-e603-596a-0beb-a42bcd90f22d" Name="no" From="d2ce7e36-c34b-91c7-abff-ffd5ff208afb" To="4c0a2773-fe71-de48-9e09-b8d188a2a6e0"/>
+        <Transition Id="364471b0-93b3-12ef-badd-9105bf34c009" Name="no" From="d2ce7e36-c34b-91c7-abff-ffd5ff208afb" To="1e8f487a-31dc-ad46-b138-d338f0ce5132"/>
+      </Transitions>
+    </WorkflowProcess>
+    <WorkflowProcess Id="c4e13c86-5426-0ad3-ba6c-a5b5823f398a" Name="System">
+      <ActivitySets/>
+      <Activities>
+        <Activity Id="61e5c931-14c4-a65f-4319-83bdeaa75260" Name="Deregister User" WRLaneId="b3b835a5-fde8-fe88-4f95-69fa280b5a3b">
+          <Description xml:space="preserve"></Description>
+          <Implementation>
+            <Task>
+              <TaskService/>
+            </Task>
+          </Implementation>
+          <NodeGraphicsInfos>
+            <NodeGraphicsInfo BorderColor="-16553830" FillColor="-1249281" Height="60" Width="100">
+              <Coordinates XCoordinate="370" YCoordinate="770"/>
+            </NodeGraphicsInfo>
+          </NodeGraphicsInfos>
+        </Activity>
+        <Activity Id="95b7454a-91bd-6bf1-ed3e-26314953af61" Name="deregister user" WRLaneId="b3b835a5-fde8-fe88-4f95-69fa280b5a3b">
+          <Description xml:space="preserve"></Description>
+          <Event>
+            <IntermediateEvent Trigger="Message">
+              <TriggerResultMessage/>
+            </IntermediateEvent>
+          </Event>
+          <NodeGraphicsInfos>
+            <NodeGraphicsInfo BorderColor="-6909623" FillColor="-66833" Height="30" Width="30">
+              <Coordinates XCoordinate="465" YCoordinate="750"/>
+            </NodeGraphicsInfo>
+          </NodeGraphicsInfos>
+        </Activity>
+      </Activities>
+      <Transitions/>
+    </WorkflowProcess>
+  </WorkflowProcesses>
+</Package>
