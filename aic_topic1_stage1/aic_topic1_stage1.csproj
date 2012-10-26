@@ -44,6 +44,9 @@
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\..\..\Downloads\mysql-connector-net-6\v2\MySql.Data.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\" />
@@ -61,6 +64,7 @@
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ForgotController.cs" />
+    <Compile Include="Content\MySqlDriver.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />

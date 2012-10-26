@@ -15,6 +15,9 @@ namespace aic_topic1_stage1.Controllers
 			foreach (string _formData in formCollection)
 			{
 				ViewData[_formData] = formCollection[_formData];
+
+				MySqlDriver sql = new MySqlDriver();
+				sql.Connect();
 			}
 
 			return View ();

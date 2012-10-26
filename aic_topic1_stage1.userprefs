@@ -1,12 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="aic_topic1_stage1/Controllers/LoginController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="aic_topic1_stage1/Content/MySqlDriver.cs">
     <Files>
-      <File FileName="aic_topic1_stage1/Controllers/LoginController.cs" Line="9" Column="2" />
+      <File FileName="aic_topic1_stage1/Controllers/LoginController.cs" Line="5" Column="22" />
       <File FileName="aic_topic1_stage1/Views/Register/Index.aspx" Line="1254" Column="56" />
       <File FileName="aic_topic1_stage1/Views/Login/Index.aspx" Line="14" Column="8" />
       <File FileName="aic_topic1_stage1/Views/Home/Index.aspx" Line="1257" Column="30" />
       <File FileName="aic_topic1_stage1/Views/Forgot/Index.aspx" Line="11" Column="2" />
+      <File FileName="aic_topic1_stage1/Content/MySqlDriver.cs" Line="11" Column="13" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
