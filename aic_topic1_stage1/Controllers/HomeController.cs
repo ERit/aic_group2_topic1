@@ -11,7 +11,6 @@ namespace aic_topic1_stage1.Controllers
 	{
 		public ActionResult Index ()
 		{
-			ViewData ["Message"] = ">";
 			return View ();
 		}
 	}
