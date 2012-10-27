@@ -4,7 +4,7 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<link rel="shortcut icon" type="image/ico" href="/images/favicon.ico" />	
-		<title>Statistico Statistics - Register</title>		
+		<title>Overview - Welcome to Statistico</title>		
 		<!--<link href="styles.css" type="text/css" media="screen" rel="stylesheet" />-->
 		<style type="text/css">
 			img, div { behavior: url(iepngfix.htc) }
@@ -1247,31 +1247,19 @@ background-color: #5e5d5d;
 							<h1><!--<a href=""><img src="/images/logo.png" alt="Statistico"></a>--></h1>
 						</div>
 						<div id="darkbanner" class="banner320">
-							<h2>Register</h2>
+							<h2>Overview - <%=TempData["username"]%></h2>
 						</div>
 						<div id="darkbannerwrap">
 						</div>
-						<form name="form1" method="post" action="Register">
+						<form name="form1" method="post" action="Overview">
 						<fieldset class="form">
-                        	<p>
-								<label for="user_name">Username:</label>
-								<input name="user_name" id="user_name" type="text" value="" />
-							</p>
-							<p>
-								<label for="user_password">Password:</label>
-								<input name="user_password" id="user_password" type="password" />
-							</p>
-							<p>
-								<label for="user_password2">Retype Password:</label>
-								<input name="user_password2" id="user_password2" type="password" />
-							</p>
-							<button type="submit" class="positive" name="Submit">
-								Register
+							<button type="button" class="positive" name="statisitcs">
+								Statistics
+							</button>
+							<button type="button" class="positive" name="statisitcs">
+								Goto billing page
 							</button>
                         </fieldset>
-                        <div>
-                        	<font color=red><%= TempData["register_output"] %></font>
-                        </div>
 						</form>
 					</div>
 			</div>   

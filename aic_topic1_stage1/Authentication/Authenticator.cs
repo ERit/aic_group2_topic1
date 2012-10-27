@@ -8,6 +8,8 @@ namespace aic_topic1_stage1
 {
 	public class Authenticator
 	{
+		Boolean loggedIn;
+
 		public Authenticator ()
 		{
 		}
@@ -22,6 +24,8 @@ namespace aic_topic1_stage1
 
 				if(user.getUsername() == username && user.getPassword() == GetMD5Hash(password)) {
 
+					loggedIn = true;
+
 					return true;
 				}
 			}
@@ -29,7 +33,12 @@ namespace aic_topic1_stage1
 			return false;
 		}
 
-		private string GetMD5Hash(string TextToHash)
+		public Boolean isLoggedIn() {
+
+			return loggedIn;
+		}
+
+		public string GetMD5Hash(string TextToHash)
 		{
 			if(string.IsNullOrEmpty(TextToHash))
 			{
@@ -38,7 +47,7 @@ namespace aic_topic1_stage1
 
 			MD5 md5Hasher = MD5.Create();
 			return BitConverter.ToString(md5Hasher.ComputeHash(Encoding.Default.GetBytes(TextToHash))).Replace("-","").ToLower();
-		} 
+		}
 	}
 }
 

@@ -6,7 +6,17 @@ namespace aic_topic1_stage1
 {
 	public class MySqlDriver
 	{
+		private static MySqlDriver instance = null;
+
 		MySqlConnection connection;
+
+		// singleton
+		public static MySqlDriver getInstance() {
+			if (instance == null) {
+				instance = new MySqlDriver();
+			}
+			return instance;
+		}
 
 		public MySqlDriver ()
 		{
@@ -22,6 +32,11 @@ namespace aic_topic1_stage1
 		public MySqlCommand getCommand ()
 		{
 			return connection.CreateCommand();
+		}
+
+		public MySqlConnection getConnection ()
+		{
+			return connection;
 		}
 
 		public void closeConnection ()

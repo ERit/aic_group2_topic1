@@ -15,6 +15,8 @@ namespace aic_topic1_stage1.Controllers
 
 			if (auth.validateLogin (formCollection ["user_name"], formCollection ["user_password"])) {
 
+				TempData["loginSucceeded"] = true;
+				TempData["username"] = Server.HtmlEncode(formCollection ["user_name"]);
 				return Redirect("/Overview");
 
 			} else {
