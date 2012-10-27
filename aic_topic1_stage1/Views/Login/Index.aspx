@@ -8,7 +8,6 @@
 
 	</head>
 	<body>
-		Username: <%= ViewData["user_name"] %><br/>
-		Password: <%= ViewData["user_password"] %>
+
 	</body>
 </html>

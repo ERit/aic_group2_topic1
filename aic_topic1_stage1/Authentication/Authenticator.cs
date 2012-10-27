@@ -20,8 +20,6 @@ namespace aic_topic1_stage1
 
 			foreach (User user in users) {
 
-				Console.WriteLine(GetMD5Hash(password) + " " + user.getPassword());
-
 				if(user.getUsername() == username && user.getPassword() == GetMD5Hash(password)) {
 
 					return true;

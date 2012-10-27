@@ -15,17 +15,13 @@ namespace aic_topic1_stage1.Controllers
 
 			if (auth.validateLogin (formCollection ["user_name"], formCollection ["user_password"])) {
 
-				Console.WriteLine ("logged in");
+				return Redirect("/Overview");
+
 			} else {
-				Console.WriteLine ("failure");
-			}
 
-			foreach (string _formData in formCollection)
-			{
-				ViewData[_formData] = formCollection[_formData];
+				TempData["loginFailed"] = "Wrong username or password.";
+				return Redirect("/");
 			}
-
-			return View ();
 		}
 	}
 }

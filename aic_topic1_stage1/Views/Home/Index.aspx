@@ -1269,6 +1269,9 @@ background-color: #5e5d5d;
 								<li><a href="Forgot">Forgotten it?</a> or <a href="Register">Register</a></li>
 							</ul>
                         </fieldset>
+                        <div>
+                        	<font color=red><%= TempData["loginFailed"] %></font>
+                        </div>
 						</form>
 					</div>
 			</div>   
