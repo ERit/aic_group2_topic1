@@ -4,7 +4,7 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<link rel="shortcut icon" type="image/ico" href="/images/favicon.ico" />	
-		<title>Overview - Welcome to Statistico</title>		
+		<title>Statistics - Welcome to Statistico</title>		
 		<!--<link href="styles.css" type="text/css" media="screen" rel="stylesheet" />-->
 		<style type="text/css">
 			img, div { behavior: url(iepngfix.htc) }
@@ -1026,6 +1026,14 @@ body#login fieldset{
 body#login fieldset p{
 	color: #333333;
 }
+
+
+body#login #content #percentage{
+	text-align: center;
+	padding-bottom:20px;
+	font-size:16px;
+}
+
 body#login fieldset p.error{
 	padding: 10px 10px 10px 10px;
 	color: #7b0c00;
@@ -1247,20 +1255,11 @@ background-color: #5e5d5d;
 							<h1><!--<a href=""><img src="/images/logo.png" alt="Statistico"></a>--></h1>
 						</div>
 						<div id="darkbanner" class="banner320">
-							<h2>Overview - <%=TempData["username"]%></h2>
+							<h2>Statistic</h2>
 						</div>
 						<div id="darkbannerwrap">
 						</div>
-						<form name="form1" method="post" action="Statistics">
-						<fieldset class="form">
-							<button type="submit" class="positive" name="Submit2">
-								Statistics
-							</button>
-							<button type="button" class="positive" name="statisitcs">
-								Goto billing page
-							</button>
-                        </fieldset>
-						</form>
+						<div id="percentage">60%</div>		
 					</div>
 			</div>   
 	</body>

@@ -23,7 +23,7 @@ namespace aic_topic1_stage1
 			string myConnectionString = "SERVER=localhost;" +
 				"DATABASE=aic_group2_topic1;" +
 					"UID=root;" +
-					"PASSWORD=;";
+					"PASSWORD=mdhl";
 
 			connection = new MySqlConnection(myConnectionString);
 			connection.Open();

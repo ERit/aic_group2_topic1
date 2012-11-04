@@ -7,18 +7,17 @@ using System.Web.Mvc.Ajax;
 
 namespace aic_topic1_stage1.Controllers
 {
-	public class OverviewController : Controller
+	public class StatisticsController : Controller
 	{
 		public ActionResult Index ()
 		{
 			ViewData ["Message"] = "";
-			Console.WriteLine("\nDebug1\n");
+			Console.WriteLine("\nDebug2\n");
+			
+			// TODO - get the name of the current logged in firm
+			GetStatistic get_stats = new GetStatistic ("Game of Thrones");
+			
 			return View();
-		}
-		
-		public ActionResult show_stats ()
-		{
-			return Redirect("/Statistics");
 		}
 	}
 }

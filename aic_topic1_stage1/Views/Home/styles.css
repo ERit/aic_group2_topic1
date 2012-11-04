@@ -192,6 +192,12 @@ body.staff ul#user-options{
 	background: #92cad1;
 }
 
+#content {
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
 
 /* CLIENT SIDE NAVIGATION */
 
@@ -1001,6 +1007,7 @@ body#login #wrapper{
 body#login #content{
 	width: 370px;
 }
+
 body#login #header {
 	width: 350px;
 }
@@ -1063,6 +1070,11 @@ body#login .form button{
 	display: inline; 
 	margin-left: 10px; 
 } 
+
+
+/* STATISTICS */
+
+
 
 /* MESSAGE ALERTS */
 
