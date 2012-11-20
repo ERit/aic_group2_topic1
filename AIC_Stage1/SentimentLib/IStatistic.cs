@@ -57,7 +57,7 @@ namespace SentimentLib
         double Divide(double n1, double n2);*/
 
         [OperationContract]
-        double getStatisticValue();
+        double getStatisticValue(string company);
 
     }
 }

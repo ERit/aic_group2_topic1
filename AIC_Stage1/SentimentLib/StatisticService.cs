@@ -15,7 +15,7 @@ namespace SentimentLib
 {
     public class StatisticService : IStatistic
     {
-        public double getStatisticValue()
+        public double getStatisticValue(string companyname)
         {
             Console.WriteLine("Getting the tweets and starting the sentiment analysis ... Please wait...");
 
@@ -119,6 +119,7 @@ namespace SentimentLib
 
             int positive = 0;
             int negative = 0;
+            int neutral = 0;
 
             foreach (string s in split)
             {
@@ -126,18 +127,27 @@ namespace SentimentLib
                 // get polarity values
                 if (s.Contains("polarity"))
                 {
-                    if (Convert.ToInt32(s.Split(':')[1]) == 0)
+                    int polarity = Convert.ToInt32(s.Split(':')[1]);
+                    if (polarity == 0)
                         negative++;
+                    else if (polarity == 2)
+                        neutral++;
                     else
                         positive++;
                 }
             }
-            Console.WriteLine("Positive tweets: " + positive);
             Console.WriteLine("Negative tweets: " + negative);
-            int all = positive + negative;
+            Console.WriteLine("Neutral tweets: " + neutral);
+            Console.WriteLine("Positive tweets: " + positive);
+
+            int all = positive + negative + neutral;
+
+            double sentiment = (((double)positive * 1) + ((double)neutral * 0.5)) / (double)all;
+
+            Console.WriteLine("Sentiment Analysis: " + String.Format("{0:0.##}", sentiment));
 
             // calculate percentage positive			
-            return (double)positive / (double)all * 100;
+            return sentiment;
         }	
 
     }
