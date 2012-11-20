@@ -1,0 +1,5 @@
+I:\Workspace\AIC_Stage1\SentimentClient\bin\Debug\SentimentClient.exe.config
+I:\Workspace\AIC_Stage1\SentimentClient\bin\Debug\SentimentClient.exe
+I:\Workspace\AIC_Stage1\SentimentClient\bin\Debug\SentimentClient.pdb
+I:\Workspace\AIC_Stage1\SentimentClient\obj\Debug\SentimentClient.exe
+I:\Workspace\AIC_Stage1\SentimentClient\obj\Debug\SentimentClient.pdb

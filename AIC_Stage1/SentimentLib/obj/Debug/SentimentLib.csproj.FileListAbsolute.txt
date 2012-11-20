@@ -1,0 +1,12 @@
+I:\Workspace\AIC_Stage1\SentimentLib\bin\Debug\SentimentLib.dll.config
+I:\Workspace\AIC_Stage1\SentimentLib\bin\Debug\SentimentLib.dll
+I:\Workspace\AIC_Stage1\SentimentLib\bin\Debug\SentimentLib.pdb
+I:\Workspace\AIC_Stage1\SentimentLib\bin\Debug\Hammock.ClientProfile.dll
+I:\Workspace\AIC_Stage1\SentimentLib\bin\Debug\Hammock.dll
+I:\Workspace\AIC_Stage1\SentimentLib\bin\Debug\Newtonsoft.Json.dll
+I:\Workspace\AIC_Stage1\SentimentLib\bin\Debug\TweetSharp.dll
+I:\Workspace\AIC_Stage1\SentimentLib\bin\Debug\Hammock.pdb
+I:\Workspace\AIC_Stage1\SentimentLib\bin\Debug\Newtonsoft.Json.xml
+I:\Workspace\AIC_Stage1\SentimentLib\bin\Debug\TweetSharp.pdb
+I:\Workspace\AIC_Stage1\SentimentLib\obj\Debug\SentimentLib.dll
+I:\Workspace\AIC_Stage1\SentimentLib\obj\Debug\SentimentLib.pdb
