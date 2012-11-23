@@ -8,10 +8,13 @@ using System.Text;
 namespace SentimentLib
 {
     [ServiceContract]
-    public interface IStatistic
+    public interface ILogin
     {
         [OperationContract]
-        double getStatisticValue(string company);
+        bool login(string username, string password);
+
+        [OperationContract]
+        string getUsername();
 
     }
 }
