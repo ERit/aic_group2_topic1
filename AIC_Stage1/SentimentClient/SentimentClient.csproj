@@ -45,12 +45,12 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\Authenticator\Reference.cs">
+    <Compile Include="Service References\AuthServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\StatisticServiceReference\Reference.cs">
+    <Compile Include="Service References\StatServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -59,54 +59,54 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="Service References\Authenticator\Authenticator.wsdl" />
-    <None Include="Service References\Authenticator\item.xsd">
+    <None Include="Service References\AuthServiceReference\Authentication.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\Authenticator\item1.xsd">
+    <None Include="Service References\AuthServiceReference\Authentication1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\StatisticServiceReference\item.xsd">
+    <None Include="Service References\AuthServiceReference\Authenticator.wsdl" />
+    <None Include="Service References\StatServiceReference\Statistic.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\StatisticServiceReference\item1.xsd">
+    <None Include="Service References\StatServiceReference\Statistic1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\StatisticServiceReference\StatisticService.wsdl" />
+    <None Include="Service References\StatServiceReference\StatisticService.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\Authenticator\" />
-    <WCFMetadataStorage Include="Service References\StatisticServiceReference\" />
+    <WCFMetadataStorage Include="Service References\AuthServiceReference\" />
+    <WCFMetadataStorage Include="Service References\StatServiceReference\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\StatisticServiceReference\item.disco" />
+    <None Include="Service References\StatServiceReference\Statistic.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\StatisticServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\StatServiceReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\StatisticServiceReference\configuration.svcinfo" />
+    <None Include="Service References\StatServiceReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\StatisticServiceReference\Reference.svcmap">
+    <None Include="Service References\StatServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\Authenticator\item.disco" />
+    <None Include="Service References\AuthServiceReference\Authentication.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\Authenticator\configuration91.svcinfo" />
+    <None Include="Service References\AuthServiceReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\Authenticator\configuration.svcinfo" />
+    <None Include="Service References\AuthServiceReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\Authenticator\Reference.svcmap">
+    <None Include="Service References\AuthServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

@@ -172,44 +172,6 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IAuthenticator_GetMD5Hash_Input_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IAuthenticator_GetMD5Hash_output_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
   <wsp:Policy wsu:Id="WSHttpBinding_IAuthenticator_isLoggedIn_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -250,8 +212,8 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://localhost:8000/Authentication/?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:8000/Authentication/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8000/Sentiment/Authentication?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8000/Sentiment/Authentication?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IAuthenticator_validateLogin_InputMessage">
@@ -265,12 +227,6 @@
   </wsdl:message>
   <wsdl:message name="IAuthenticator_getCompanyFromUsername_OutputMessage">
     <wsdl:part name="parameters" element="tns:getCompanyFromUsernameResponse" />
-  </wsdl:message>
-  <wsdl:message name="IAuthenticator_GetMD5Hash_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetMD5Hash" />
-  </wsdl:message>
-  <wsdl:message name="IAuthenticator_GetMD5Hash_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetMD5HashResponse" />
   </wsdl:message>
   <wsdl:message name="IAuthenticator_isLoggedIn_InputMessage">
     <wsdl:part name="parameters" element="tns:isLoggedIn" />
@@ -286,10 +242,6 @@
     <wsdl:operation name="getCompanyFromUsername">
       <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticator/getCompanyFromUsername" message="tns:IAuthenticator_getCompanyFromUsername_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticator/getCompanyFromUsernameResponse" message="tns:IAuthenticator_getCompanyFromUsername_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetMD5Hash">
-      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticator/GetMD5Hash" message="tns:IAuthenticator_GetMD5Hash_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticator/GetMD5HashResponse" message="tns:IAuthenticator_GetMD5Hash_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="isLoggedIn">
       <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticator/isLoggedIn" message="tns:IAuthenticator_isLoggedIn_InputMessage" />
@@ -321,17 +273,6 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetMD5Hash">
-      <soap12:operation soapAction="http://tempuri.org/IAuthenticator/GetMD5Hash" style="document" />
-      <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IAuthenticator_GetMD5Hash_Input_policy" />
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IAuthenticator_GetMD5Hash_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="isLoggedIn">
       <soap12:operation soapAction="http://tempuri.org/IAuthenticator/isLoggedIn" style="document" />
       <wsdl:input>
@@ -346,11 +287,11 @@
   </wsdl:binding>
   <wsdl:service name="Authenticator">
     <wsdl:port name="WSHttpBinding_IAuthenticator" binding="tns:WSHttpBinding_IAuthenticator">
-      <soap12:address location="http://localhost:8000/Authentication/Authenticator" />
+      <soap12:address location="http://localhost:8000/Sentiment/Authentication/AuthenticatorService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>http://localhost:8000/Authentication/Authenticator</wsa10:Address>
+        <wsa10:Address>http://localhost:8000/Sentiment/Authentication/AuthenticatorService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>sundance\Wolfgang</Upn>
+          <Upn>Cyclone\Tamrielle</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

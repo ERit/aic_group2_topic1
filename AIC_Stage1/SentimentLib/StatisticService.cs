@@ -19,7 +19,7 @@ namespace SentimentLib
         {
             Console.WriteLine("Getting the tweets and starting the sentiment analysis ... Please wait...");
 
-            return useSentiment140(getTweets("Microsoft"));
+            return useSentiment140(getTweets(companyname));
         }
 
         private string getTweets(string companyname)
@@ -113,8 +113,6 @@ namespace SentimentLib
 		*/
         private double get_percent(string result)
         {
-            Console.WriteLine(result);
-
             string[] split = result.Split(',');
 
             int positive = 0;

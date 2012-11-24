@@ -29,20 +29,6 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetMD5Hash">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="TextToHash" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetMD5HashResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetMD5HashResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="isLoggedIn">
     <xs:complexType>
       <xs:sequence />

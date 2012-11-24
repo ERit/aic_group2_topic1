@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0b82299c-4973-4fb8-ba75-ebdf9dbd1a61" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f1f768ca-88ab-4823-a416-85419e95f0c1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,13 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8000/Sentiment/" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8000/Sentiment/Statistic" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="e4a6cfae-810b-42c9-90c4-36a7221c5e50" SourceId="1" SourceUrl="http://localhost:8000/Sentiment/?xsd=xsd1" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="d2171511-3244-4aec-843d-1c9229403977" SourceId="1" SourceUrl="http://localhost:8000/Sentiment/?xsd=xsd0" />
-    <MetadataFile FileName="StatisticService.wsdl" MetadataType="Wsdl" ID="1fb9b0e6-905c-4d06-87e9-cb0d318aaeaf" SourceId="1" SourceUrl="http://localhost:8000/Sentiment/?wsdl" />
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="9d89f85e-0918-488f-a6a6-79ffd004a7f9" SourceId="1" SourceUrl="http://localhost:8000/Sentiment/?disco" />
+    <MetadataFile FileName="Statistic.disco" MetadataType="Disco" ID="f66ff506-efa9-4abb-a635-c0c12c7e82e5" SourceId="1" SourceUrl="http://localhost:8000/Sentiment/Statistic?disco" />
+    <MetadataFile FileName="Statistic.xsd" MetadataType="Schema" ID="c92577d5-1a49-4053-aa05-e937276b8b14" SourceId="1" SourceUrl="http://localhost:8000/Sentiment/Statistic?xsd=xsd0" />
+    <MetadataFile FileName="StatisticService.wsdl" MetadataType="Wsdl" ID="d256c18d-8c7e-4de1-ada8-ca5f2c2d6ce0" SourceId="1" SourceUrl="http://localhost:8000/Sentiment/Statistic?wsdl" />
+    <MetadataFile FileName="Statistic1.xsd" MetadataType="Schema" ID="ee12312b-9dda-4223-84aa-aae80f8ba918" SourceId="1" SourceUrl="http://localhost:8000/Sentiment/Statistic?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

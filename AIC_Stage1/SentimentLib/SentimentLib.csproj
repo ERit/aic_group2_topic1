@@ -41,8 +41,8 @@
       <HintPath>..\packages\TweetSharp.2.2.1\lib\4.0\Hammock.ClientProfile.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="MySql.Data, Version=6.6.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <Private>True</Private>
+    <Reference Include="MySql.Data">
+      <HintPath>..\packages\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\TweetSharp.2.2.1\lib\4.0\Newtonsoft.Json.dll</HintPath>

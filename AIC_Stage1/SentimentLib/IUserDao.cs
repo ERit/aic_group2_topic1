@@ -7,13 +7,10 @@ using System.Text;
 
 namespace SentimentLib
 {
-    [ServiceContract]
     public interface IUserDao
     {
-        [OperationContract]
         List<User> getUsersFromDb();
 
-        [OperationContract]
         string getCompanyFromUser(string username);
     }
 }
