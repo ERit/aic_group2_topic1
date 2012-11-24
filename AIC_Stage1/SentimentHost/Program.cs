@@ -15,22 +15,27 @@ namespace SentimentHost
         {
             // Step 1 Create a URI to serve as the base address.
             Uri baseAddress = new Uri("http://localhost:8000/Sentiment/");
+            Uri authAddress = new Uri("http://localhost:8000/Authentication/");
 
             // Step 2 Create a ServiceHost instance
             ServiceHost selfHost = new ServiceHost(typeof(StatisticService), baseAddress);
+            ServiceHost authHost = new ServiceHost(typeof(Authenticator), authAddress);
 
             try
             {
                 // Step 3 Add a service endpoint.
                 selfHost.AddServiceEndpoint(typeof(IStatistic), new WSHttpBinding(), "StatisticService");
+                authHost.AddServiceEndpoint(typeof(IAuthenticator), new WSHttpBinding(), "Authenticator");
 
                 // Step 4 Enable metadata exchange.
                 ServiceMetadataBehavior smb = new ServiceMetadataBehavior();
                 smb.HttpGetEnabled = true;
                 selfHost.Description.Behaviors.Add(smb);
+                authHost.Description.Behaviors.Add(smb);
 
                 // Step 5 Start the service.
                 selfHost.Open();
+                authHost.Open();
                 Console.WriteLine("The service is ready.");
                 Console.WriteLine("Press <ENTER> to terminate service.");
                 Console.WriteLine();
@@ -38,11 +43,13 @@ namespace SentimentHost
 
                 // Close the ServiceHostBase to shutdown the service.
                 selfHost.Close();
+                authHost.Close();
             }
             catch (CommunicationException ce)
             {
                 Console.WriteLine("An exception occurred: {0}", ce.Message);
                 selfHost.Abort();
+                authHost.Abort();
             }
 
         }

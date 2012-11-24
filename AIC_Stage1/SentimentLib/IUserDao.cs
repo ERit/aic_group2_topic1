@@ -8,13 +8,12 @@ using System.Text;
 namespace SentimentLib
 {
     [ServiceContract]
-    public interface ILogin
+    public interface IUserDao
     {
         [OperationContract]
-        bool login(string username, string password);
+        List<User> getUsersFromDb();
 
         [OperationContract]
-        string getUsername();
-
+        string getCompanyFromUser(string username);
     }
 }
