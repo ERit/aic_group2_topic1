@@ -16,7 +16,6 @@ namespace SentimentLib
         [OperationContract]
         string getCompanyFromUsername(string username);
 
-        [OperationContract]
         string GetMD5Hash(string TextToHash);
 
         [OperationContract]

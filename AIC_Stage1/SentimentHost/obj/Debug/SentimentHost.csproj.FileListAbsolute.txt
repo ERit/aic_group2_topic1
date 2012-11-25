@@ -11,8 +11,3 @@ I:\Workspace\AIC_Stage1\SentimentHost\bin\Debug\Newtonsoft.Json.xml
 I:\Workspace\AIC_Stage1\SentimentHost\obj\Debug\SentimentHost.csprojResolveAssemblyReference.cache
 I:\Workspace\AIC_Stage1\SentimentHost\obj\Debug\SentimentHost.exe
 I:\Workspace\AIC_Stage1\SentimentHost\obj\Debug\SentimentHost.pdb
-I:\Workspace\aic_group2_topic1\AIC_Stage1\SentimentHost\bin\Debug\SentimentHost.exe
-I:\Workspace\aic_group2_topic1\AIC_Stage1\SentimentHost\bin\Debug\SentimentLib.dll
-I:\Workspace\aic_group2_topic1\AIC_Stage1\SentimentHost\bin\Debug\TweetSharp.dll
-I:\Workspace\aic_group2_topic1\AIC_Stage1\SentimentHost\bin\Debug\Newtonsoft.Json.dll
-I:\Workspace\aic_group2_topic1\AIC_Stage1\SentimentHost\bin\Debug\Hammock.ClientProfile.dll

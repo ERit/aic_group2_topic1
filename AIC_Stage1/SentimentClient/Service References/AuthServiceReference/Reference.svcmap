@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="192b26f1-2afe-4992-b06d-464ff15f1f46" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fb90f102-fb98-4bee-bb00-c7a76c044b51" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,13 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8000/Authentication/" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8000/Sentiment/Authentication" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="74342ecd-cbeb-47dc-93f4-6f3f374e8a71" SourceId="1" SourceUrl="http://localhost:8000/Authentication/?disco" />
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="ba75efbf-5822-493b-bf1f-2c5cbbab5b65" SourceId="1" SourceUrl="http://localhost:8000/Authentication/?xsd=xsd0" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="449234cf-7f91-4f64-b9b1-a9621ac354e1" SourceId="1" SourceUrl="http://localhost:8000/Authentication/?xsd=xsd1" />
-    <MetadataFile FileName="Authenticator.wsdl" MetadataType="Wsdl" ID="4618490f-1dde-4498-ad58-374a071ddbc4" SourceId="1" SourceUrl="http://localhost:8000/Authentication/?wsdl" />
+    <MetadataFile FileName="Authentication.disco" MetadataType="Disco" ID="8bde012d-e742-47b6-a67c-5900b1e948c4" SourceId="1" SourceUrl="http://localhost:8000/Sentiment/Authentication?disco" />
+    <MetadataFile FileName="Authenticator.wsdl" MetadataType="Wsdl" ID="ad1002fc-8293-487d-86da-b6fe34fd399e" SourceId="1" SourceUrl="http://localhost:8000/Sentiment/Authentication?wsdl" />
+    <MetadataFile FileName="Authentication.xsd" MetadataType="Schema" ID="197509a6-3dda-4530-95dd-abf32ca599f9" SourceId="1" SourceUrl="http://localhost:8000/Sentiment/Authentication?xsd=xsd0" />
+    <MetadataFile FileName="Authentication1.xsd" MetadataType="Schema" ID="154473e0-1abb-4f3f-a254-5583921319b9" SourceId="1" SourceUrl="http://localhost:8000/Sentiment/Authentication?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
