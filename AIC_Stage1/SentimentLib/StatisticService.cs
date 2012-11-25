@@ -10,70 +10,87 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using TweetSharp;
+using System.Collections;
 
 namespace SentimentLib
 {
     public class StatisticService : IStatistic
     {
+        /// <summary>
+        /// returns the sentiment value for the given company
+        /// </summary>
+        /// <param name="companyname">name of the company</param>
+        /// <returns>sentiment value</returns>
         public double getStatisticValue(string companyname)
         {
-            Console.WriteLine("Getting the tweets and starting the sentiment analysis ... Please wait...");
-
+            Console.WriteLine("Statistic Service has been called.\n");
             return useSentiment140(getTweets(companyname));
         }
 
+        /// <summary>
+        /// uses the tweetsharp api to get all tweets for the given company
+        /// </summary>
+        /// <param name="companyname">the name of the company</param>
+        /// <returns>all tweets formated for the input string for the sentiment analysis</returns>
         private string getTweets(string companyname)
         {
-            // Twitter Username: 2012AIC, PW: !aicgroup
+            Console.WriteLine("Getting the tweets...");
             TwitterService twitterService = new TwitterService("H70mkcnY9uKDDGUcKywlBA", "fiobr6kG9OKwNHIU5D18dbpxWE5KdxWD8GRPRhMVII");
             OAuthAccessToken access = twitterService.GetAccessTokenWithXAuth("2012AIC", "!aicgroup");
 
-            TwitterSearchResult response = twitterService.Search(companyname, 10, 100);
-
-            JObject newapiresults = null;
-            newapiresults = JObject.Parse(response.RawSource);
-            JArray tweets = new JArray();
-            foreach (JObject status in tweets)
-            {
-                Console.WriteLine(status["text"]);
-            }
-
+            ArrayList pages = new ArrayList();
             JsonSerializer serializer = new JsonSerializer();
-            RootObject rootObject = (RootObject)serializer.Deserialize(new JsonTextReader(new StringReader(response.RawSource)), typeof(RootObject));
 
-            string result = "";
+            int numPages = 10;
 
-            result += "{'data': [";
-
-            foreach (var tweet in rootObject.results)
+            // get the tweets from the first x numpages
+            for (int i = 1; i <= numPages; i++)
             {
-                if (tweet.iso_language_code.Equals("en"))
-                {
-                    string tweettext = tweet.text;
-                    tweettext = tweettext.Replace("\"", "");
-                    tweettext = tweettext.Replace("\'", "");
-                    tweettext = tweettext.Replace("\n", " ");
-
-                    result += "{'text': '" + tweettext + "', 'query': '" + companyname + "'}, ";
-                }
-                    
+                TwitterSearchResult response = twitterService.Search(companyname, i, 100);
+                RootObject page = (RootObject)serializer.Deserialize(new JsonTextReader(new StringReader(response.RawSource)), typeof(RootObject));
+                pages.Add(page);
             }
+
+            string result = "{'data': [";
+
+            int count = 0;
+            int eng = 0;
+
+            foreach (RootObject curPage in pages)
+            {
+                foreach (var tweet in curPage.results)
+                {
+                    count++;
+                    if (tweet.iso_language_code.Equals("en"))
+                    {
+                        eng++;
+                        string tweettext = tweet.text;
+                        tweettext = tweettext.Replace("\"", "");
+                        tweettext = tweettext.Replace("\'", "");
+                        tweettext = tweettext.Replace("\n", " ");
+
+                        result += "{'text': '" + tweettext + "', 'query': '" + companyname + "'}, ";
+                    }
+                }
+            }
+
+            Console.WriteLine(count + " tweets fetched, " + eng + " were english and saved for the sentiment analysis.\n");
 
             // get rid of the last comma
             result = result.Substring(0, result.Length-2);
-
             result += "]}" ;
-
             return result;
         }
 
 
-
-
-
+        /// <summary>
+        /// uses the sentiment140 api to get the polarities and calculates the sentiment value
+        /// </summary>
+        /// <param name="tweets">string representation of the tweets</param>
+        /// <returns>sentiment value between 0 and 1, where 0 is negative and 1 is positive</returns>
         private double useSentiment140(string tweets)
         {
-            // using http://www.sentiment140.com/ for sentiment analysis	
+            Console.WriteLine("Getting the sentiment analysis...");
             HttpWebRequest httpWReq = (HttpWebRequest)WebRequest.Create("http://www.sentiment140.com/api/bulkClassifyJson");
 
             ASCIIEncoding encoding = new ASCIIEncoding();
@@ -100,29 +117,25 @@ namespace SentimentLib
             }
 
             newStream.Close();
-
             return get_percent(result);
         }
 
 
-        /* 
-		 * Polarity values are:
-		 * 0: negative
-		 * 2: neutral
-		 * 4: positive
-		*/
+        /// <summary>
+        /// takes the output of the sentiment140 analysis and calculates the sentiment value
+        /// </summary>
+        /// <param name="result">the sentiment140 string</param>
+        /// <returns>sentiment value</returns>
         private double get_percent(string result)
         {
             string[] split = result.Split(',');
-
             int positive = 0;
             int negative = 0;
             int neutral = 0;
 
+            // 0: negative, 2: neutral, 4: positive
             foreach (string s in split)
             {
-
-                // get polarity values
                 if (s.Contains("polarity"))
                 {
                     int polarity = Convert.ToInt32(s.Split(':')[1]);
@@ -134,20 +147,18 @@ namespace SentimentLib
                         positive++;
                 }
             }
+
             Console.WriteLine("Negative tweets: " + negative);
             Console.WriteLine("Neutral tweets: " + neutral);
             Console.WriteLine("Positive tweets: " + positive);
 
-            int all = positive + negative + neutral;
-
-            double sentiment = (((double)positive * 1) + ((double)neutral * 0.5)) / (double)all;
+            double sentiment = (((double)positive * 1) + ((double)neutral * 0.5))
+                / (double)(positive + negative + neutral);
 
             Console.WriteLine("Sentiment Analysis: " + String.Format("{0:0.##}", sentiment));
 
-            // calculate percentage positive			
             return sentiment;
         }	
-
     }
 
 
