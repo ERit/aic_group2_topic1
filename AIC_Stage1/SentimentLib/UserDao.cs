@@ -69,5 +69,45 @@ namespace SentimentLib
 
             return "";
         }
+
+        public Boolean register(string username, string password, string firstname, string lastname,
+            string email, string creditcard, string company)
+        {
+            Authenticator auth = new Authenticator();
+
+            string cmdText = "INSERT INTO users (`username`,`password`,`firstname`,`lastname`,`email`,`creditcard`,`company`)" +
+                "VALUES (?username ,?password, ?firstname, ?lastname, ?email, ?creditcard, ?company);";
+
+            MySqlCommand command = new MySqlCommand(cmdText, driver.getConnection());
+
+            command.Parameters.Add("?username", MySqlDbType.VarChar).Value = username;
+            command.Parameters.Add("?password", MySqlDbType.VarChar).Value = auth.GetMD5Hash(password);
+
+            command.Parameters.Add("?firstname", MySqlDbType.VarChar).Value = firstname;
+            command.Parameters.Add("?lastname", MySqlDbType.VarChar).Value = lastname;
+            command.Parameters.Add("?email", MySqlDbType.VarChar).Value = email;
+            command.Parameters.Add("?creditcard", MySqlDbType.VarChar).Value = creditcard;
+            command.Parameters.Add("?company", MySqlDbType.VarChar).Value = company;
+
+            if (command.ExecuteNonQuery() == 1)
+                return true;
+            else
+                return false;
+        }
+
+
+        public bool unregister(string username)
+        {
+            string cmdText = "DELETE FROM users WHERE username=?username";
+
+            MySqlCommand command = new MySqlCommand(cmdText, driver.getConnection());
+
+            command.Parameters.Add("?username", MySqlDbType.VarChar).Value = username;
+
+            if (command.ExecuteNonQuery() == 1)
+                return true;
+            else
+                return false;
+        }
     }
 }

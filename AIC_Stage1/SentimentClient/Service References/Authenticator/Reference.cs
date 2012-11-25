@@ -38,6 +38,18 @@ namespace SentimentClient.Authenticator {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticator/isLoggedIn", ReplyAction="http://tempuri.org/IAuthenticator/isLoggedInResponse")]
         System.Threading.Tasks.Task<bool> isLoggedInAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticator/register", ReplyAction="http://tempuri.org/IAuthenticator/registerResponse")]
+        bool register(string username, string password, string firstname, string lastname, string email, string creditcard, string company);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticator/register", ReplyAction="http://tempuri.org/IAuthenticator/registerResponse")]
+        System.Threading.Tasks.Task<bool> registerAsync(string username, string password, string firstname, string lastname, string email, string creditcard, string company);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticator/unregister", ReplyAction="http://tempuri.org/IAuthenticator/unregisterResponse")]
+        bool unregister(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticator/unregister", ReplyAction="http://tempuri.org/IAuthenticator/unregisterResponse")]
+        System.Threading.Tasks.Task<bool> unregisterAsync(string username);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -97,6 +109,22 @@ namespace SentimentClient.Authenticator {
         
         public System.Threading.Tasks.Task<bool> isLoggedInAsync() {
             return base.Channel.isLoggedInAsync();
+        }
+        
+        public bool register(string username, string password, string firstname, string lastname, string email, string creditcard, string company) {
+            return base.Channel.register(username, password, firstname, lastname, email, creditcard, company);
+        }
+        
+        public System.Threading.Tasks.Task<bool> registerAsync(string username, string password, string firstname, string lastname, string email, string creditcard, string company) {
+            return base.Channel.registerAsync(username, password, firstname, lastname, email, creditcard, company);
+        }
+        
+        public bool unregister(string username) {
+            return base.Channel.unregister(username);
+        }
+        
+        public System.Threading.Tasks.Task<bool> unregisterAsync(string username) {
+            return base.Channel.unregisterAsync(username);
         }
     }
 }

@@ -55,6 +55,19 @@ namespace SentimentLib
         {
             return userdao.getCompanyFromUser(username);
         }
+
+
+        public bool register(string username, string password, string firstname, 
+            string lastname, string email, string creditcard, string company)
+        {
+            return userdao.register( username,  password,  firstname, 
+             lastname,  email,  creditcard,  company);
+        }
+
+        public bool unregister(string username)
+        {
+            return userdao.unregister(username);
+        }
     }
 }
 
