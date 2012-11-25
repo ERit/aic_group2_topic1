@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using SentimentClient.StatServiceReference;
 using SentimentClient.AuthServiceReference;
+using System.Text.RegularExpressions;
+
 
 namespace SentimentClient
 {
@@ -58,6 +60,8 @@ namespace SentimentClient
                                 if (secondInput.Equals("1"))
                                 {
                                     double result = client.getStatisticValue(auth.getCompanyFromUsername(username));
+                                    Console.WriteLine("Stentiment Value is beeing calculated, please wait...");
+                                    Console.WriteLine();
                                     Console.WriteLine("Sentiment Analysis for " + auth.getCompanyFromUsername(username) +
                                         ": " + String.Format("{0:0.##}", result));
 
@@ -116,15 +120,28 @@ namespace SentimentClient
                     Console.Write("Please enter your password again -> ");
                     string passwd2 = Orb.App.Console.ReadPassword('*');
 
-
                     if (passwd.Equals(passwd2))
                     {
-                        Console.Write("Enter your email -> ");
-                        string email = Console.ReadLine();
+                        string email = "";
+
+                        while (true)
+                        {
+                            Console.Write("Enter your email -> ");
+                            email = Console.ReadLine();
+                            Match match = Regex.Match(email, @"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*",
+                                RegexOptions.IgnoreCase);
+
+                            if (match.Success)
+                                break;
+
+                            Console.WriteLine("E-Mail address invalid. Try again.");
+                            Console.WriteLine();
+                        }
+
                         Console.Write("Enter your creditcard number -> ");
                         string creditcard = Console.ReadLine();
                         Console.Write("Enter your company name -> ");
-                        string company = Console.ReadLine();
+                        string company = Console.ReadLine();     
 
                         if (name.Length > 0 &&
                             passwd.Length > 0 &&
