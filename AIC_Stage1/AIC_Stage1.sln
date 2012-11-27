@@ -6,6 +6,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SentimentHost", "SentimentHost\SentimentHost.csproj", "{8BEED037-7E89-4F2B-B387-8501B28D6B96}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SentimentClient", "SentimentClient\SentimentClient.csproj", "{0839764A-EA21-4F6D-994D-026696D583B5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{831D829D-97E7-44E2-A0CC-8501C38166D4} = {831D829D-97E7-44E2-A0CC-8501C38166D4}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingService", "BillingService\BillingService.csproj", "{831D829D-97E7-44E2-A0CC-8501C38166D4}"
 EndProject

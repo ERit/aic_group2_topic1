@@ -11,15 +11,19 @@ namespace BillingService
     public class BillingService : IBillingService
     {
 
-        public IList<int> ListUsersBills(int userId)
+        public IList<int> ListUsersBills(string username)
         {
             IList<int> result = new List<int>();
             try
             {
-                IList<Bill> bills = BillDao.getByUserId(userId);
-                for (IEnumerator<Bill> e = bills.GetEnumerator(); e.MoveNext(); )
+                User u = User.getByUsername(username);
+                if (u != null) // if user does not exist, silenty ignore this (prevent user enumeration (not really))
                 {
-                    result.Add(e.Current.id);
+                    IList<Bill> bills = BillDao.getByUserId(u.id);
+                    for (IEnumerator<Bill> e = bills.GetEnumerator(); e.MoveNext(); )
+                    {
+                        result.Add(e.Current.id);
+                    }
                 }
             }
             catch (ApplicationException e)
@@ -112,23 +116,25 @@ namespace BillingService
         }
 
 
-        public void CalculateBillsForUser(int userId)
+        public void CalculateBillsForUser(string username)
         {
             try
             {
-                User u = User.getById(userId);
+                User u = User.getByUsername(username);
                 if (u != null)
                 {
                     if (u.acitveDate != DateTime.MinValue)
                     {
                         // calculate new bill from last bill date to now
-                        Bill b = BillDao.getLastBillForUser(userId);
+                        Bill b = BillDao.getLastBillForUser(u.id);
                         if (b != null)
                         {
                             Bill curBill = new Bill();
-                            curBill.userId = userId;
+                            curBill.userId = u.id;
                             curBill.created = DateTime.Now;
                             curBill.accountedUntil = DateTime.Today;
+                            if (u.deactiveDate.CompareTo(DateTime.MinValue) > 0)
+                                curBill.accountedUntil = u.deactiveDate.Date;
 
                             TimeSpan t = curBill.accountedUntil.Subtract(b.accountedUntil);
 

@@ -14,7 +14,7 @@ namespace BillingService
     {
         [FaultContract(typeof(ArgumentException))]
         [OperationContract]
-        IList<int> ListUsersBills(int userId);
+        IList<int> ListUsersBills(string username);
 
         [FaultContract(typeof(ArgumentException))]
         [OperationContract]
@@ -26,7 +26,7 @@ namespace BillingService
 
         [FaultContract(typeof(ArgumentException))]
         [OperationContract]
-        void CalculateBillsForUser(int UserId);
+        void CalculateBillsForUser(string username);
 
         //[OperationContract]
         //string GetData(int value);

@@ -80,6 +80,9 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\local ISS.pubxml" />
+    <None Include="Properties\PublishProfiles\test local ISS.pubxml" />
+    <None Include="Properties\PublishProfiles\test.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
