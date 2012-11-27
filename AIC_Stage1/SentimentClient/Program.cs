@@ -61,11 +61,20 @@ namespace SentimentClient
 
                                 if (secondInput.Equals("1"))
                                 {
-                                    double result = client.getStatisticValue(auth.getCompanyFromUsername(username));
-                                    Console.WriteLine("Stentiment Value is beeing calculated, please wait...");
-                                    Console.WriteLine();
-                                    Console.WriteLine("Sentiment Analysis for " + auth.getCompanyFromUsername(username) +
-                                        ": " + String.Format("{0:0.##}", result));
+                                    try
+                                    {
+                                        double result = client.getStatisticValue(auth.getCompanyFromUsername(username));
+
+                                        Console.WriteLine("Sentiment Value is beeing calculated, please wait...");
+                                        Console.WriteLine();
+                                        Console.WriteLine("Sentiment Analysis for " + auth.getCompanyFromUsername(username) +
+                                            ": " + String.Format("{0:0.##}", result));
+                                    }
+                                    catch (Exception e)
+                                    {
+                                        Console.WriteLine("There is something wrong with your internet connection. No analysis today.");
+                                    }
+                                    
 
                                     Console.ReadLine();
                                 }
@@ -229,8 +238,14 @@ namespace SentimentClient
                 }
             }
 
-            client.Close();
-            auth.Close();
+            try
+            {
+                client.Close();
+                auth.Close();
+            }
+            catch (Exception e)
+            {
+            }
         }
     }
 }

@@ -20,8 +20,8 @@ namespace SentimentLib
 		public List<User> getUsersFromDb ()
 		{
 			MySqlCommand command = driver.getCommand();
-			
-			command.CommandText = "SELECT * FROM users";
+
+            command.CommandText = "SELECT * FROM users WHERE isActivated=TRUE";
 			
 			List<User> list = new List<User>();
 			
@@ -46,7 +46,7 @@ namespace SentimentLib
             {
                 MySqlCommand command = driver.getCommand();
 
-                command.CommandText = "SELECT company FROM users WHERE username=?username";
+                command.CommandText = "SELECT company FROM users WHERE username=?username AND isActivated=TRUE";
 
                 command.Parameters.Add("?username", MySqlDbType.VarChar).Value = username;
 
@@ -75,8 +75,8 @@ namespace SentimentLib
         {
             Authenticator auth = new Authenticator();
 
-            string cmdText = "INSERT INTO users (`username`,`password`,`firstname`,`lastname`,`email`,`creditcard`,`company`)" +
-                "VALUES (?username ,?password, ?firstname, ?lastname, ?email, ?creditcard, ?company);";
+            string cmdText = "INSERT INTO users (`username`,`password`,`firstname`,`lastname`,`email`,`creditcard`,`company`,`activeDate`,`deactiveDate`,`statistics_count`,`isActivated`)" +
+                "VALUES (?username ,?password, ?firstname, ?lastname, ?email, ?creditcard, ?company , NOW(), NULL, 0, TRUE);";
 
             MySqlCommand command = new MySqlCommand(cmdText, driver.getConnection());
 
@@ -98,7 +98,8 @@ namespace SentimentLib
 
         public bool unregister(string username)
         {
-            string cmdText = "DELETE FROM users WHERE username=?username";
+            // string cmdText = "DELETE FROM users WHERE username=?username";
+            string cmdText = "UPDATE users SET isActivated=FALSE, deactiveDate=NOW() WHERE username=?username";
 
             MySqlCommand command = new MySqlCommand(cmdText, driver.getConnection());
 
