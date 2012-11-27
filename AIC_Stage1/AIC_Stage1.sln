@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SentimentHost", "SentimentH
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SentimentClient", "SentimentClient\SentimentClient.csproj", "{0839764A-EA21-4F6D-994D-026696D583B5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingService", "BillingService\BillingService.csproj", "{831D829D-97E7-44E2-A0CC-8501C38166D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{0839764A-EA21-4F6D-994D-026696D583B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0839764A-EA21-4F6D-994D-026696D583B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0839764A-EA21-4F6D-994D-026696D583B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{831D829D-97E7-44E2-A0CC-8501C38166D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{831D829D-97E7-44E2-A0CC-8501C38166D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{831D829D-97E7-44E2-A0CC-8501C38166D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{831D829D-97E7-44E2-A0CC-8501C38166D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
