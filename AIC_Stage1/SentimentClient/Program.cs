@@ -69,8 +69,8 @@ namespace SentimentClient
 
                                 if (secondInput.Equals("1"))
                                 {
-                                    double result = stat_client.getStatisticValue(auth_client.getCompanyFromUsername(username));
-                                    Console.WriteLine("Stentiment Value is beeing calculated, please wait...");
+                                    Console.WriteLine("Sentiment Value is beeing calculated, please wait...");
+                                    double result = stat_client.getStatisticValue(username);
                                     Console.WriteLine();
                                     Console.WriteLine("Sentiment Analysis for " + auth_client.getCompanyFromUsername(username) +
                                         ": " + String.Format("{0:0.##}", result));

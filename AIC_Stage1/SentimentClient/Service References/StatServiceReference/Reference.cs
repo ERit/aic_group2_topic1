@@ -16,10 +16,10 @@ namespace SentimentClient.StatServiceReference {
     public interface IStatistic {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStatistic/getStatisticValue", ReplyAction="http://tempuri.org/IStatistic/getStatisticValueResponse")]
-        double getStatisticValue(string company);
+        double getStatisticValue(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStatistic/getStatisticValue", ReplyAction="http://tempuri.org/IStatistic/getStatisticValueResponse")]
-        System.Threading.Tasks.Task<double> getStatisticValueAsync(string company);
+        System.Threading.Tasks.Task<double> getStatisticValueAsync(string username);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -49,12 +49,12 @@ namespace SentimentClient.StatServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public double getStatisticValue(string company) {
-            return base.Channel.getStatisticValue(company);
+        public double getStatisticValue(string username) {
+            return base.Channel.getStatisticValue(username);
         }
         
-        public System.Threading.Tasks.Task<double> getStatisticValueAsync(string company) {
-            return base.Channel.getStatisticValueAsync(company);
+        public System.Threading.Tasks.Task<double> getStatisticValueAsync(string username) {
+            return base.Channel.getStatisticValueAsync(username);
         }
     }
 }

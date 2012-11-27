@@ -5,9 +5,9 @@ LIMIT 0, 1000
 -- Date: 2012-10-26 15:22
 */
 
-CREATE SCHEMA `aic_group2_topic1`;
+CREATE SCHEMA if not exists `aic_group2_topic1`;
 
-
+DROP TABLE if exists bill;
 CREATE TABLE `bill` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userId` int(11) NOT NULL,
@@ -19,10 +19,10 @@ CREATE TABLE `bill` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 
-
+DROP TABLE if exists users;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL UNIQUE,
   `password` varchar(255) NOT NULL,
   `firstname` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
@@ -31,6 +31,7 @@ CREATE TABLE `users` (
   `company` varchar(255) NOT NULL,
   `activeDate` datetime NOT NULL,
   `deactiveDate` datetime DEFAULT NULL,
+  `statisticCalls` int DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
