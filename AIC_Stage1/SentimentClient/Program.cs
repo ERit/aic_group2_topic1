@@ -8,17 +8,25 @@ using SentimentClient.AuthServiceReference;
 //using SentimentClient.BillingServiceReference;
 using System.Text.RegularExpressions;
 using System.ServiceModel;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 
 namespace SentimentClient
 {
     class Program
     {
+        private static StatisticClient stat_client;
+        private static AuthenticatorClient auth_client;
+
         static void Main(string[] args)
         {
-            //Step 1: Create an instance of the WCF proxy.
-            StatisticClient client = new StatisticClient();
-            AuthenticatorClient auth = new AuthenticatorClient();
+            //Step 1: Create instances of the WCF proxy.
+            stat_client = new StatisticClient();
+            auth_client = new AuthenticatorClient();
+
+            if (!checkSQLConnection())
+                errorHandler("Connection to MySql Database could not be established!");
 
             while (true)
             {
@@ -45,7 +53,7 @@ namespace SentimentClient
                         Console.Write("Passwort: ");
                         string password = Orb.App.Console.ReadPassword('*');
 
-                        if (auth.validateLogin(username, password))
+                        if (auth_client.validateLogin(username, password))
                         {
                             while (true)
                             {
@@ -61,6 +69,7 @@ namespace SentimentClient
 
                                 if (secondInput.Equals("1"))
                                 {
+<<<<<<< HEAD
                                     try
                                     {
                                         double result = client.getStatisticValue(auth.getCompanyFromUsername(username));
@@ -75,6 +84,13 @@ namespace SentimentClient
                                         Console.WriteLine("There is something wrong with your internet connection. No analysis today.");
                                     }
                                     
+=======
+                                    Console.WriteLine("Sentiment Value is beeing calculated, please wait...");
+                                    double result = stat_client.getStatisticValue(username);
+                                    Console.WriteLine();
+                                    Console.WriteLine("Sentiment Analysis for " + auth_client.getCompanyFromUsername(username) +
+                                        ": " + String.Format("{0:0.##}", result));
+>>>>>>> 21a74cffeaee28de853c29b32703c42678a02bbf
 
                                     Console.ReadLine();
                                 }
@@ -141,7 +157,7 @@ namespace SentimentClient
 
                                     if (unregisterInput.Equals("yes"))
                                     {
-                                        auth.unregister(username);
+                                        auth_client.unregister(username);
                                         Console.WriteLine("Good bye!");
                                         Console.ReadLine();
                                         break;
@@ -212,7 +228,7 @@ namespace SentimentClient
                             email.Length > 0 &&
                             creditcard.Length > 0 &&
                             company.Length > 0 &&
-                            auth.register(name, passwd, firstname, lastname, email, creditcard, company))
+                            auth_client.register(name, passwd, firstname, lastname, email, creditcard, company))
                         {
                             Console.WriteLine("Thank you for your registration! Please log in.");
                             Console.ReadLine();
@@ -232,12 +248,13 @@ namespace SentimentClient
                 else if (firstInput.Equals("3"))
                 {
                     Console.WriteLine("Good bye!");
-                    Console.WriteLine("Press <ENTER> to terminate service.");
+                    Console.WriteLine("Press <ENTER> to terminate the client.");
                     Console.ReadLine();
                     break;
                 }
             }
 
+<<<<<<< HEAD
             try
             {
                 client.Close();
@@ -246,6 +263,48 @@ namespace SentimentClient
             catch (Exception e)
             {
             }
+=======
+            stat_client.Close();
+            auth_client.Close();
+        }
+
+
+        // not a "nice" solution - but working for the time beeing - feel free to improve
+        private static bool checkSQLConnection()
+        {
+            string myConnectionString = "SERVER=localhost;" +
+				"DATABASE=aic_group2_topic1;" +
+					"UID=root;" +
+					"PASSWORD=root;";
+
+            MySqlConnection connection = new MySqlConnection(myConnectionString);
+            try
+            {
+                connection.Open();
+            }
+            catch (MySqlException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            if (connection.State == ConnectionState.Open)
+            {
+                connection.Close();
+                return true;
+            }
+            else
+                return false;
+        }
+
+        private static void errorHandler(string errormsg)
+        {
+            Console.WriteLine(errormsg);
+            Console.WriteLine("Press <ENTER> to terminate the client.");
+            Console.ReadLine();
+            stat_client.Close();
+            auth_client.Close();
+            Environment.Exit(2);
+>>>>>>> 21a74cffeaee28de853c29b32703c42678a02bbf
         }
     }
 }

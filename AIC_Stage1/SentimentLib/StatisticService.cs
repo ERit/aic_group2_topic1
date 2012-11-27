@@ -16,15 +16,24 @@ namespace SentimentLib
 {
     public class StatisticService : IStatistic
     {
+        private UserDao userdao;
+        private string username;
+
+        public StatisticService()
+        {
+            userdao = new UserDao();
+        }
+
         /// <summary>
         /// returns the sentiment value for the given company
         /// </summary>
         /// <param name="companyname">name of the company</param>
         /// <returns>sentiment value</returns>
-        public double getStatisticValue(string companyname)
+        public double getStatisticValue(string username)
         {
+            this.username = username;
             Console.WriteLine("Statistic Service has been called.\n");
-            return useSentiment140(getTweets(companyname));
+            return useSentiment140(getTweets(userdao.getCompanyFromUser(username)));
         }
 
         /// <summary>
@@ -41,11 +50,13 @@ namespace SentimentLib
             ArrayList pages = new ArrayList();
             JsonSerializer serializer = new JsonSerializer();
 
-            int numPages = 10;
+            int numPages = 5;
 
             // get the tweets from the first x numpages
             for (int i = 1; i <= numPages; i++)
             {
+                if (companyname.Equals(""))
+                    companyname = "aic_2012_statistico";
                 TwitterSearchResult response = twitterService.Search(companyname, i, 100);
                 RootObject page = (RootObject)serializer.Deserialize(new JsonTextReader(new StringReader(response.RawSource)), typeof(RootObject));
                 pages.Add(page);
@@ -117,6 +128,7 @@ namespace SentimentLib
             }
 
             newStream.Close();
+
             return get_percent(result);
         }
 
@@ -156,6 +168,8 @@ namespace SentimentLib
                 / (double)(positive + negative + neutral);
 
             Console.WriteLine("Sentiment Analysis: " + String.Format("{0:0.##}", sentiment));
+
+            userdao.addStatisticCall(username);
 
             return sentiment;
         }	

@@ -1,7 +1,7 @@
 
-CREATE SCHEMA `aic_group2_topic1`;
+CREATE SCHEMA if not exists `aic_group2_topic1`;
 
-
+DROP TABLE if exists bill;
 CREATE TABLE `bill` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userId` int(11) NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE `bill` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 
-
+DROP TABLE if exists users;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL UNIQUE,
@@ -25,8 +25,12 @@ CREATE TABLE `users` (
   `company` varchar(255) NOT NULL,
   `activeDate` datetime NOT NULL,
   `deactiveDate` datetime DEFAULT NULL,
+<<<<<<< HEAD
   `statistics_count`int DEFAULT 0,
   `isActivated` boolean,
+=======
+  `statisticCalls` int DEFAULT 0,
+>>>>>>> 21a74cffeaee28de853c29b32703c42678a02bbf
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 

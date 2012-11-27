@@ -41,7 +41,6 @@ namespace SentimentLib
 
         public string getCompanyFromUser(string username)
         {
-
             try
             {
                 MySqlCommand command = driver.getCommand();
@@ -65,9 +64,8 @@ namespace SentimentLib
             catch (Exception e)
             {
                 Console.WriteLine(e.GetBaseException());
+                return "";
             }
-
-            return "";
         }
 
         public Boolean register(string username, string password, string firstname, string lastname,
@@ -93,6 +91,54 @@ namespace SentimentLib
                 return true;
             else
                 return false;
+        }
+
+        private int getIdFromUsername(string username)
+        {
+            int id = 0;
+
+            MySqlCommand command = driver.getCommand();
+            command.CommandText = "SELECT id FROM users WHERE username=?username";
+            command.Parameters.Add("?username", MySqlDbType.VarChar).Value = username;
+
+            MySqlDataReader print = command.ExecuteReader();
+            
+            while (print.Read())
+            {
+                id = Convert.ToInt32(print.GetValue(0).ToString());
+            }
+            print.Close();
+
+            return id;
+        }
+
+
+        private int getCompanyFromUsername(string username)
+        {
+            int id = 0;
+
+            MySqlCommand command = driver.getCommand();
+            command.CommandText = "SELECT company FROM users WHERE username=?username";
+            command.Parameters.Add("?username", MySqlDbType.VarChar).Value = username;
+
+            MySqlDataReader print = command.ExecuteReader();
+
+            while (print.Read())
+            {
+                id = Convert.ToInt32(print.GetValue(0).ToString());
+            }
+            print.Close();
+            return id;
+        }
+
+
+        public void addStatisticCall(string username)
+        {
+            MySqlCommand command = driver.getCommand();
+            command.CommandText = "UPDATE users SET statisticCalls=statisticCalls+1 WHERE id=?id";
+            command.Parameters.Add("?id", MySqlDbType.Int32).Value = getIdFromUsername(username);
+
+            command.ExecuteReader();
         }
 
 

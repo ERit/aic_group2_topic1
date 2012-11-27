@@ -4,7 +4,7 @@ LIMIT 0, 1000
 
 -- Date: 2012-11-27 01:48
 */
-INSERT INTO `users` (`id`,`username`,`password`,`firstname`,`lastname`,`email`,`creditcard`,`company`,`activeDate`,`deactiveDate`) VALUES (1,'max','352db51c3ff06159d380d3d9935ec814','Max','Mustermann','max.mustermann@tuwien.ac.at','123ert-123645-456fdvfv-678sdfd','Apple','2012-11-22 23:22:00',NULL);
+INSERT INTO `users` (`id`,`username`,`password`,`firstname`,`lastname`,`email`,`creditcard`,`company`,`activeDate`,`deactiveDate`) VALUES (1,'max','352db51c3ff06159d380d3d9935ec814','Max','Mustermann','max.mustermann@tuwien.ac.at','123ert-123645-456fdvfv-678sdfd','Microsoft','2012-11-22 23:22:00',NULL);
 
   INSERT INTO `users` 
   (`id`,`username`,`password`,`firstname`,`lastname`,`email`,`creditcard`,`company`,`activeDate`,`deactiveDate`,`statistics_count`,`isActivated`)
