@@ -137,11 +137,12 @@ namespace BillingService
                                 curBill.accountedUntil = u.deactiveDate.Date;
 
                             TimeSpan t = curBill.accountedUntil.Subtract(b.accountedUntil);
+                            int queryCounts = BillDao.getQueriesByUser(username, b.accountedUntil);
 
                             // if there is no timespan since last bill to calulate a bill, silenty ignore this 
                             if (t.Ticks > 0)
                             {
-                                curBill.calculatePrice(t.Days, 0);
+                                curBill.calculatePrice(t.Days, queryCounts);
                                 curBill.isPayed = false;
 
                                 BillDao.insert(curBill);
