@@ -54,6 +54,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\BillingServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\StatServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -70,6 +75,25 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\AuthServiceReference\Authenticator.wsdl" />
+    <None Include="Service References\BillingServiceReference\BillingService.wsdl" />
+    <None Include="Service References\BillingServiceReference\BillingService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BillingServiceReference\BillingService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BillingServiceReference\BillingService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BillingServiceReference\BillingService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BillingServiceReference\BillingService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BillingServiceReference\SentimentClient.BillingServiceReference.BillDetails.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\StatServiceReference\Statistic.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -83,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\AuthServiceReference\" />
+    <WCFMetadataStorage Include="Service References\BillingServiceReference\" />
     <WCFMetadataStorage Include="Service References\StatServiceReference\" />
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +136,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\AuthServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BillingServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BillingServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BillingServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

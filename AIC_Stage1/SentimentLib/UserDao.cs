@@ -134,11 +134,15 @@ namespace SentimentLib
 
         public void addStatisticCall(string username)
         {
-            MySqlCommand command = driver.getCommand();
-            command.CommandText = "UPDATE users SET statisticCalls=statisticCalls+1 WHERE id=?id";
-            command.Parameters.Add("?id", MySqlDbType.Int32).Value = getIdFromUsername(username);
+            //insert into statcalls (username, call_time) values ('blub', CURDATE());
+            string cmdText = "INSERT into statcalls(`username`, `call_time`) VALUES (?username ,?call_time)";
 
-            command.ExecuteReader();
+            MySqlCommand command = new MySqlCommand(cmdText, driver.getConnection());
+
+            command.Parameters.Add("?username", MySqlDbType.VarChar).Value = username;
+            command.Parameters.Add("?call_time", MySqlDbType.DateTime).Value = DateTime.Now;
+
+            command.ExecuteNonQuery();
         }
 
 
