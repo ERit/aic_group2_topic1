@@ -13,11 +13,11 @@ namespace SentimentLib
 
         string getCompanyFromUser(string username);
 
-        [OperationContract]
+        void addStatisticCall(string username);
+
         Boolean register(string username, string password, string firstname, string lastname,
             string email, string creditcard, string company);
 
-        [OperationContract]
         Boolean unregister(string username);
     }
 }

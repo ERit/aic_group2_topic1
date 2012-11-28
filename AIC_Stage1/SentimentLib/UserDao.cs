@@ -20,8 +20,8 @@ namespace SentimentLib
 		public List<User> getUsersFromDb ()
 		{
 			MySqlCommand command = driver.getCommand();
-			
-			command.CommandText = "SELECT * FROM users";
+
+            command.CommandText = "SELECT * FROM users WHERE isActivated=TRUE";
 			
 			List<User> list = new List<User>();
 			
@@ -41,12 +41,11 @@ namespace SentimentLib
 
         public string getCompanyFromUser(string username)
         {
-
             try
             {
                 MySqlCommand command = driver.getCommand();
 
-                command.CommandText = "SELECT company FROM users WHERE username=?username";
+                command.CommandText = "SELECT company FROM users WHERE username=?username AND isActivated=TRUE";
 
                 command.Parameters.Add("?username", MySqlDbType.VarChar).Value = username;
 
@@ -65,9 +64,8 @@ namespace SentimentLib
             catch (Exception e)
             {
                 Console.WriteLine(e.GetBaseException());
+                return "";
             }
-
-            return "";
         }
 
         public Boolean register(string username, string password, string firstname, string lastname,
@@ -75,8 +73,8 @@ namespace SentimentLib
         {
             Authenticator auth = new Authenticator();
 
-            string cmdText = "INSERT INTO users (`username`,`password`,`firstname`,`lastname`,`email`,`creditcard`,`company`)" +
-                "VALUES (?username ,?password, ?firstname, ?lastname, ?email, ?creditcard, ?company);";
+            string cmdText = "INSERT INTO users (`username`,`password`,`firstname`,`lastname`,`email`,`creditcard`,`company`,`activeDate`,`deactiveDate`,`statistics_count`,`isActivated`)" +
+                "VALUES (?username ,?password, ?firstname, ?lastname, ?email, ?creditcard, ?company , NOW(), NULL, 0, TRUE);";
 
             MySqlCommand command = new MySqlCommand(cmdText, driver.getConnection());
 
@@ -95,10 +93,59 @@ namespace SentimentLib
                 return false;
         }
 
+        private int getIdFromUsername(string username)
+        {
+            int id = 0;
+
+            MySqlCommand command = driver.getCommand();
+            command.CommandText = "SELECT id FROM users WHERE username=?username";
+            command.Parameters.Add("?username", MySqlDbType.VarChar).Value = username;
+
+            MySqlDataReader print = command.ExecuteReader();
+            
+            while (print.Read())
+            {
+                id = Convert.ToInt32(print.GetValue(0).ToString());
+            }
+            print.Close();
+
+            return id;
+        }
+
+
+        private int getCompanyFromUsername(string username)
+        {
+            int id = 0;
+
+            MySqlCommand command = driver.getCommand();
+            command.CommandText = "SELECT company FROM users WHERE username=?username";
+            command.Parameters.Add("?username", MySqlDbType.VarChar).Value = username;
+
+            MySqlDataReader print = command.ExecuteReader();
+
+            while (print.Read())
+            {
+                id = Convert.ToInt32(print.GetValue(0).ToString());
+            }
+            print.Close();
+            return id;
+        }
+
+
+        public void addStatisticCall(string username)
+        {
+            MySqlCommand command = driver.getCommand();
+            command.CommandText = "UPDATE users SET statisticCalls=statisticCalls+1 WHERE id=?id";
+            command.Parameters.Add("?id", MySqlDbType.Int32).Value = getIdFromUsername(username);
+
+            command.ExecuteReader();
+        }
+
 
         public bool unregister(string username)
         {
-            string cmdText = "DELETE FROM users WHERE username=?username";
+            // string cmdText = "DELETE FROM users WHERE username=?username";
+            string cmdText = "UPDATE users SET isActivated=FALSE, deactiveDate=NOW() WHERE username=?username";
 
             MySqlCommand command = new MySqlCommand(cmdText, driver.getConnection());
 

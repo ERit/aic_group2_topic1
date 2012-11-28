@@ -11,7 +11,7 @@ namespace SentimentLib
     public interface IStatistic
     {
         [OperationContract]
-        double getStatisticValue(string company);
+        double getStatisticValue(string username);
 
     }
 }

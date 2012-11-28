@@ -11,19 +11,32 @@ using System.ServiceModel;
 using System.Text;
 using TweetSharp;
 using System.Collections;
+using System.Text.RegularExpressions;
 
 namespace SentimentLib
 {
     public class StatisticService : IStatistic
     {
+        private UserDao userdao;
+        private string username;
+
+        public StatisticService()
+        {
+            userdao = new UserDao();
+        }
+
         /// <summary>
         /// returns the sentiment value for the given company
         /// </summary>
-        /// <param name="companyname">name of the company</param>
-        /// <returns>sentiment value</returns>
-        public double getStatisticValue(string companyname)
+        /// <param name="username">name of the username</param>
+        /// <returns>sentiment value | -1 if the username is not in the db | -2 if no tweets were found</returns>
+        public double getStatisticValue(string username)
         {
+            this.username = username;
             Console.WriteLine("Statistic Service has been called.\n");
+            string companyname = userdao.getCompanyFromUser(username);
+            if (companyname.Equals(""))
+                return -1;
             return useSentiment140(getTweets(companyname));
         }
 
@@ -41,7 +54,7 @@ namespace SentimentLib
             ArrayList pages = new ArrayList();
             JsonSerializer serializer = new JsonSerializer();
 
-            int numPages = 10;
+            int numPages = 5;
 
             // get the tweets from the first x numpages
             for (int i = 1; i <= numPages; i++)
@@ -55,7 +68,7 @@ namespace SentimentLib
 
             int count = 0;
             int eng = 0;
-
+            
             foreach (RootObject curPage in pages)
             {
                 foreach (var tweet in curPage.results)
@@ -65,9 +78,7 @@ namespace SentimentLib
                     {
                         eng++;
                         string tweettext = tweet.text;
-                        tweettext = tweettext.Replace("\"", "");
-                        tweettext = tweettext.Replace("\'", "");
-                        tweettext = tweettext.Replace("\n", " ");
+                        tweettext = replaceChars(tweettext);
 
                         result += "{'text': '" + tweettext + "', 'query': '" + companyname + "'}, ";
                     }
@@ -80,6 +91,26 @@ namespace SentimentLib
             result = result.Substring(0, result.Length-2);
             result += "]}" ;
             return result;
+        }
+
+
+        
+
+        // function for the replacement(s)
+        public string replaceChars(string Inp)
+        {
+            Inp = Inp.Replace(@"\", "");
+            string[] pats = { "\n", "\"", "\'"};
+            string[] repl = { " ", "", ""};
+            int i = pats.Length;
+            int j;
+            string tmp = Inp;
+
+            for (j = 0; j < i; j++)
+            {
+                tmp = Regex.Replace(tmp, pats[j], repl[j]);
+            }
+            return tmp.ToString();
         }
 
 
@@ -117,6 +148,7 @@ namespace SentimentLib
             }
 
             newStream.Close();
+
             return get_percent(result);
         }
 
@@ -124,30 +156,32 @@ namespace SentimentLib
         /// <summary>
         /// takes the output of the sentiment140 analysis and calculates the sentiment value
         /// </summary>
-        /// <param name="result">the sentiment140 string</param>
-        /// <returns>sentiment value</returns>
+        /// <param name="result">the result string from sentiment140</param>
+        /// <returns>sentiment value or -2 if there were no tweets</returns>
         private double get_percent(string result)
         {
-            string[] split = result.Split(',');
             int positive = 0;
             int negative = 0;
             int neutral = 0;
 
-            // 0: negative, 2: neutral, 4: positive
-            foreach (string s in split)
+            JsonSerializer serializer = new JsonSerializer();
+            SentimentResponse page = (SentimentResponse)serializer.Deserialize(new JsonTextReader(new StringReader(result)), typeof(SentimentResponse));
+
+            if (page != null)
             {
-                if (s.Contains("polarity"))
+                foreach (var response in page.data)
                 {
-                    int polarity = Convert.ToInt32(s.Split(':')[1]);
-                    if (polarity == 0)
+                    if (response.polarity == 0)
                         negative++;
-                    else if (polarity == 2)
+                    else if (response.polarity == 2)
                         neutral++;
                     else
                         positive++;
                 }
             }
-
+            else
+                return -2;
+            
             Console.WriteLine("Negative tweets: " + negative);
             Console.WriteLine("Neutral tweets: " + neutral);
             Console.WriteLine("Positive tweets: " + positive);
@@ -156,6 +190,8 @@ namespace SentimentLib
                 / (double)(positive + negative + neutral);
 
             Console.WriteLine("Sentiment Analysis: " + String.Format("{0:0.##}", sentiment));
+
+            userdao.addStatisticCall(username);
 
             return sentiment;
         }	
@@ -198,6 +234,18 @@ namespace SentimentLib
         public string text { get; set; }
         public object to_user_id { get; set; }
         public object to_user_id_str { get; set; }
+    }
+
+    public class SentimentResponse
+    {
+        public List<Data> data { get; set; }
+    }
+
+    public class Data
+    {
+        public string text { get; set; }
+        public int polarity { get; set; }
+        public string query { get; set; }
     }
 
     public class RootObject
