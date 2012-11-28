@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SentimentClient.StatServiceReference;
 using SentimentClient.AuthServiceReference;
-//using SentimentClient.BillingServiceReference;
+using SentimentClient.BillingServiceReference;
 using System.Text.RegularExpressions;
 using System.ServiceModel;
 using MySql.Data.MySqlClient;
@@ -88,56 +88,58 @@ namespace SentimentClient
                                 else if (secondInput.Equals("2"))
                                 {
                                     //TODO
-                                    //BillingServiceClient bill = new BillingServiceClient();
-                                    //while (true)
-                                    //{
-                                    //    try
-                                    //    {
-                                        
-                                    //        Console.WriteLine();
-                                    //        Console.WriteLine("1) back");
-                                    //        Console.WriteLine("2) list bills");
-                                    //        Console.WriteLine("3) pay bill");
-                                    //        Console.WriteLine("4) calculate bills");
-                                    //        string nextinput = Console.ReadLine();
-                                    //        if (nextinput.Equals("1"))
-                                    //            break;
-                                    //        else if (nextinput.Equals("2"))
-                                    //        {
-                                    //            IList<int> billIds = bill.ListUsersBills(username);
-                                    //            Console.WriteLine("you have {0} bill(s) stored:", billIds.Count);
-                                    //            foreach (int id in billIds)
-                                    //            {
-                                    //                BillDetails b = bill.GetBill(id);
-                                    //                Console.WriteLine("  {0}: amount: {1}, payed: {2}", b.id, b.amount, b.isPayed);
-                                    //            }
-                                    //        }
-                                    //        else if (nextinput.Equals("3"))
-                                    //        {
-                                    //            Console.Write("enter bill id: ");
-                                    //            try
-                                    //            {
-                                    //                int bid = int.Parse(Console.ReadLine());
-                                    //                bill.PayBill(bid);
-                                    //                BillDetails b = bill.GetBill(bid);
-                                    //                Console.WriteLine("  {0}: amount: {1}, payed: {2}", b.id, b.amount, b.isPayed);
-                                    //            }
-                                    //            catch (FormatException e)
-                                    //            {
-                                    //                Console.WriteLine("please enter a number: " + e.Message);
-                                    //            }
-                                    //        }
-                                    //        else if (nextinput.Equals("4"))
-                                    //        {
-                                    //            bill.CalculateBillsForUser(username);
-                                    //            Console.WriteLine("done");
-                                    //        }
+                                    BillingServiceClient bill = new BillingServiceClient();
+                                    while (true)
+                                    {
+                                        try
+                                        {
 
-                                    //     } catch (FaultException e) {
-                                    //         Console.WriteLine("Error: " + e.Message);
-                                    //     }
-                                            
-                                    //}
+                                            Console.WriteLine();
+                                            Console.WriteLine("1) back");
+                                            Console.WriteLine("2) list bills");
+                                            Console.WriteLine("3) pay bill");
+                                            Console.WriteLine("4) calculate bills");
+                                            string nextinput = Console.ReadLine();
+                                            if (nextinput.Equals("1"))
+                                                break;
+                                            else if (nextinput.Equals("2"))
+                                            {
+                                                IList<int> billIds = bill.ListUsersBills(username);
+                                                Console.WriteLine("you have {0} bill(s) stored:", billIds.Count);
+                                                foreach (int id in billIds)
+                                                {
+                                                    BillDetails b = bill.GetBill(id);
+                                                    Console.WriteLine("  {0}: amount: {1}, payed: {2}", b.id, b.amount, b.isPayed);
+                                                }
+                                            }
+                                            else if (nextinput.Equals("3"))
+                                            {
+                                                Console.Write("enter bill id: ");
+                                                try
+                                                {
+                                                    int bid = int.Parse(Console.ReadLine());
+                                                    bill.PayBill(bid);
+                                                    BillDetails b = bill.GetBill(bid);
+                                                    Console.WriteLine("  {0}: amount: {1}, payed: {2}", b.id, b.amount, b.isPayed);
+                                                }
+                                                catch (FormatException e)
+                                                {
+                                                    Console.WriteLine("please enter a number: " + e.Message);
+                                                }
+                                            }
+                                            else if (nextinput.Equals("4"))
+                                            {
+                                                bill.CalculateBillsForUser(username);
+                                                Console.WriteLine("done");
+                                            }
+
+                                        }
+                                        catch (FaultException e)
+                                        {
+                                            Console.WriteLine("Error: " + e.Message);
+                                        }
+
+                                    }
                                 }
                                 else if (secondInput.Equals("3"))
                                 {
