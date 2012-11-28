@@ -173,7 +173,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>http://localhost:8000/Sentiment/Statistic/StatisticService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>Cyclone\Tamrielle</Upn>
+          <Upn>Win7box\Bernhard</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

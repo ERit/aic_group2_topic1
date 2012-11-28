@@ -75,22 +75,22 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\AuthServiceReference\Authenticator.wsdl" />
-    <None Include="Service References\BillingServiceReference\BillingService.wsdl" />
-    <None Include="Service References\BillingServiceReference\BillingService.xsd">
+    <None Include="Service References\BillingServiceReference\Billing.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\BillingServiceReference\BillingService1.xsd">
+    <None Include="Service References\BillingServiceReference\Billing1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\BillingServiceReference\BillingService2.xsd">
+    <None Include="Service References\BillingServiceReference\Billing2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\BillingServiceReference\BillingService3.xsd">
+    <None Include="Service References\BillingServiceReference\Billing3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\BillingServiceReference\BillingService4.xsd">
+    <None Include="Service References\BillingServiceReference\Billing4.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\BillingServiceReference\BillingService1.wsdl" />
     <None Include="Service References\BillingServiceReference\SentimentClient.BillingServiceReference.BillDetails.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -151,6 +151,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BillingServiceReference\Billing.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

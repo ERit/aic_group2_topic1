@@ -49,6 +49,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BillingService\BillingService.csproj">
+      <Project>{831d829d-97e7-44e2-a0cc-8501c38166d4}</Project>
+      <Name>BillingService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SentimentLib\SentimentLib.csproj">
       <Project>{15b3e0d2-6217-493a-a690-158c497f5318}</Project>
       <Name>SentimentLib</Name>
