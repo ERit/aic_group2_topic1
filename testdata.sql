@@ -35,7 +35,7 @@ LIMIT 0, 1000
 
 -- Date: 2012-11-27 01:47
 */
-INSERT INTO `bill` (`id`,`userId`,`price`,`isPayed`,`accountedUntil`,`created`) VALUES (1,1,3,0,'2012-10-25 00:00:00','2012-11-26 23:00:00');
-INSERT INTO `bill` (`id`,`userId`,`price`,`isPayed`,`accountedUntil`,`created`) VALUES (2,1,5,0,'2012-10-26 00:00:00','2012-11-26 23:00:00');
-INSERT INTO `bill` (`id`,`userId`,`price`,`isPayed`,`accountedUntil`,`created`) VALUES (4,1,1,0,'2012-10-28 00:00:00','2012-11-27 00:22:00');
-INSERT INTO `bill` (`id`,`userId`,`price`,`isPayed`,`accountedUntil`,`created`) VALUES (5,1,31,0,'2012-11-03 00:00:00','2012-11-03 00:00:00');
+INSERT INTO `bill` (`id`,`userId`,`price`,`isPayed`,`accountedUntil`,`created`) VALUES (1,2,3,0,'2012-10-25 00:00:00','2012-11-26 23:00:00');
+INSERT INTO `bill` (`id`,`userId`,`price`,`isPayed`,`accountedUntil`,`created`) VALUES (2,2,5,0,'2012-10-26 00:00:00','2012-11-26 23:00:00');
+INSERT INTO `bill` (`id`,`userId`,`price`,`isPayed`,`accountedUntil`,`created`) VALUES (4,2,1,0,'2012-10-28 00:00:00','2012-11-27 00:22:00');
+INSERT INTO `bill` (`id`,`userId`,`price`,`isPayed`,`accountedUntil`,`created`) VALUES (5,2,31,0,'2012-11-03 00:00:00','2012-11-03 00:00:00');
