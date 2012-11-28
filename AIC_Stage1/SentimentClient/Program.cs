@@ -69,30 +69,21 @@ namespace SentimentClient
 
                                 if (secondInput.Equals("1"))
                                 {
-<<<<<<< HEAD
                                     try
                                     {
-                                        double result = client.getStatisticValue(auth.getCompanyFromUsername(username));
+                                        Console.WriteLine("Sentiment Value is beeing calculated, please wait...");
+
+                                        double result = stat_client.getStatisticValue(username);
 
                                         Console.WriteLine("Sentiment Value is beeing calculated, please wait...");
                                         Console.WriteLine();
-                                        Console.WriteLine("Sentiment Analysis for " + auth.getCompanyFromUsername(username) +
+                                        Console.WriteLine("Sentiment Analysis for " + auth_client.getCompanyFromUsername(username) +
                                             ": " + String.Format("{0:0.##}", result));
                                     }
                                     catch (Exception e)
                                     {
                                         Console.WriteLine("There is something wrong with your internet connection. No analysis today.");
-                                    }
-                                    
-=======
-                                    Console.WriteLine("Sentiment Value is beeing calculated, please wait...");
-                                    double result = stat_client.getStatisticValue(username);
-                                    Console.WriteLine();
-                                    Console.WriteLine("Sentiment Analysis for " + auth_client.getCompanyFromUsername(username) +
-                                        ": " + String.Format("{0:0.##}", result));
->>>>>>> 21a74cffeaee28de853c29b32703c42678a02bbf
-
-                                    Console.ReadLine();
+                                    }                               
                                 }
                                 else if (secondInput.Equals("2"))
                                 {
@@ -254,18 +245,14 @@ namespace SentimentClient
                 }
             }
 
-<<<<<<< HEAD
             try
             {
-                client.Close();
-                auth.Close();
+            stat_client.Close();
+            auth_client.Close();
             }
             catch (Exception e)
             {
             }
-=======
-            stat_client.Close();
-            auth_client.Close();
         }
 
 
@@ -304,7 +291,6 @@ namespace SentimentClient
             stat_client.Close();
             auth_client.Close();
             Environment.Exit(2);
->>>>>>> 21a74cffeaee28de853c29b32703c42678a02bbf
         }
     }
 }

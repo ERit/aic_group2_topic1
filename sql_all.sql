@@ -25,12 +25,9 @@ CREATE TABLE `users` (
   `company` varchar(255) NOT NULL,
   `activeDate` datetime NOT NULL,
   `deactiveDate` datetime DEFAULT NULL,
-<<<<<<< HEAD
   `statistics_count`int DEFAULT 0,
   `isActivated` boolean,
-=======
   `statisticCalls` int DEFAULT 0,
->>>>>>> 21a74cffeaee28de853c29b32703c42678a02bbf
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
