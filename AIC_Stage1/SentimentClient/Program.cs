@@ -75,10 +75,10 @@ namespace SentimentClient
 
                                         double result = stat_client.getStatisticValue(username);
 
-                                        Console.WriteLine("Sentiment Value is beeing calculated, please wait...");
                                         Console.WriteLine();
-                                        Console.WriteLine("Sentiment Analysis for " + auth_client.getCompanyFromUsername(username) +
+                                        Console.WriteLine("Sentiment Value for " + auth_client.getCompanyFromUsername(username) +
                                             ": " + String.Format("{0:0.##}", result));
+                                        Console.ReadLine();
                                     }
                                     catch (Exception e)
                                     {
