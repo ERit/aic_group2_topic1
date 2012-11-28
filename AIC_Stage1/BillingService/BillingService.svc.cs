@@ -138,6 +138,8 @@ namespace BillingService
 
                             TimeSpan t = curBill.accountedUntil.Subtract(b.accountedUntil);
                             int queryCounts = BillDao.getQueriesByUser(username, b.accountedUntil);
+                            if (queryCounts < 0)
+                                throw new FaultException("could not query the the statistics calls to be accounted");
 
                             // if there is no timespan since last bill to calulate a bill, silenty ignore this 
                             if (t.Ticks > 0)
@@ -160,6 +162,10 @@ namespace BillingService
             catch (ApplicationException e)
             {
                 throw new FaultException("internal error while data querying");
+            }
+            catch (Exception e)
+            {
+                throw new FaultException("exception: " + e.Message);
             }
         }
 
