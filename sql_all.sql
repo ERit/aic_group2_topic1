@@ -13,7 +13,7 @@ CREATE TABLE `bill` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 
-DROP TABLE if exists users;
+DROP TABLE if exists users CASCADE;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL UNIQUE,
@@ -27,11 +27,19 @@ CREATE TABLE `users` (
   `deactiveDate` datetime DEFAULT NULL,
   `statistics_count`int DEFAULT 0,
   `isActivated` boolean,
-  `statisticCalls` int DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 
+DROP TABLE if exists statcalls CASCADE;
+CREATE TABLE `statcalls` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL UNIQUE,
+  `call_time` datetime NOT NULL,
+   FOREIGN KEY (username) REFERENCES `users`(username)
+		ON DELETE cascade,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 
 
