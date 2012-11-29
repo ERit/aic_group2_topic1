@@ -10,3 +10,17 @@ I:\Workspace\AIC_Stage1\SentimentLib\bin\Debug\Newtonsoft.Json.xml
 I:\Workspace\AIC_Stage1\SentimentLib\bin\Debug\TweetSharp.pdb
 I:\Workspace\AIC_Stage1\SentimentLib\obj\Debug\SentimentLib.dll
 I:\Workspace\AIC_Stage1\SentimentLib\obj\Debug\SentimentLib.pdb
+C:\Users\aster\workspace\aic_group2_topic1\AIC_Stage1\SentimentLib\bin\Debug\SentimentLib.dll.config
+C:\Users\aster\workspace\aic_group2_topic1\AIC_Stage1\SentimentLib\bin\Debug\SentimentLib.dll
+C:\Users\aster\workspace\aic_group2_topic1\AIC_Stage1\SentimentLib\bin\Debug\SentimentLib.pdb
+C:\Users\aster\workspace\aic_group2_topic1\AIC_Stage1\SentimentLib\bin\Debug\Hammock.ClientProfile.dll
+C:\Users\aster\workspace\aic_group2_topic1\AIC_Stage1\SentimentLib\bin\Debug\Hammock.dll
+C:\Users\aster\workspace\aic_group2_topic1\AIC_Stage1\SentimentLib\bin\Debug\MySql.Data.dll
+C:\Users\aster\workspace\aic_group2_topic1\AIC_Stage1\SentimentLib\bin\Debug\Newtonsoft.Json.dll
+C:\Users\aster\workspace\aic_group2_topic1\AIC_Stage1\SentimentLib\bin\Debug\TweetSharp.dll
+C:\Users\aster\workspace\aic_group2_topic1\AIC_Stage1\SentimentLib\bin\Debug\Hammock.pdb
+C:\Users\aster\workspace\aic_group2_topic1\AIC_Stage1\SentimentLib\bin\Debug\Newtonsoft.Json.xml
+C:\Users\aster\workspace\aic_group2_topic1\AIC_Stage1\SentimentLib\bin\Debug\TweetSharp.pdb
+C:\Users\aster\workspace\aic_group2_topic1\AIC_Stage1\SentimentLib\obj\Debug\SentimentLib.csprojResolveAssemblyReference.cache
+C:\Users\aster\workspace\aic_group2_topic1\AIC_Stage1\SentimentLib\obj\Debug\SentimentLib.dll
+C:\Users\aster\workspace\aic_group2_topic1\AIC_Stage1\SentimentLib\obj\Debug\SentimentLib.pdb

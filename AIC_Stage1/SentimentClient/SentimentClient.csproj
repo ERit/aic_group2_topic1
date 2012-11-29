@@ -47,9 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthenticatorService.cs" />
+    <Compile Include="BillingService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\AuthServiceReference\Reference.cs">
+    <Compile Include="Service References\AuthenticatorServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -59,86 +61,60 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\StatServiceReference\Reference.cs">
+    <Compile Include="Service References\StatisticServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="StatisticService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="Service References\AuthServiceReference\Authentication.xsd">
+    <None Include="Service References\AuthenticatorServiceReference\AuthenticatorService.wsdl" />
+    <None Include="Service References\AuthenticatorServiceReference\AuthenticatorService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\AuthServiceReference\Authentication1.xsd">
+    <None Include="Service References\AuthenticatorServiceReference\AuthenticatorService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\AuthServiceReference\Authenticator.wsdl" />
-    <None Include="Service References\BillingServiceReference\Billing.xsd">
+    <None Include="Service References\BillingServiceReference\BillingService.wsdl" />
+    <None Include="Service References\BillingServiceReference\BillingService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\BillingServiceReference\Billing1.xsd">
+    <None Include="Service References\BillingServiceReference\BillingService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\BillingServiceReference\Billing2.xsd">
+    <None Include="Service References\BillingServiceReference\BillingService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\BillingServiceReference\Billing3.xsd">
+    <None Include="Service References\BillingServiceReference\BillingService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\BillingServiceReference\Billing4.xsd">
+    <None Include="Service References\BillingServiceReference\BillingService4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\BillingServiceReference\BillingService1.wsdl" />
     <None Include="Service References\BillingServiceReference\SentimentClient.BillingServiceReference.BillDetails.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\StatServiceReference\Statistic.xsd">
+    <None Include="Service References\StatisticServiceReference\StatisticService.wsdl" />
+    <None Include="Service References\StatisticServiceReference\StatisticService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\StatServiceReference\Statistic1.xsd">
+    <None Include="Service References\StatisticServiceReference\StatisticService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\StatServiceReference\StatisticService.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\AuthServiceReference\" />
+    <WCFMetadataStorage Include="Service References\AuthenticatorServiceReference\" />
     <WCFMetadataStorage Include="Service References\BillingServiceReference\" />
-    <WCFMetadataStorage Include="Service References\StatServiceReference\" />
+    <WCFMetadataStorage Include="Service References\StatisticServiceReference\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\StatServiceReference\Statistic.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\StatServiceReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\StatServiceReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\StatServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\AuthServiceReference\Authentication.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\AuthServiceReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\AuthServiceReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\AuthServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
+    <None Include="Service References\BillingServiceReference\BillingService.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\BillingServiceReference\configuration91.svcinfo" />
@@ -153,7 +129,34 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\BillingServiceReference\Billing.disco" />
+    <None Include="Service References\AuthenticatorServiceReference\AuthenticatorService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AuthenticatorServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AuthenticatorServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AuthenticatorServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\StatisticServiceReference\StatisticService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\StatisticServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\StatisticServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\StatisticServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

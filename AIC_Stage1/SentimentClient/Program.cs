@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SentimentClient.StatServiceReference;
-using SentimentClient.AuthServiceReference;
-using SentimentClient.BillingServiceReference;
 using System.Text.RegularExpressions;
 using System.ServiceModel;
 using MySql.Data.MySqlClient;
 using System.Data;
+using BillingService;
 
 
 namespace SentimentClient

@@ -12,6 +12,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SentimentClient", "Sentimen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingService", "BillingService\BillingService.csproj", "{831D829D-97E7-44E2-A0CC-8501C38166D4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticatorService", "AuthenticatorService\AuthenticatorService.csproj", "{C51A3AA7-A56B-48D7-A2A2-4B0496AFDDBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatisticService", "StatisticService\StatisticService.csproj", "{61878D40-312D-48A1-A73A-761102BA79A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +38,14 @@ Global
 		{831D829D-97E7-44E2-A0CC-8501C38166D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{831D829D-97E7-44E2-A0CC-8501C38166D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{831D829D-97E7-44E2-A0CC-8501C38166D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C51A3AA7-A56B-48D7-A2A2-4B0496AFDDBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C51A3AA7-A56B-48D7-A2A2-4B0496AFDDBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C51A3AA7-A56B-48D7-A2A2-4B0496AFDDBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C51A3AA7-A56B-48D7-A2A2-4B0496AFDDBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61878D40-312D-48A1-A73A-761102BA79A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61878D40-312D-48A1-A73A-761102BA79A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61878D40-312D-48A1-A73A-761102BA79A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61878D40-312D-48A1-A73A-761102BA79A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
