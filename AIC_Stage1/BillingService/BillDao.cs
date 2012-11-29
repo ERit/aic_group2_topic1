@@ -37,6 +37,34 @@ namespace BillingService
             return null;
         }
 
+        public static int getQueriesByUser(String userName, DateTime offset)
+        {
+            using (MySqlDriver d = MySqlDriver.getInstance())
+            {
+                using (MySqlCommand command = d.getCommand())
+                {
+                    try
+                    {
+                        command.CommandText = "SELECT COUNT(*) as count FROM statcalls WHERE username=?userName and call_time>=?offset";
+                        command.Parameters.Add("?userName", MySqlDbType.String).Value = userName;
+                        command.Parameters.Add("?offset", MySqlDbType.DateTime).Value = offset;
+                        MySqlDataReader reader = command.ExecuteReader();
+                        if (reader != null)
+                        {
+                            if (reader.Read())
+                            {
+                                return reader.GetInt32("count");
+                            }
+                        }
+                    }
+                    catch (MySqlException e)
+                    {
+                        throw new ApplicationException("error in quering DB: " + e.Message);
+                    }
+                }
+            }
+            return -1;
+        }
 
         public static IList<Bill> getByUserId(int userId)
         {

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BillingService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost/BillingService/BillingService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/BillingService/BillingService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost/BillingService/BillingService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/BillingService/BillingService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost/BillingService/BillingService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/BillingService" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IBillingService_ListUsersBills_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListUsersBills" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_ListUsersBills_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListUsersBillsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_ListUsersBills_ArgumentExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/System" name="detail" element="q1:ArgumentException" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_GetBill_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBill" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_GetBill_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBillResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_GetBill_ArgumentExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/System" name="detail" element="q2:ArgumentException" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_PayBill_InputMessage">
+    <wsdl:part name="parameters" element="tns:PayBill" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_PayBill_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PayBillResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_PayBill_ArgumentExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/System" name="detail" element="q3:ArgumentException" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_CalculateBillsForUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateBillsForUser" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_CalculateBillsForUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateBillsForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_CalculateBillsForUser_ArgumentExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/System" name="detail" element="q4:ArgumentException" />
+  </wsdl:message>
+  <wsdl:portType name="IBillingService">
+    <wsdl:operation name="ListUsersBills">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBillingService/ListUsersBills" message="tns:IBillingService_ListUsersBills_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBillingService/ListUsersBillsResponse" message="tns:IBillingService_ListUsersBills_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IBillingService/ListUsersBillsArgumentExceptionFault" name="ArgumentExceptionFault" message="tns:IBillingService_ListUsersBills_ArgumentExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBill">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBillingService/GetBill" message="tns:IBillingService_GetBill_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBillingService/GetBillResponse" message="tns:IBillingService_GetBill_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IBillingService/GetBillArgumentExceptionFault" name="ArgumentExceptionFault" message="tns:IBillingService_GetBill_ArgumentExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PayBill">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBillingService/PayBill" message="tns:IBillingService_PayBill_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBillingService/PayBillResponse" message="tns:IBillingService_PayBill_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IBillingService/PayBillArgumentExceptionFault" name="ArgumentExceptionFault" message="tns:IBillingService_PayBill_ArgumentExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculateBillsForUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBillingService/CalculateBillsForUser" message="tns:IBillingService_CalculateBillsForUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBillingService/CalculateBillsForUserResponse" message="tns:IBillingService_CalculateBillsForUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IBillingService/CalculateBillsForUserArgumentExceptionFault" name="ArgumentExceptionFault" message="tns:IBillingService_CalculateBillsForUser_ArgumentExceptionFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IBillingService" type="tns:IBillingService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListUsersBills">
+      <soap:operation soapAction="http://tempuri.org/IBillingService/ListUsersBills" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ArgumentExceptionFault">
+        <soap:fault use="literal" name="ArgumentExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetBill">
+      <soap:operation soapAction="http://tempuri.org/IBillingService/GetBill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ArgumentExceptionFault">
+        <soap:fault use="literal" name="ArgumentExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="PayBill">
+      <soap:operation soapAction="http://tempuri.org/IBillingService/PayBill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ArgumentExceptionFault">
+        <soap:fault use="literal" name="ArgumentExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateBillsForUser">
+      <soap:operation soapAction="http://tempuri.org/IBillingService/CalculateBillsForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ArgumentExceptionFault">
+        <soap:fault use="literal" name="ArgumentExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BillingService">
+    <wsdl:port name="BasicHttpBinding_IBillingService" binding="tns:BasicHttpBinding_IBillingService">
+      <soap:address location="http://localhost/BillingService/BillingService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

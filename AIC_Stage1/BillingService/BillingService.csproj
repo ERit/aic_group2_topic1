@@ -82,6 +82,7 @@
   <ItemGroup>
     <None Include="Properties\PublishProfiles\local ISS.pubxml" />
     <None Include="Properties\PublishProfiles\test local ISS.pubxml" />
+    <None Include="Properties\PublishProfiles\test site on local ISS 7.pubxml" />
     <None Include="Properties\PublishProfiles\test.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -61,7 +61,7 @@ namespace BillingService
                 using (MySqlCommand command = d.getCommand())
                 {
                     command.CommandText = "SELECT * FROM " + TABLE + " WHERE username=?user";
-                    command.Parameters.Add("?user", MySqlDbType.Int32).Value = username;
+                    command.Parameters.Add("?user", MySqlDbType.String).Value = username;
                     MySqlDataReader reader = command.ExecuteReader();
                     if (reader != null)
                     {
