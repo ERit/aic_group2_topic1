@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AuthenticatorService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost/AuthenticatorService/AuthenticatorService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/AuthenticatorService/AuthenticatorService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAuthenticator_validateLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:validateLogin" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticator_validateLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:validateLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticator_getCompanyFromUsername_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCompanyFromUsername" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticator_getCompanyFromUsername_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCompanyFromUsernameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticator_isLoggedIn_InputMessage">
+    <wsdl:part name="parameters" element="tns:isLoggedIn" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticator_isLoggedIn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:isLoggedInResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticator_register_InputMessage">
+    <wsdl:part name="parameters" element="tns:register" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticator_register_OutputMessage">
+    <wsdl:part name="parameters" element="tns:registerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticator_unregister_InputMessage">
+    <wsdl:part name="parameters" element="tns:unregister" />
+  </wsdl:message>
+  <wsdl:message name="IAuthenticator_unregister_OutputMessage">
+    <wsdl:part name="parameters" element="tns:unregisterResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAuthenticator">
+    <wsdl:operation name="validateLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticator/validateLogin" message="tns:IAuthenticator_validateLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticator/validateLoginResponse" message="tns:IAuthenticator_validateLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCompanyFromUsername">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticator/getCompanyFromUsername" message="tns:IAuthenticator_getCompanyFromUsername_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticator/getCompanyFromUsernameResponse" message="tns:IAuthenticator_getCompanyFromUsername_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="isLoggedIn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticator/isLoggedIn" message="tns:IAuthenticator_isLoggedIn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticator/isLoggedInResponse" message="tns:IAuthenticator_isLoggedIn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="register">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticator/register" message="tns:IAuthenticator_register_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticator/registerResponse" message="tns:IAuthenticator_register_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="unregister">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticator/unregister" message="tns:IAuthenticator_unregister_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticator/unregisterResponse" message="tns:IAuthenticator_unregister_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAuthenticator" type="tns:IAuthenticator">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="validateLogin">
+      <soap:operation soapAction="http://tempuri.org/IAuthenticator/validateLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCompanyFromUsername">
+      <soap:operation soapAction="http://tempuri.org/IAuthenticator/getCompanyFromUsername" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isLoggedIn">
+      <soap:operation soapAction="http://tempuri.org/IAuthenticator/isLoggedIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="register">
+      <soap:operation soapAction="http://tempuri.org/IAuthenticator/register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="unregister">
+      <soap:operation soapAction="http://tempuri.org/IAuthenticator/unregister" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AuthenticatorService">
+    <wsdl:port name="BasicHttpBinding_IAuthenticator" binding="tns:BasicHttpBinding_IAuthenticator">
+      <soap:address location="http://localhost/AuthenticatorService/AuthenticatorService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
