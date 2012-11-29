@@ -3,3 +3,4 @@ I:\Workspace\AIC_Stage1\SentimentClient\bin\Debug\SentimentClient.exe
 I:\Workspace\AIC_Stage1\SentimentClient\bin\Debug\SentimentClient.pdb
 I:\Workspace\AIC_Stage1\SentimentClient\obj\Debug\SentimentClient.exe
 I:\Workspace\AIC_Stage1\SentimentClient\obj\Debug\SentimentClient.pdb
+C:\Users\Franz\Documents\GitHub\aic_group2_topic1\AIC_Stage1\SentimentClient\bin\Debug\SentimentClient.exe.config
