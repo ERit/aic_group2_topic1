@@ -35,7 +35,7 @@ namespace SentimentLib
             this.username = username;
             Console.WriteLine("Statistic Service has been called.\n");
             string companyname = userdao.getCompanyFromUser(username);
-            if (companyname.Equals(""))
+            if (companyname.Equals("") || !checkForInternetConnection())
                 return -1;
             return useSentiment140(getTweets(companyname));
         }
@@ -183,18 +183,34 @@ namespace SentimentLib
                 return -2;
             
             Console.WriteLine("Negative tweets: " + negative);
-            Console.WriteLine("Neutral tweets: " + neutral);
             Console.WriteLine("Positive tweets: " + positive);
 
-            double sentiment = (((double)positive * 1) + ((double)neutral * 0.5))
-                / (double)(positive + negative + neutral);
+            double all = (double)positive + (double)negative;
+
+            double sentiment = (double)positive / all;
 
             Console.WriteLine("Sentiment Analysis: " + String.Format("{0:0.##}", sentiment));
 
             userdao.addStatisticCall(username);
 
             return sentiment;
-        }	
+        }
+
+        private bool checkForInternetConnection()
+        {
+            try
+            {
+                using (var client = new WebClient())
+                using (var stream = client.OpenRead("http://www.google.com"))
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 
 

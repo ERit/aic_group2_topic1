@@ -17,12 +17,12 @@ LIMIT 0, 1000
   INSERT INTO `users` 
   (`id`,`username`,`password`,`firstname`,`lastname`,`email`,`creditcard`,`company`,`activeDate`,`deactiveDate`, `isActivated`)
   VALUES (NULL,'albert','81dc9bdb52d04dc20036dbd8313ed055','Albert','Lechner',
-  'albert.lechner@gmail.com', '6869201-sd921045-cnai27a-bljo48','Canon',NOW(),NULL,TRUE);
+  'albert.lechner@gmail.com', '6869201-sd921045-cnai27a-bljo48','Beer',NOW(),NULL,TRUE);
 
   INSERT INTO `users` 
   (`id`,`username`,`password`,`firstname`,`lastname`,`email`,`creditcard`,`company`,`activeDate`,`deactiveDate`, `isActivated`)
   VALUES (NULL,'tanja','81dc9bdb52d04dc20036dbd8313ed055','Tanja','Huber',
-  'tanja.huber@gmx.net', '612h2h2-765432-123434-asdfg','Eskimo',NOW(),NULL,TRUE);
+  'tanja.huber@gmx.net', '612h2h2-765432-123434-asdfg','Canon',NOW(),NULL,TRUE);
 
   INSERT INTO `users` 
   (`id`,`username`,`password`,`firstname`,`lastname`,`email`,`creditcard`,`company`,`activeDate`,`deactiveDate`, `isActivated`)
