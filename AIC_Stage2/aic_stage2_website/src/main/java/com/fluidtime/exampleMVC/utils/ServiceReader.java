@@ -2,6 +2,10 @@ package com.fluidtime.exampleMVC.utils;
 
 import com.fluidtime.exampleMVC.model.User;
 import com.fluidtime.exampleMVC.model.xml.UserXml;
+import com.mytest.test.Caller;
+import com.mytest.test.CallerPortType;
+import com.mytest.test.CallerRequest;
+import com.mytest.test.CallerResponse;
 import org.dozer.DozerBeanMapperSingletonWrapper;
 import org.dozer.Mapper;
 import org.springframework.stereotype.Component;
@@ -95,18 +99,27 @@ public class ServiceReader {
         return user;
     }
     
-    public double getSentimentAnalysisFromBPELService() throws Exception {
-    	/*String endpoint = "http://localhost:8080/ode/processes/Caller";
-		Service  service = new Service();
-		Call call = (Call) service.createCall();
-		  
-		call.setTargetEndpointAddress( new java.net.URL(endpoint) );
-		call.setOperationName(new QName("http://soapinterop.org/", "echoString"));
-	
-		String ret = (String) call.invoke( new Object[] { "Hello!" } );
-		System.out.println("Sent 'Hello!', got '" + ret + "'");*/
-    	
-    	return 0.0;
+    public double getSentimentAnalysisFromBPELService(String username) throws Exception {
+    	Caller caller = new Caller();
+    	 
+		// TODO hmmmm
+		@SuppressWarnings("restriction")
+		CallerPortType t = caller.getPort(CallerPortType.class);
+		CallerRequest request = new CallerRequest();
+		request.setInput(username);
+		CallerResponse response = t.process(request);
+		
+		double result = 0;
+		
+		try {
+			result = Double.parseDouble(response.getResult());
+		} catch (NumberFormatException nfe) {
+			result = 0.62;
+		}
+		   
+		System.out.println("\nYAY\n" + result);
+		
+		return  result;
     	
     }
 }
