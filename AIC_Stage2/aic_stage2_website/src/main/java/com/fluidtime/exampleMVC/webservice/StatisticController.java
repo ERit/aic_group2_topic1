@@ -1,5 +1,7 @@
 package com.fluidtime.exampleMVC.webservice;
 
+import java.text.DecimalFormat;
+
 import com.fluidtime.exampleMVC.model.User;
 import com.fluidtime.exampleMVC.utils.ServiceReader;
 
@@ -38,8 +40,11 @@ public class StatisticController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+        String result = String.format("%.2f", sentimentValue);
         
-        System.out.println("and again: " + sentimentValue);
+        user.setStatisticValue(result);
+        
 
         return "Statistic";
     }

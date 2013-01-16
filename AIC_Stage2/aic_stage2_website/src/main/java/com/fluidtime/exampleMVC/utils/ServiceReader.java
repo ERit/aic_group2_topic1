@@ -2,18 +2,16 @@ package com.fluidtime.exampleMVC.utils;
 
 import com.fluidtime.exampleMVC.model.User;
 import com.fluidtime.exampleMVC.model.xml.UserXml;
-import com.mytest.test.Caller;
-import com.mytest.test.CallerPortType;
-import com.mytest.test.CallerRequest;
-import com.mytest.test.CallerResponse;
+import com.fluidtime.exampleMVC.statistic_client.com.mytest.test.Caller;
+import com.fluidtime.exampleMVC.statistic_client.com.mytest.test.CallerPortType;
+import com.fluidtime.exampleMVC.statistic_client.com.mytest.test.CallerResponse;
+import com.fluidtime.exampleMVC.statistic_client.com.mytest.test.CallerRequest;
 import org.dozer.DozerBeanMapperSingletonWrapper;
 import org.dozer.Mapper;
 import org.springframework.stereotype.Component;
-
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.namespace.QName;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.StringReader;
