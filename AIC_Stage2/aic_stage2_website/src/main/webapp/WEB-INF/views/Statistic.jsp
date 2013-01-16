@@ -1436,7 +1436,7 @@ button:hover {
         </div>
         <div id="darkbannerwrap">
         </div>
-        <form name="form1" method="post" action="Statistics">
+        <form name="form1" method="post" action="<%=request.getContextPath()%>/Statistics">
             <fieldset class="form">
 
                 Company "${user.getCompany()}" got the following result:

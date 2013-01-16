@@ -1429,12 +1429,12 @@ button:hover {
 
     function openStatistic() {
 
-        window.location.href = "/Statistic";
+        window.location.href = "<%=request.getContextPath()%>/Statistic";
     }
 
     function openBilling() {
 
-        window.location.href = "/Billing";
+        window.location.href = "<%=request.getContextPath()%>/Billing";
     }
 
 </script>
@@ -1450,7 +1450,7 @@ button:hover {
         </div>
         <div id="darkbannerwrap">
         </div>
-        <form name="form1" method="post" action="Statistics">
+        <form name="form1" method="post" action="<%=request.getContextPath()%>/Statistics">
             <fieldset class="form">
                 <button type="button" class="positive" name="statistic" onclick="openStatistic()">
                 Watch sentiment analysis for "${user.getCompany()}"
