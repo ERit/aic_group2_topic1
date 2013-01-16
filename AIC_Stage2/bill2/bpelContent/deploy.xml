@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy xmlns="http://www.apache.org/ode/schemas/dd/2007/03" xmlns:sample="http://eclipse.org/bpel/sample" xmlns:tempuri.org="http://tempuri.org/">
+  <process name="sample:billing">
+    <active>true</active>
+    <retired>false</retired>
+    <process-events generate="all"/>
+    <provide partnerLink="client">
+      <service name="sample:billingService" port="billingPort"/>
+    </provide>
+    <invoke partnerLink="WCFBillingProvider">
+      <service name="tempuri.org:BillingService" port="BasicHttpBinding_IBillingService"/>
+    </invoke>
+  </process>
+</deploy>

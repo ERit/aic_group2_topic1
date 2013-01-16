@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:p="http://www.w3.org/2001/XMLSchema" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://eclipse.org/bpel/sample" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://tempuri.org/" name="billing" targetNamespace="http://eclipse.org/bpel/sample">
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     TYPE DEFINITION - List of services participating in this BPEL process 
+     The default output of the BPEL designer uses strings as input and 
+     output to the BPEL Process. But you can define or import any XML 
+     Schema type and us them as part of the message types.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <plnk:partnerLinkType name="WCFBillingProviderType">
+    <plnk:role name="WCFBillingProviderPort" portType="wsdl:IBillingService"/>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="billingProviderType">
+    <plnk:role name="billingProviderPort" portType="tns:billingPortType"/>
+  </plnk:partnerLinkType>
+    <import location="BillingService.wsdl" namespace="http://tempuri.org/"/>
+    <types>  
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://eclipse.org/bpel/sample">
+                
+            <element name="billingRequest">
+                <complexType>
+                    <sequence>
+                        <element name="input" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+                  
+            <element name="billingResponse">
+                <complexType>
+                    <sequence>
+                        <element name="result" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+    		<element name="counterType" type="int"/>
+
+    		<element name="getOpenBills">
+    			<complexType>
+    				<sequence>
+    					<element name="userName" type="string" minOccurs="1" maxOccurs="1"></element>
+    				</sequence>
+    			</complexType>
+    		</element>
+    		<element name="getOpenBillsResponse">
+    			<complexType>
+    				<sequence>
+    					<element name="out" type="string"></element>
+    				</sequence>
+    			</complexType>
+    		</element>
+        </schema>
+    </types>
+  
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     MESSAGE TYPE DEFINITION - Definition of the message types used as 
+     part of the port type defintions
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+<!--
+    <types>
+    	<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://eclipse.org/bpel/sample">
+    		<xsd:element name="billingRequest" type="xsd:string"/>
+            <xsd:element name="billingResponse" type="xsd:string"/>
+        </xsd:schema>
+  </types>
+  -->
+    <message name="billingRequestMessage">
+        <part element="tns:billingRequest" name="payload"/>
+    </message>
+    
+    <message name="billingResponseMessage">
+        <part element="tns:billingResponse" name="payload"/>
+    </message>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     PORT TYPE DEFINITION - A port type groups a set of operations into
+     a logical service unit.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- portType implemented by the billing BPEL process -->
+    <message name="initiateResponse">
+    	<part element="tns:billingResponse" name="payload"/>
+    </message>
+    <message name="getOpenBillsRequest">
+    	<part name="parameters" element="tns:getOpenBills"></part>
+    </message>
+    <message name="getOpenBillsResponse">
+    	<part name="parameters" element="tns:getOpenBillsResponse"></part>
+    </message>
+    <portType name="billingPortType">
+        <operation name="initiate">
+            <input message="tns:billingRequestMessage"/>
+            <output message="tns:billingResponseMessage"/>
+        </operation>
+        <operation name="getOpenBills">
+        	<input message="tns:getOpenBillsRequest"></input>
+        	<output message="tns:getOpenBillsResponse"></output>
+        </operation>
+    </portType>
+
+    <!-- portType implemented by the requester of billing BPEL process 
+         for asynchronous callback purposes
+         -->
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     PARTNER LINK TYPE DEFINITION
+         the billing partnerLinkType binds the provider and
+         requester portType into an asynchronous conversation.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <plnk:partnerLinkType name="billing">
+        <plnk:role name="billingProvider" portType="tns:billingPortType"/>
+        <plnk:role name="billingRequester" portType="tns:billingCallback"/>
+    </plnk:partnerLinkType>   
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     BINDING DEFINITION - Defines the message format and protocol details
+     for a web service.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <binding name="billingBinding" type="tns:billingPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="initiate">
+            <soap:operation soapAction="http://eclipse.org/bpel/sample/initiate"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+    			<soap:body use="literal"/>
+    		</output>
+        </operation>
+    </binding>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     SERVICE DEFINITION - A service groups a set of ports into
+     a service unit.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <service name="billingService">
+        <port binding="tns:billingBinding" name="billingPort">
+    		<soap:address location="http://localhost:8080/ode/processes/billing"/>
+        </port>
+    </service>
+
+</definitions>
