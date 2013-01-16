@@ -108,7 +108,7 @@ body {
 #content {
     width: 800px;
     background-color: #fff;
-    text-align: center;
+    text-align: left;
 }
 
 #ajaxlink {
@@ -368,8 +368,8 @@ body#myaccountpage li#myaccount a {
     /* ACTIVE INVOICES TITLE */
 
 #darkbanner {
-    margin: 20px 0 0 -40px;
-    padding: 8px 10px 10px 4px;
+    margin: 20px 0 0 -18px;
+    padding: 8px 10px 10px 40px;
     background: #424242;
     position: relative;
 }
@@ -422,7 +422,7 @@ body#myaccountpage li#myaccount a {
 }
 
 .banner320 {
-    width: 500px;
+    width: 320px;
 }
 
 .banner350 {
@@ -1423,15 +1423,6 @@ button:hover {
     color: white;
     background-color: #5e5d5d;
 }
-
-p {
-    font-size: 20px;
-}
-
-h3 {
-    font-size: 30px;
-}
-
 </style>
 </head>
 <body id="login">
@@ -1439,33 +1430,42 @@ h3 {
 <div id="wrapper">
     <div id="content">
         <div id="header">
+            <h1><!--<a href=""><img src="/images/logo.png" alt=""></a>--></h1>
         </div>
         <div id="darkbanner" class="banner320">
-            <h2>Sentiment analysis page for user "${user.getName()}"</h2>
+            <h2>Aharon Login</h2>
         </div>
         <div id="darkbannerwrap">
         </div>
-        <form name="form1" method="post" action="<%=request.getContextPath()%>/Statistics">
+        <form name="loginForm" method="post" action="Login">
             <fieldset class="form">
                 <p>
-                    Company "${user.getCompany()}" got the following result:
-
-                <div style="text-align: center;">
-
-                    <b><font color="red"><h3>3.0</h3></font></b>
-                </div>
-
+                    <label for="user_name">Username:</label>
+                    <input name="username" id="user_name" type="text" value=""/>
                 </p>
+
+                <p>
+                    <label for="user_password">Password:</label>
+                    <input name="password" id="user_password" type="password"/>
+                </p>
+                <button type="submit" class="positive" name="Submit">
+                    Login
+                </button>
+
+                <div>
+                    <a href="/RegisterForm">Register</a>
+                </div>
             </fieldset>
+            <div>
+                <font color=red>
+                    <c:if test="${fromIndex != true && user == null}">
 
+                        User or password wrong. Please try again.
 
+                    </c:if>
+                </font>
+            </div>
         </form>
-        <button type="button" class="positive" name="back" onclick="window.location='/Overview';">
-            back
-        </button>
-        <button type="button" class="positive" name="logout" onclick="window.location='/Logout';">
-            Logout
-        </button>
     </div>
 </div>
 </body>

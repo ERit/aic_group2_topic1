@@ -108,7 +108,7 @@ body {
 #content {
     width: 800px;
     background-color: #fff;
-    text-align: center;
+    text-align: left;
 }
 
 #ajaxlink {
@@ -368,8 +368,8 @@ body#myaccountpage li#myaccount a {
     /* ACTIVE INVOICES TITLE */
 
 #darkbanner {
-    margin: 20px 0 0 -40px;
-    padding: 8px 10px 10px 4px;
+    margin: 20px 0 0 -18px;
+    padding: 8px 10px 10px 40px;
     background: #424242;
     position: relative;
 }
@@ -422,7 +422,7 @@ body#myaccountpage li#myaccount a {
 }
 
 .banner320 {
-    width: 500px;
+    width: 320px;
 }
 
 .banner350 {
@@ -1423,15 +1423,6 @@ button:hover {
     color: white;
     background-color: #5e5d5d;
 }
-
-p {
-    font-size: 20px;
-}
-
-h3 {
-    font-size: 30px;
-}
-
 </style>
 </head>
 <body id="login">
@@ -1439,33 +1430,56 @@ h3 {
 <div id="wrapper">
     <div id="content">
         <div id="header">
+            <h1><!--<a href=""><img src="/images/logo.png" alt=""></a>--></h1>
         </div>
         <div id="darkbanner" class="banner320">
-            <h2>Sentiment analysis page for user "${user.getName()}"</h2>
+            <h2>Statistico Register Form</h2>
         </div>
         <div id="darkbannerwrap">
         </div>
-        <form name="form1" method="post" action="<%=request.getContextPath()%>/Statistics">
+        <form name="loginForm" method="post" action="Register">
             <fieldset class="form">
                 <p>
-                    Company "${user.getCompany()}" got the following result:
-
-                <div style="text-align: center;">
-
-                    <b><font color="red"><h3>3.0</h3></font></b>
-                </div>
-
+                    <label for="user_name">Username:</label>
+                    <input name="username" id="user_name" type="text" value=""/>
                 </p>
+
+                <p>
+                    <label for="user_password1">Password:</label>
+                    <input name="password1" id="user_password1" type="password"/>
+                </p>
+
+                <p>
+                    <label for="user_password2">Password again:</label>
+                    <input name="password2" id="user_password2" type="password"/>
+                </p>
+
+                <p>
+                    <label for="company">Company:</label>
+                    <input name="company" id="company" type="text"/>
+                </p>
+
+                <p>
+                    <label for="ccnumber">CC Number:</label>
+                    <input name="ccnumber" id="ccnumber" type="text"/>
+                </p>
+
+                <p>
+                    <label for="email">E-Mail:</label>
+                    <input name="email" id="email" type="text"/>
+                </p>
+
+                <button type="submit" class="positive" name="Submit">
+                    Register
+                </button>
+
             </fieldset>
-
-
+            <div>
+                <font color=red>
+                    ${registerText}
+                </font>
+            </div>
         </form>
-        <button type="button" class="positive" name="back" onclick="window.location='/Overview';">
-            back
-        </button>
-        <button type="button" class="positive" name="logout" onclick="window.location='/Logout';">
-            Logout
-        </button>
     </div>
 </div>
 </body>

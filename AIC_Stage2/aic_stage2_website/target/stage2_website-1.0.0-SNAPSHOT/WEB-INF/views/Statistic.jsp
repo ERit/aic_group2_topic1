@@ -1458,14 +1458,14 @@ h3 {
                 </p>
             </fieldset>
 
-
+            <button type="button" class="positive" name="back" onclick="window.location='/Overview';">
+                back
+            </button>
+            <button type="button" class="positive" name="logout" onclick="window.location='/Logout';">
+                Logout
+            </button>
         </form>
-        <button type="button" class="positive" name="back" onclick="window.location='/Overview';">
-            back
-        </button>
-        <button type="button" class="positive" name="logout" onclick="window.location='/Logout';">
-            Logout
-        </button>
+
     </div>
 </div>
 </body>

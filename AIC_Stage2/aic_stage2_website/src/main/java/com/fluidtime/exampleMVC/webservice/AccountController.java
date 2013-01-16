@@ -58,7 +58,7 @@ public class AccountController {
         HttpSession session = request.getSession();
         session.invalidate();
 
-        return "Index";
+        return "/Index";
     }
 
     @RequestMapping(value = "/Register", method = RequestMethod.POST)
