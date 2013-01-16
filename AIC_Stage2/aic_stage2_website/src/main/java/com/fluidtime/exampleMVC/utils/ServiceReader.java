@@ -1,6 +1,5 @@
 package com.fluidtime.exampleMVC.utils;
 
-
 import com.fluidtime.exampleMVC.model.User;
 import com.fluidtime.exampleMVC.model.xml.UserXml;
 import org.dozer.DozerBeanMapperSingletonWrapper;
@@ -9,6 +8,8 @@ import org.springframework.stereotype.Component;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.namespace.QName;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.StringReader;
@@ -92,5 +93,20 @@ public class ServiceReader {
 
 
         return user;
+    }
+    
+    public double getSentimentAnalysisFromBPELService() throws Exception {
+    	/*String endpoint = "http://localhost:8080/ode/processes/Caller";
+		Service  service = new Service();
+		Call call = (Call) service.createCall();
+		  
+		call.setTargetEndpointAddress( new java.net.URL(endpoint) );
+		call.setOperationName(new QName("http://soapinterop.org/", "echoString"));
+	
+		String ret = (String) call.invoke( new Object[] { "Hello!" } );
+		System.out.println("Sent 'Hello!', got '" + ret + "'");*/
+    	
+    	return 0.0;
+    	
     }
 }
