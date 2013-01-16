@@ -29,13 +29,17 @@ public class StatisticController {
 
         model.addAttribute("user", user);
 
-        // TODO: Get sentiment analysis from logged in "user"
         serviceReader = new ServiceReader();
+        
+        double sentimentValue = 0;
+        
         try {
-			serviceReader.getSentimentAnalysisFromBPELService();
+        	sentimentValue = serviceReader.getSentimentAnalysisFromBPELService(user.getName());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+        
+        System.out.println("and again: " + sentimentValue);
 
         return "Statistic";
     }
