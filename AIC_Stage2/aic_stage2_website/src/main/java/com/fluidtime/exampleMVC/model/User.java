@@ -7,6 +7,7 @@ public class User {
     private String password;
     private String email;
     private String ccnumber;
+    private String value = "";
 
     private String company;
 
@@ -50,6 +51,15 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+    
+    
+    public String getStatisticValue() {
+        return value;
+    }
+
+    public void setStatisticValue(String value) {
+        this.value = value;
     }
 
     @Override
