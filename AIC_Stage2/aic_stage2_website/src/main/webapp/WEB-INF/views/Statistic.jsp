@@ -1452,7 +1452,7 @@ h3 {
 
                 <div style="text-align: center;">
 
-                    <b><font color="red"><h3>3.0</h3></font></b>
+                    <b><font color="red"><h3>${user.getStatisticValue()}</h3></font></b>
                 </div>
 
                 </p>
