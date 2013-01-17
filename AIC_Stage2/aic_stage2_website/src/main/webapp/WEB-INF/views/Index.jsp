@@ -1433,7 +1433,7 @@ button:hover {
             <h1><!--<a href=""><img src="/images/logo.png" alt=""></a>--></h1>
         </div>
         <div id="darkbanner" class="banner320">
-            <h2>Aharon Login</h2>
+            <h2>Statistico Login</h2>
         </div>
         <div id="darkbannerwrap">
         </div>

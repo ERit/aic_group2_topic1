@@ -1480,10 +1480,10 @@ h3 {
             </fieldset>
 
         </form>
-        <button type="button" class="positive" name="back" onclick="window.location='/stage2_website/Login';">
+        <button type="button" class="positive" name="back" onclick="window.location='<%=request.getContextPath()%>/Overview';">
             back
         </button>
-        <button type="button" class="positive" name="logout" onclick="window.location='/Logout';">
+        <button type="button" class="positive" name="logout" onclick="window.location='<%=request.getContextPath()%>/Logout';">
             Logout
         </button>
     </div>
