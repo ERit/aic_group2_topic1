@@ -1,5 +1,5 @@
 
-package org.tempuri;
+package com.fluidtime.exampleMVC.statistic_client.org.tempuri;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
