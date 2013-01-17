@@ -1,12 +1,14 @@
 
 package org.eclipse.bpel.sample;
 
-import javax.jws.WebMethod;
-import javax.jws.WebParam;
-import javax.jws.WebResult;
-import javax.jws.WebService;
-import javax.jws.soap.SOAPBinding;
-import javax.xml.bind.annotation.XmlSeeAlso;
+import java.net.MalformedURLException;
+import java.net.URL;
+import javax.xml.namespace.QName;
+import javax.xml.ws.Service;
+import javax.xml.ws.WebEndpoint;
+import javax.xml.ws.WebServiceClient;
+import javax.xml.ws.WebServiceException;
+import javax.xml.ws.WebServiceFeature;
 
 
 /**
@@ -15,24 +17,78 @@ import javax.xml.bind.annotation.XmlSeeAlso;
  * Generated source version: 2.2
  * 
  */
-@WebService(name = "getBillDetails", targetNamespace = "http://eclipse.org/bpel/sample")
-@SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)
-@XmlSeeAlso({
-    ObjectFactory.class
-})
-public interface GetBillDetails {
+@WebServiceClient(name = "getBillDetails", targetNamespace = "http://eclipse.org/bpel/sample", wsdlLocation = "http://localhost:8080/ode/processes/getBillDetails?wsdl")
+public class GetBillDetails
+    extends Service
+{
 
+    private final static URL GETBILLDETAILS_WSDL_LOCATION;
+    private final static WebServiceException GETBILLDETAILS_EXCEPTION;
+    private final static QName GETBILLDETAILS_QNAME = new QName("http://eclipse.org/bpel/sample", "getBillDetails");
+
+    static {
+        URL url = null;
+        WebServiceException e = null;
+        try {
+            url = new URL("http://localhost:8080/ode/processes/getBillDetails?wsdl");
+        } catch (MalformedURLException ex) {
+            e = new WebServiceException(ex);
+        }
+        GETBILLDETAILS_WSDL_LOCATION = url;
+        GETBILLDETAILS_EXCEPTION = e;
+    }
+
+    public GetBillDetails() {
+        super(__getWsdlLocation(), GETBILLDETAILS_QNAME);
+    }
+
+    public GetBillDetails(WebServiceFeature... features) {
+        super(__getWsdlLocation(), GETBILLDETAILS_QNAME, features);
+    }
+
+    public GetBillDetails(URL wsdlLocation) {
+        super(wsdlLocation, GETBILLDETAILS_QNAME);
+    }
+
+    public GetBillDetails(URL wsdlLocation, WebServiceFeature... features) {
+        super(wsdlLocation, GETBILLDETAILS_QNAME, features);
+    }
+
+    public GetBillDetails(URL wsdlLocation, QName serviceName) {
+        super(wsdlLocation, serviceName);
+    }
+
+    public GetBillDetails(URL wsdlLocation, QName serviceName, WebServiceFeature... features) {
+        super(wsdlLocation, serviceName, features);
+    }
 
     /**
      * 
-     * @param payload
      * @return
-     *     returns org.eclipse.bpel.sample.GetBillDetailsResponse
+     *     returns GetBillDetailsPortType
      */
-    @WebMethod(action = "http://eclipse.org/bpel/sample/process")
-    @WebResult(name = "getBillDetailsResponse", targetNamespace = "http://eclipse.org/bpel/sample", partName = "payload")
-    public GetBillDetailsResponse process(
-        @WebParam(name = "getBillDetailsRequest", targetNamespace = "http://eclipse.org/bpel/sample", partName = "payload")
-        GetBillDetailsRequest payload);
+    @WebEndpoint(name = "getBillDetailsSOAP11port_http")
+    public GetBillDetailsPortType getGetBillDetailsSOAP11PortHttp() {
+        return super.getPort(new QName("http://eclipse.org/bpel/sample", "getBillDetailsSOAP11port_http"), GetBillDetailsPortType.class);
+    }
+
+    /**
+     * 
+     * @param features
+     *     A list of {@link javax.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
+     * @return
+     *     returns GetBillDetailsPortType
+     */
+    @WebEndpoint(name = "getBillDetailsSOAP11port_http")
+    public GetBillDetailsPortType getGetBillDetailsSOAP11PortHttp(WebServiceFeature... features) {
+        return super.getPort(new QName("http://eclipse.org/bpel/sample", "getBillDetailsSOAP11port_http"), GetBillDetailsPortType.class, features);
+    }
+
+    private static URL __getWsdlLocation() {
+        if (GETBILLDETAILS_EXCEPTION!= null) {
+            throw GETBILLDETAILS_EXCEPTION;
+        }
+        return GETBILLDETAILS_WSDL_LOCATION;
+    }
 
 }

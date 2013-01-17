@@ -1,12 +1,14 @@
 
 package org.eclipse.bpel.sample;
 
-import javax.jws.WebMethod;
-import javax.jws.WebParam;
-import javax.jws.WebResult;
-import javax.jws.WebService;
-import javax.jws.soap.SOAPBinding;
-import javax.xml.bind.annotation.XmlSeeAlso;
+import java.net.MalformedURLException;
+import java.net.URL;
+import javax.xml.namespace.QName;
+import javax.xml.ws.Service;
+import javax.xml.ws.WebEndpoint;
+import javax.xml.ws.WebServiceClient;
+import javax.xml.ws.WebServiceException;
+import javax.xml.ws.WebServiceFeature;
 
 
 /**
@@ -15,24 +17,78 @@ import javax.xml.bind.annotation.XmlSeeAlso;
  * Generated source version: 2.2
  * 
  */
-@WebService(name = "getBillList", targetNamespace = "http://eclipse.org/bpel/sample")
-@SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)
-@XmlSeeAlso({
-    ObjectFactory.class
-})
-public interface GetBillList {
+@WebServiceClient(name = "getBillList", targetNamespace = "http://eclipse.org/bpel/sample", wsdlLocation = "http://localhost:8080/ode/processes/getBillList?wsdl")
+public class GetBillList
+    extends Service
+{
 
+    private final static URL GETBILLLIST_WSDL_LOCATION;
+    private final static WebServiceException GETBILLLIST_EXCEPTION;
+    private final static QName GETBILLLIST_QNAME = new QName("http://eclipse.org/bpel/sample", "getBillList");
+
+    static {
+        URL url = null;
+        WebServiceException e = null;
+        try {
+            url = new URL("http://localhost:8080/ode/processes/getBillList?wsdl");
+        } catch (MalformedURLException ex) {
+            e = new WebServiceException(ex);
+        }
+        GETBILLLIST_WSDL_LOCATION = url;
+        GETBILLLIST_EXCEPTION = e;
+    }
+
+    public GetBillList() {
+        super(__getWsdlLocation(), GETBILLLIST_QNAME);
+    }
+
+    public GetBillList(WebServiceFeature... features) {
+        super(__getWsdlLocation(), GETBILLLIST_QNAME, features);
+    }
+
+    public GetBillList(URL wsdlLocation) {
+        super(wsdlLocation, GETBILLLIST_QNAME);
+    }
+
+    public GetBillList(URL wsdlLocation, WebServiceFeature... features) {
+        super(wsdlLocation, GETBILLLIST_QNAME, features);
+    }
+
+    public GetBillList(URL wsdlLocation, QName serviceName) {
+        super(wsdlLocation, serviceName);
+    }
+
+    public GetBillList(URL wsdlLocation, QName serviceName, WebServiceFeature... features) {
+        super(wsdlLocation, serviceName, features);
+    }
 
     /**
      * 
-     * @param payload
      * @return
-     *     returns org.eclipse.bpel.sample.GetBillListResponse
+     *     returns GetBillListPortType
      */
-    @WebMethod(action = "http://eclipse.org/bpel/sample/process")
-    @WebResult(name = "getBillListResponse", targetNamespace = "http://eclipse.org/bpel/sample", partName = "payload")
-    public GetBillListResponse process(
-        @WebParam(name = "getBillListRequest", targetNamespace = "http://eclipse.org/bpel/sample", partName = "payload")
-        GetBillListRequest payload);
+    @WebEndpoint(name = "getBillListSOAP11port_http")
+    public GetBillListPortType getGetBillListSOAP11PortHttp() {
+        return super.getPort(new QName("http://eclipse.org/bpel/sample", "getBillListSOAP11port_http"), GetBillListPortType.class);
+    }
+
+    /**
+     * 
+     * @param features
+     *     A list of {@link javax.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
+     * @return
+     *     returns GetBillListPortType
+     */
+    @WebEndpoint(name = "getBillListSOAP11port_http")
+    public GetBillListPortType getGetBillListSOAP11PortHttp(WebServiceFeature... features) {
+        return super.getPort(new QName("http://eclipse.org/bpel/sample", "getBillListSOAP11port_http"), GetBillListPortType.class, features);
+    }
+
+    private static URL __getWsdlLocation() {
+        if (GETBILLLIST_EXCEPTION!= null) {
+            throw GETBILLLIST_EXCEPTION;
+        }
+        return GETBILLLIST_WSDL_LOCATION;
+    }
 
 }
