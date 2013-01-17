@@ -14,7 +14,7 @@
   </extensions>
   <extensions>
     <extendedObject href="billing.bpel#/"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1358414932000"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1358416582000"/>
   </extensions>
   <extensions>
     <extendedObject href="billing.bpel#//@activity/@activities.2/@activity/@activities.0"/>
@@ -262,10 +262,6 @@
   </extensions>
   <extensions>
     <extendedObject href="billing.bpel#//@activity/@activities.3/@activity/@activity/@activities.3/@activity/@activities.1/@copy.0"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
-  </extensions>
-  <extensions>
-    <extendedObject href="billing.bpel#//@activity/@activities.2/@activity/@activities.2/@copy.3"/>
     <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
   </extensions>
 </extensionmodel:ExtensionMap>

@@ -29,10 +29,7 @@
                 <complexType>
                     <sequence>
                     	<element name="result" type="string" />
-                    	<element name="customerUser" type="string"></element>
-                    	<element name="customerId" type="int"></element>
-                    	<element name="id" type="int"></element>
-                    	<element name="isPayed" type="int"></element>
+                    	<element name="billCount" type="int" />
                     	<element name="amount" type="double"></element>
                     </sequence>
                 </complexType>
