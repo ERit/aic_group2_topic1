@@ -185,9 +185,11 @@ namespace StatisticService
             Console.WriteLine("Negative tweets: " + negative);
             Console.WriteLine("Positive tweets: " + positive);
 
-            double all = (double)positive + (double)negative;
+            //double all = (double)positive + (double)negative + (double)neutral;
+            //double sentiment = (double)positive / all;
 
-            double sentiment = (double)positive / all;
+            double sentiment = (((double)positive * 1) + ((double)neutral * 0.5))
+                / (double)(positive + negative + neutral);
 
             Console.WriteLine("Sentiment Analysis: " + String.Format("{0:0.##}", sentiment));
 
