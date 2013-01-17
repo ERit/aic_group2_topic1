@@ -6,6 +6,10 @@ import java.util.List;
 import com.fluidtime.exampleMVC.model.Bill;
 import com.fluidtime.exampleMVC.model.User;
 
+import org.eclipse.bpel.sample.BillingPortType;
+import org.eclipse.bpel.sample.BillingRequest;
+import org.eclipse.bpel.sample.BillingResponse;
+import org.eclipse.bpel.sample.BillingService;
 import org.eclipse.bpel.sample.GetBillDetails;
 import org.eclipse.bpel.sample.GetBillDetailsRequest;
 import org.eclipse.bpel.sample.GetBillDetailsResponse;
@@ -63,12 +67,14 @@ public class BillingController {
         		continue;
         	}
         }
-        user.setStatisticValue(idsConCat);
+
+        
+        
+        GetBillDetailsService bdsService = new GetBillDetailsService();
+        GetBillDetails details = bdsService.getGetBillDetailsPort();
 
         List<Bill> bills = new LinkedList<Bill>();
         for (Integer curId : idArray) {
-	        GetBillDetailsService bdsService = new GetBillDetailsService();
-	        GetBillDetails details = bdsService.getGetBillDetailsPort();
 	        
 	        GetBillDetailsRequest detailsPayload = new GetBillDetailsRequest();
 	        detailsPayload.setInput(curId);
@@ -84,8 +90,6 @@ public class BillingController {
         }
         
         model.addAttribute("bills", bills);
-        //user.setStatisticValue(detailsResponse.getCustromerUsername());
-        
         
         return "Billing";
     }

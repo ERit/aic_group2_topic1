@@ -25,6 +25,7 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _SimpleStringType_QNAME = new QName("http://eclipse.org/bpel/sample", "simpleStringType");
+    private final static QName _IntegerType_QNAME = new QName("http://eclipse.org/bpel/sample", "integerType");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: org.eclipse.bpel.sample
@@ -34,19 +35,35 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetBillListRequest }
+     * Create an instance of {@link BillingResponse }
      * 
      */
-    public GetBillListRequest createGetBillListRequest() {
-        return new GetBillListRequest();
+    public BillingResponse createBillingResponse() {
+        return new BillingResponse();
     }
 
     /**
-     * Create an instance of {@link GetBillListResponse }
+     * Create an instance of {@link GetOpenBillsResponse }
      * 
      */
-    public GetBillListResponse createGetBillListResponse() {
-        return new GetBillListResponse();
+    public GetOpenBillsResponse createGetOpenBillsResponse() {
+        return new GetOpenBillsResponse();
+    }
+
+    /**
+     * Create an instance of {@link BillingRequest }
+     * 
+     */
+    public BillingRequest createBillingRequest() {
+        return new BillingRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetOpenBills }
+     * 
+     */
+    public GetOpenBills createGetOpenBills() {
+        return new GetOpenBills();
     }
 
     /**
@@ -56,6 +73,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://eclipse.org/bpel/sample", name = "simpleStringType")
     public JAXBElement<String> createSimpleStringType(String value) {
         return new JAXBElement<String>(_SimpleStringType_QNAME, String.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Integer }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://eclipse.org/bpel/sample", name = "integerType")
+    public JAXBElement<Integer> createIntegerType(Integer value) {
+        return new JAXBElement<Integer>(_IntegerType_QNAME, Integer.class, null, value);
     }
 
 }
