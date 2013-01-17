@@ -28,7 +28,9 @@
             <element name="billingResponse">
                 <complexType>
                     <sequence>
-                        <element name="result" type="string"/>
+                    	<element name="result" type="string" />
+                    	<element name="billCount" type="int" />
+                    	<element name="amount" type="double"></element>
                     </sequence>
                 </complexType>
             </element>
@@ -91,10 +93,6 @@
             <input message="tns:billingRequestMessage"/>
             <output message="tns:billingResponseMessage"/>
         </operation>
-        <operation name="getOpenBills">
-        	<input message="tns:getOpenBillsRequest"></input>
-        	<output message="tns:getOpenBillsResponse"></output>
-        </operation>
     </portType>
 
     <!-- portType implemented by the requester of billing BPEL process 
@@ -122,16 +120,6 @@
     	<operation name="initiate">
     		<soap:operation
     			soapAction="http://eclipse.org/bpel/sample/initiate" />
-    		<input>
-    			<soap:body use="literal" />
-    		</input>
-    		<output>
-    			<soap:body use="literal" />
-    		</output>
-    	</operation>
-    	<operation name="getOpenBills">
-    		<soap:operation
-    			soapAction="http://eclipse.org/bpel/sample/getOpenBills" />
     		<input>
     			<soap:body use="literal" />
     		</input>

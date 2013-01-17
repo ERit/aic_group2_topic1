@@ -11,4 +11,22 @@
       <service name="tempuri.org:BillingService" port="BasicHttpBinding_IBillingService"/>
     </invoke>
   </process>
+  <process name="sample:getBillDetails">
+    <process-events generate="all"/>
+    <provide partnerLink="client">
+      <service name="sample:getBillDetailsService" port="getBillDetailsPort"/>
+    </provide>
+    <invoke partnerLink="WCFBillingService">
+      <service name="tempuri.org:BillingService" port="BasicHttpBinding_IBillingService"/>
+    </invoke>
+  </process>
+  <process name="sample:getBillList">
+    <process-events generate="all"/>
+    <provide partnerLink="client">
+      <service name="sample:getBillListService" port="getBillListPort"/>
+    </provide>
+    <invoke partnerLink="WCFBillingService">
+      <service name="tempuri.org:BillingService" port="BasicHttpBinding_IBillingService"/>
+    </invoke>
+  </process>
 </deploy>

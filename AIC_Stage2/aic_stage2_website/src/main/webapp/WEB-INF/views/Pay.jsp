@@ -1441,41 +1441,30 @@ h3 {
         <div id="header">
         </div>
         <div id="darkbanner" class="banner320">
-            <h2>Billings for "${user.getName()}"</h2>
+            <h2>Pay your bills "${user.getName()}"</h2>
         </div>
         <div id="darkbannerwrap">
         </div>
                 <p>
-                    Your bills:
+                    You have to pay
 
                 <div style="text-align: center;">
 
-                    <table border=1>
-                    <tr>
-                    	<th>Bill id</th>
-                    	<th>Username</th>
-                    	<th>is payed</th>
-                    	<th>amount</th>
-                    </tr>
-                    <c:forEach var="bill" items="${bills}">
-                    	<tr>
-                    		<td>${bill.id }</td>
-                    		<td>${bill.customerUsername }</td>
-                    		<td>${bill.payed}</td>
-                    		<td>${bill.amount }</td>
-                    	</tr>
-                    
-                    </c:forEach>
-                    
-                    </table>
+                    <h3><b><font color="red">${payBill.amount}</font> Euro</b></h3>
+                   
                 </div>
+                	
+                	for ${payBill.billCount} bill(s).
+                	<br/>
+                	<br/>
+                	The amount is debited from your credit card (${user.ccnumber}).
 
                 </p>
         <button type="button" class="positive" name="back" onclick="window.location='<%=request.getContextPath()%>/Overview';">
-            Overview
+            back
         </button>
-        <button type="button" class="positive" name="logout" onclick="window.location='<%=request.getContextPath()%>/Pay';">
-            Pay open Bills
+        <button type="button" class="positive" name="logout" onclick="window.location='<%=request.getContextPath()%>/Billing';">
+            Bills
         </button>
     </div>
 </div>
