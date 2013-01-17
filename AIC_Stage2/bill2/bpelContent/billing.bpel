@@ -46,6 +46,8 @@
              -->
         <bpel:variable name="output"
                   messageType="tns:billingResponseMessage"/>
+        <bpel:variable name="tmpOutput"
+                  messageType="tns:billingResponseMessage"/>
         
         <bpel:variable name="WCF-BillingResponse" messageType="ns:IBillingService_ListUsersBills_OutputMessage"></bpel:variable>
         <bpel:variable name="WCF-BillingRequest" messageType="ns:IBillingService_ListUsersBills_InputMessage"></bpel:variable>
@@ -147,6 +149,22 @@
         
         
         
+        <bpel:assign validate="no" name="initOutput">
+            <bpel:copy>
+                <bpel:from>
+                    <bpel:literal xml:space="preserve"><tns:billingResponse xmlns:tns="http://eclipse.org/bpel/sample" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <tns:result>tns:result</tns:result>
+  <tns:customerUser>tns:customerUser</tns:customerUser>
+  <tns:customerId>0</tns:customerId>
+  <tns:id>0</tns:id>
+  <tns:isPayed>0</tns:isPayed>
+  <tns:amount>0.0</tns:amount>
+</tns:billingResponse>
+</bpel:literal>
+                </bpel:from>
+                <bpel:to part="payload" variable="output"></bpel:to>
+            </bpel:copy>
+        </bpel:assign>
         <bpel:scope name="fetchBillIDs">
             <bpel:sequence name="fetchBillIDsSequence">
                 <bpel:assign validate="yes" name="Assign">
@@ -199,6 +217,10 @@
                 <bpel:to variable="test"></bpel:to>
             </bpel:copy>
         
+                    <bpel:copy>
+                        <bpel:from part="parameters" variable="WCFBillingProviderResponse"></bpel:from>
+                        <bpel:to></bpel:to>
+                    </bpel:copy>
                 </bpel:assign>
                 <bpel:assign validate="no" name="xqueryResponse"><bpel:copy>
                 <bpel:from><bpel:literal xml:space="preserve"><tns:billingResponse xmlns:tns="http://eclipse.org/bpel/sample" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -284,8 +306,9 @@
                     <bpel:invoke name="Invoke1" partnerLink="WCFBillingProvider" operation="GetBill" portType="ns:IBillingService" inputVariable="WCF-GetBillRequest" outputVariable="WCF-GetBillResponse">
                     </bpel:invoke>
                     <bpel:if name="If">
-                        <bpel:condition><![CDATA[$WCF-GetBillResponse.parameters/ns:GetBillResult/xsdbs:isPayed = "true"]]></bpel:condition>
-                        <bpel:assign validate="no" name="AssignBill">
+                        <bpel:condition><![CDATA[$WCF-GetBillResponse.parameters/ns:GetBillResult/xsdbs:isPayed = "false"]]></bpel:condition>
+                        <bpel:sequence>
+                            <bpel:assign validate="no" name="AssignBill">
                         <bpel:copy>
                             <bpel:from>
                                 <![CDATA[concat($output.payload, ' ', $WCF-GetBillResponse.parameters/ns:GetBillResult/xsdbs:customerUsername, ', ',
@@ -296,9 +319,40 @@
                             </bpel:to>
                         </bpel:copy>
                     </bpel:assign>
+                            <bpel:assign validate="no" name="AssignRequestPram">
+                                <bpel:copy>
+                                    <bpel:from><bpel:literal><tns:PayBill xmlns:tns="http://tempuri.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <tns:Id>0</tns:Id>
+</tns:PayBill>
+</bpel:literal></bpel:from>
+                                    <bpel:to variable="WCFBillingProviderRequest" part="parameters"></bpel:to>
+                                </bpel:copy>
+                                <bpel:copy>
+                                    <bpel:from>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        <![CDATA[$test/xsd:int[position()=$Counter]]]>
+                                    </bpel:from>
+                                    <bpel:to part="parameters" variable="WCFBillingProviderRequest">
+                                        <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[ns:Id]]></bpel:query>
+                                    </bpel:to>
+                                </bpel:copy>
+                            </bpel:assign>
+                            <bpel:invoke name="InvokePayBill" partnerLink="WCFBillingProvider" operation="PayBill" portType="ns:IBillingService" inputVariable="WCFBillingProviderRequest" outputVariable="WCFBillingProviderResponse"></bpel:invoke>
+                            
+                        </bpel:sequence>
                     </bpel:if>
                     
                 </bpel:sequence>
+                <bpel:variables>
+                    <bpel:variable name="WCFBillingProviderResponse" messageType="ns:IBillingService_PayBill_OutputMessage"></bpel:variable>
+                    <bpel:variable name="WCFBillingProviderRequest" messageType="ns:IBillingService_PayBill_InputMessage"></bpel:variable>
+                </bpel:variables>
             </bpel:scope>
         </bpel:forEach>
         <bpel:reply name="Reply" partnerLink="client" operation="initiate" portType="tns:billingPortType" variable="output"></bpel:reply>

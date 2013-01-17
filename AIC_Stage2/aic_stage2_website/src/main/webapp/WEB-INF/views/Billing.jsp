@@ -1453,13 +1453,34 @@ h3 {
                 <div style="text-align: center;">
 
                     <h3><b><font color="red">100 000</font> Euro</b></h3>
+                    <b><font color="red"><h3>${user.getStatisticValue()}</h3></font></b>
+                    <br/>
+                    <br/>
+                    <table>
+                    <tr>
+                    	<th>Bill id</th>
+                    	<th>Username</th>
+                    	<th>is payed</th>
+                    	<th>amount</th>
+                    </tr>
+                    <c:forEach var="bill" items="${bills}">
+                    	<tr>
+                    		<td>${bill.id }</td>
+                    		<td>${bill.customerUsername }</td>
+                    		<td>${bill.payed}</td>
+                    		<td>${bill.amount }</td>
+                    	</tr>
+                    
+                    </c:forEach>
+                    
+                    </table>
                 </div>
 
                 </p>
             </fieldset>
 
         </form>
-        <button type="button" class="positive" name="back" onclick="window.location='/Overview';">
+        <button type="button" class="positive" name="back" onclick="window.location='/stage2_website/Login';">
             back
         </button>
         <button type="button" class="positive" name="logout" onclick="window.location='/Logout';">
