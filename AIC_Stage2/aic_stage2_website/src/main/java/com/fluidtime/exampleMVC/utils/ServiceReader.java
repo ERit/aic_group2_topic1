@@ -100,23 +100,20 @@ public class ServiceReader {
     public double getSentimentAnalysisFromBPELService(String username) throws Exception {
     	Caller caller = new Caller();
     	 
-		// TODO hmmmm
 		@SuppressWarnings("restriction")
 		CallerPortType t = caller.getPort(CallerPortType.class);
 		CallerRequest request = new CallerRequest();
 		request.setInput(username);
 		CallerResponse response = t.process(request);
 		
-		double result = 0;
+		double result = 0.5;
 		
 		try {
 			result = Double.parseDouble(response.getResult());
 		} catch (NumberFormatException nfe) {
-			result = 0.62;
+			System.out.println(nfe);
 		}
-		   
-		System.out.println("\nYAY\n" + result);
-		
+		   		
 		return  result;
     	
     }

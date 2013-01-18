@@ -1,15 +1,11 @@
 package com.fluidtime.exampleMVC.webservice;
 
-import java.text.DecimalFormat;
-
 import com.fluidtime.exampleMVC.model.User;
 import com.fluidtime.exampleMVC.utils.ServiceReader;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -41,7 +37,7 @@ public class StatisticController {
 			e.printStackTrace();
 		}
 
-        String result = String.format("%.2f", sentimentValue);
+        String result = String.format("%.4f", sentimentValue);
         
         user.setStatisticValue(result);
         
