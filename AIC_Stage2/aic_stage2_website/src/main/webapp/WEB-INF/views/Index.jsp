@@ -1453,7 +1453,7 @@ button:hover {
                 </button>
 
                 <div>
-                    <a href="/RegisterForm">Register</a>
+                    <a href="<%=request.getContextPath()%>/RegisterForm">Register</a>
                 </div>
             </fieldset>
             <div>
