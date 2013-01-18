@@ -1474,9 +1474,6 @@ h3 {
                 Goto billing page
                 </button>
                 <br><br>
-                <button type="button" class="positive" name="billing" onclick="openUnregister()">
-                    Unregister
-                </button>
             </fieldset>
         </form>
     </div>

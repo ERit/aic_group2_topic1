@@ -1453,6 +1453,16 @@ button:hover {
                     <label for="user_password2">Password again:</label>
                     <input name="password2" id="user_password2" type="password"/>
                 </p>
+                
+                <p>
+                    <label for="firstname">Firstname:</label>
+                    <input name="firstname" id="firstname" type="text"/>
+                </p>
+                
+                <p>
+                    <label for="lastname">Lastname:</label>
+                    <input name="lastname" id="lastname" type="text"/>
+                </p>
 
                 <p>
                     <label for="company">Company:</label>
