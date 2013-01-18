@@ -53,7 +53,7 @@ public class PayController {
         BillingPortType billingPort = bs.getBillingPort();
         
         BillingRequest req = new BillingRequest();
-        req.setInput("max");
+        req.setInput(user.getName());
         BillingResponse res = billingPort.initiate(req);
         
         paybill.setAmount(res.getAmount());

@@ -50,7 +50,7 @@ public class BillingController {
         GetBillList bl = getBillingListService.getGetBillListPort();
         
         GetBillListRequest payload = new GetBillListRequest();
-        payload.setInput("max");
+        payload.setInput(user.getName());
         GetBillListResponse response = bl.process(payload);
                 
         String billIds = "ids: " + response.getResult();
