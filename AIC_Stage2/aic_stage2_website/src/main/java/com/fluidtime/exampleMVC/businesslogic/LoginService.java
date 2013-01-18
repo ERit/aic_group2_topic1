@@ -47,8 +47,6 @@ public class LoginService {
 
     public boolean registerUser(User user) throws Exception {
 
-        //return serviceReader.registerFromBPELService(user);
-
-        return true;
+        return serviceReader.registerFromBPELService(user);
     }
 }
