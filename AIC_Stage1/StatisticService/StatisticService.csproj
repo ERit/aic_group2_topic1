@@ -44,7 +44,7 @@
       <HintPath>..\SentimentLib\bin\Debug\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\SentimentLib\bin\Debug\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -64,7 +64,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="TweetSharp">
-      <HintPath>..\SentimentLib\bin\Debug\TweetSharp.dll</HintPath>
+      <HintPath>..\packages\TweetSharp.2.2.1\lib\4.0\TweetSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

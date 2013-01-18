@@ -54,6 +54,7 @@ namespace StatisticService
             ArrayList pages = new ArrayList();
             JsonSerializer serializer = new JsonSerializer();
 
+            // you can changes this number to get more tweets (100 tweets per page)
             int numPages = 1;
 
             // get the tweets from the first x numpages

@@ -1,0 +1,9 @@
+I:\Workspace\aic_group2_topic1\AIC_Stage1\StatisticService\bin\StatisticService.dll
+I:\Workspace\aic_group2_topic1\AIC_Stage1\StatisticService\bin\StatisticService.pdb
+I:\Workspace\aic_group2_topic1\AIC_Stage1\StatisticService\bin\Newtonsoft.Json.dll
+I:\Workspace\aic_group2_topic1\AIC_Stage1\StatisticService\bin\TweetSharp.dll
+I:\Workspace\aic_group2_topic1\AIC_Stage1\StatisticService\bin\Hammock.ClientProfile.dll
+I:\Workspace\aic_group2_topic1\AIC_Stage1\StatisticService\bin\Newtonsoft.Json.xml
+I:\Workspace\aic_group2_topic1\AIC_Stage1\StatisticService\bin\TweetSharp.pdb
+I:\Workspace\aic_group2_topic1\AIC_Stage1\StatisticService\obj\Debug\StatisticService.dll
+I:\Workspace\aic_group2_topic1\AIC_Stage1\StatisticService\obj\Debug\StatisticService.pdb

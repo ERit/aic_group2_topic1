@@ -1,16 +1,5 @@
-I:\Workspace\AIC_Stage1\SentimentClient\bin\Debug\SentimentClient.exe.config
-I:\Workspace\AIC_Stage1\SentimentClient\bin\Debug\SentimentClient.exe
-I:\Workspace\AIC_Stage1\SentimentClient\bin\Debug\SentimentClient.pdb
-I:\Workspace\AIC_Stage1\SentimentClient\obj\Debug\SentimentClient.exe
-I:\Workspace\AIC_Stage1\SentimentClient\obj\Debug\SentimentClient.pdb
-<<<<<<< HEAD
-C:\Users\Franz\Documents\GitHub\aic_group2_topic1\AIC_Stage1\SentimentClient\bin\Debug\SentimentClient.exe.config
-=======
-C:\Users\aster\workspace\aic_group2_topic1\AIC_Stage1\SentimentClient\bin\Debug\SentimentClient.exe.config
-C:\Users\aster\workspace\aic_group2_topic1\AIC_Stage1\SentimentClient\obj\Debug\SentimentClient.exe
-C:\Users\aster\workspace\aic_group2_topic1\AIC_Stage1\SentimentClient\obj\Debug\SentimentClient.pdb
-C:\Users\aster\workspace\aic_group2_topic1\AIC_Stage1\SentimentClient\bin\Debug\SentimentClient.exe
-C:\Users\aster\workspace\aic_group2_topic1\AIC_Stage1\SentimentClient\bin\Debug\SentimentClient.pdb
-C:\Users\aster\workspace\aic_group2_topic1\AIC_Stage1\SentimentClient\bin\Debug\MySql.Data.dll
-C:\Users\aster\workspace\aic_group2_topic1\AIC_Stage1\SentimentClient\obj\Debug\SentimentClient.csprojResolveAssemblyReference.cache
->>>>>>> a337a754d09f3bab377668d3424d8d980c4ddddb
+I:\Workspace\aic_group2_topic1\AIC_Stage1\SentimentClient\bin\Debug\SentimentClient.exe.config
+I:\Workspace\aic_group2_topic1\AIC_Stage1\SentimentClient\bin\Debug\SentimentClient.exe
+I:\Workspace\aic_group2_topic1\AIC_Stage1\SentimentClient\bin\Debug\SentimentClient.pdb
+I:\Workspace\aic_group2_topic1\AIC_Stage1\SentimentClient\obj\Debug\SentimentClient.exe
+I:\Workspace\aic_group2_topic1\AIC_Stage1\SentimentClient\obj\Debug\SentimentClient.pdb
