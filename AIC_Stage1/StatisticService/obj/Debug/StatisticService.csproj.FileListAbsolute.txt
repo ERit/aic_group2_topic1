@@ -8,3 +8,14 @@ I:\Workspace\aic_group2_topic1\AIC_Stage1\StatisticService\bin\TweetSharp.pdb
 I:\Workspace\aic_group2_topic1\AIC_Stage1\StatisticService\obj\Debug\StatisticService.dll
 I:\Workspace\aic_group2_topic1\AIC_Stage1\StatisticService\obj\Debug\StatisticService.pdb
 I:\Workspace\aic_group2_topic1\AIC_Stage1\StatisticService\obj\Debug\StatisticService.csprojResolveAssemblyReference.cache
+D:\Workspace\aic_group2_topic1\AIC_Stage1\StatisticService\bin\StatisticService.dll
+D:\Workspace\aic_group2_topic1\AIC_Stage1\StatisticService\bin\StatisticService.pdb
+D:\Workspace\aic_group2_topic1\AIC_Stage1\StatisticService\bin\MySql.Data.dll
+D:\Workspace\aic_group2_topic1\AIC_Stage1\StatisticService\bin\Newtonsoft.Json.dll
+D:\Workspace\aic_group2_topic1\AIC_Stage1\StatisticService\bin\TweetSharp.dll
+D:\Workspace\aic_group2_topic1\AIC_Stage1\StatisticService\bin\Hammock.ClientProfile.dll
+D:\Workspace\aic_group2_topic1\AIC_Stage1\StatisticService\bin\Newtonsoft.Json.xml
+D:\Workspace\aic_group2_topic1\AIC_Stage1\StatisticService\bin\TweetSharp.pdb
+D:\Workspace\aic_group2_topic1\AIC_Stage1\StatisticService\obj\Debug\StatisticService.csprojResolveAssemblyReference.cache
+D:\Workspace\aic_group2_topic1\AIC_Stage1\StatisticService\obj\Debug\StatisticService.dll
+D:\Workspace\aic_group2_topic1\AIC_Stage1\StatisticService\obj\Debug\StatisticService.pdb

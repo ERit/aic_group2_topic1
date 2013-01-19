@@ -3,3 +3,10 @@ I:\Workspace\aic_group2_topic1\AIC_Stage1\SentimentClient\bin\Debug\SentimentCli
 I:\Workspace\aic_group2_topic1\AIC_Stage1\SentimentClient\bin\Debug\SentimentClient.pdb
 I:\Workspace\aic_group2_topic1\AIC_Stage1\SentimentClient\obj\Debug\SentimentClient.exe
 I:\Workspace\aic_group2_topic1\AIC_Stage1\SentimentClient\obj\Debug\SentimentClient.pdb
+D:\Workspace\aic_group2_topic1\AIC_Stage1\SentimentClient\bin\Debug\SentimentClient.exe.config
+D:\Workspace\aic_group2_topic1\AIC_Stage1\SentimentClient\obj\Debug\SentimentClient.exe
+D:\Workspace\aic_group2_topic1\AIC_Stage1\SentimentClient\obj\Debug\SentimentClient.pdb
+D:\Workspace\aic_group2_topic1\AIC_Stage1\SentimentClient\bin\Debug\SentimentClient.exe
+D:\Workspace\aic_group2_topic1\AIC_Stage1\SentimentClient\bin\Debug\SentimentClient.pdb
+D:\Workspace\aic_group2_topic1\AIC_Stage1\SentimentClient\bin\Debug\MySql.Data.dll
+D:\Workspace\aic_group2_topic1\AIC_Stage1\SentimentClient\obj\Debug\SentimentClient.csprojResolveAssemblyReference.cache

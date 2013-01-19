@@ -2,3 +2,8 @@ I:\Workspace\aic_group2_topic1\AIC_Stage1\BillingService\bin\BillingService.dll
 I:\Workspace\aic_group2_topic1\AIC_Stage1\BillingService\bin\BillingService.pdb
 I:\Workspace\aic_group2_topic1\AIC_Stage1\BillingService\obj\Debug\BillingService.dll
 I:\Workspace\aic_group2_topic1\AIC_Stage1\BillingService\obj\Debug\BillingService.pdb
+D:\Workspace\aic_group2_topic1\AIC_Stage1\BillingService\bin\BillingService.dll
+D:\Workspace\aic_group2_topic1\AIC_Stage1\BillingService\bin\BillingService.pdb
+D:\Workspace\aic_group2_topic1\AIC_Stage1\BillingService\bin\MySql.Data.dll
+D:\Workspace\aic_group2_topic1\AIC_Stage1\BillingService\obj\Debug\BillingService.dll
+D:\Workspace\aic_group2_topic1\AIC_Stage1\BillingService\obj\Debug\BillingService.pdb
