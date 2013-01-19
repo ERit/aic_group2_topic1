@@ -15,34 +15,24 @@ public class LoginService {
     @Autowired
     ServiceReader serviceReader;
 
-    public User login(String username, String password) throws LoginFailedException, IOException {
+    public boolean login(String username, String password) throws LoginFailedException, IOException {
 
 
         return getLoginFromBPELService(username, password);
     }
 
-    public User getLoginFromBPELService(String username, String password) throws LoginFailedException, IOException {
+    public boolean getLoginFromBPELService(String username, String password) throws LoginFailedException, IOException {
 
-        User user = null;
+        boolean loginOk = false;
 
-       /* try {
-            user = serviceReader.loginFromBPELService(username, password);
+        try {
+            loginOk = serviceReader.loginFromBPELService(username, password);
         } catch (Exception e) {
 
             throw new IOException(e);
-        }  */
+        } 
 
-
-        //TODO
-        user = new User();
-
-        user.setName(username);
-        user.setEmail("admin@admin.at");
-        user.setCcnumber("1282834784748478343");
-        user.setPassword(password);
-        user.setCompany("Microsoft");
-
-        return user;
+        return loginOk;
     }
 
     public boolean registerUser(User user) throws Exception {

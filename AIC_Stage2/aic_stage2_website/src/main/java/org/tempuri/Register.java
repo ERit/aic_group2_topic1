@@ -47,19 +47,19 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "register")
 public class Register {
 
-    @XmlElementRef(name = "username", namespace = "http://tempuri.org/", type = JAXBElement.class)
+    @XmlElementRef(name = "username", namespace = "http://tempuri.org/", type = JAXBElement.class, required = false)
     protected JAXBElement<String> username;
-    @XmlElementRef(name = "password", namespace = "http://tempuri.org/", type = JAXBElement.class)
+    @XmlElementRef(name = "password", namespace = "http://tempuri.org/", type = JAXBElement.class, required = false)
     protected JAXBElement<String> password;
-    @XmlElementRef(name = "firstname", namespace = "http://tempuri.org/", type = JAXBElement.class)
+    @XmlElementRef(name = "firstname", namespace = "http://tempuri.org/", type = JAXBElement.class, required = false)
     protected JAXBElement<String> firstname;
-    @XmlElementRef(name = "lastname", namespace = "http://tempuri.org/", type = JAXBElement.class)
+    @XmlElementRef(name = "lastname", namespace = "http://tempuri.org/", type = JAXBElement.class, required = false)
     protected JAXBElement<String> lastname;
-    @XmlElementRef(name = "email", namespace = "http://tempuri.org/", type = JAXBElement.class)
+    @XmlElementRef(name = "email", namespace = "http://tempuri.org/", type = JAXBElement.class, required = false)
     protected JAXBElement<String> email;
-    @XmlElementRef(name = "creditcard", namespace = "http://tempuri.org/", type = JAXBElement.class)
+    @XmlElementRef(name = "creditcard", namespace = "http://tempuri.org/", type = JAXBElement.class, required = false)
     protected JAXBElement<String> creditcard;
-    @XmlElementRef(name = "company", namespace = "http://tempuri.org/", type = JAXBElement.class)
+    @XmlElementRef(name = "company", namespace = "http://tempuri.org/", type = JAXBElement.class, required = false)
     protected JAXBElement<String> company;
 
     /**
@@ -83,7 +83,7 @@ public class Register {
      *     
      */
     public void setUsername(JAXBElement<String> value) {
-        this.username = ((JAXBElement<String> ) value);
+        this.username = value;
     }
 
     /**
@@ -107,7 +107,7 @@ public class Register {
      *     
      */
     public void setPassword(JAXBElement<String> value) {
-        this.password = ((JAXBElement<String> ) value);
+        this.password = value;
     }
 
     /**
@@ -131,7 +131,7 @@ public class Register {
      *     
      */
     public void setFirstname(JAXBElement<String> value) {
-        this.firstname = ((JAXBElement<String> ) value);
+        this.firstname = value;
     }
 
     /**
@@ -155,7 +155,7 @@ public class Register {
      *     
      */
     public void setLastname(JAXBElement<String> value) {
-        this.lastname = ((JAXBElement<String> ) value);
+        this.lastname = value;
     }
 
     /**
@@ -179,7 +179,7 @@ public class Register {
      *     
      */
     public void setEmail(JAXBElement<String> value) {
-        this.email = ((JAXBElement<String> ) value);
+        this.email = value;
     }
 
     /**
@@ -203,7 +203,7 @@ public class Register {
      *     
      */
     public void setCreditcard(JAXBElement<String> value) {
-        this.creditcard = ((JAXBElement<String> ) value);
+        this.creditcard = value;
     }
 
     /**
@@ -227,7 +227,7 @@ public class Register {
      *     
      */
     public void setCompany(JAXBElement<String> value) {
-        this.company = ((JAXBElement<String> ) value);
+        this.company = value;
     }
 
 }

@@ -5,8 +5,6 @@ import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
 import javax.xml.namespace.QName;
-import com.microsoft.schemas._2003._10.serialization.arrays.ArrayOfint;
-import org.datacontract.schemas._2004._07.billingservice.BillDetails;
 
 
 /**
@@ -26,9 +24,14 @@ import org.datacontract.schemas._2004._07.billingservice.BillDetails;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _CalculateBillsForUserUsername_QNAME = new QName("http://tempuri.org/", "username");
-    private final static QName _ListUsersBillsResponseListUsersBillsResult_QNAME = new QName("http://tempuri.org/", "ListUsersBillsResult");
-    private final static QName _GetBillResponseGetBillResult_QNAME = new QName("http://tempuri.org/", "GetBillResult");
+    private final static QName _ValidateLoginUsername_QNAME = new QName("http://tempuri.org/", "username");
+    private final static QName _ValidateLoginPassword_QNAME = new QName("http://tempuri.org/", "password");
+    private final static QName _GetCompanyFromUsernameResponseGetCompanyFromUsernameResult_QNAME = new QName("http://tempuri.org/", "getCompanyFromUsernameResult");
+    private final static QName _RegisterCompany_QNAME = new QName("http://tempuri.org/", "company");
+    private final static QName _RegisterEmail_QNAME = new QName("http://tempuri.org/", "email");
+    private final static QName _RegisterFirstname_QNAME = new QName("http://tempuri.org/", "firstname");
+    private final static QName _RegisterCreditcard_QNAME = new QName("http://tempuri.org/", "creditcard");
+    private final static QName _RegisterLastname_QNAME = new QName("http://tempuri.org/", "lastname");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: org.tempuri
@@ -38,103 +41,191 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ListUsersBillsResponse }
+     * Create an instance of {@link Register }
      * 
      */
-    public ListUsersBillsResponse createListUsersBillsResponse() {
-        return new ListUsersBillsResponse();
+    public Register createRegister() {
+        return new Register();
     }
 
     /**
-     * Create an instance of {@link GetBill }
+     * Create an instance of {@link GetCompanyFromUsernameResponse }
      * 
      */
-    public GetBill createGetBill() {
-        return new GetBill();
+    public GetCompanyFromUsernameResponse createGetCompanyFromUsernameResponse() {
+        return new GetCompanyFromUsernameResponse();
     }
 
     /**
-     * Create an instance of {@link CalculateBillsForUserResponse }
+     * Create an instance of {@link GetCompanyFromUsername }
      * 
      */
-    public CalculateBillsForUserResponse createCalculateBillsForUserResponse() {
-        return new CalculateBillsForUserResponse();
+    public GetCompanyFromUsername createGetCompanyFromUsername() {
+        return new GetCompanyFromUsername();
     }
 
     /**
-     * Create an instance of {@link ListUsersBills }
+     * Create an instance of {@link IsLoggedInResponse }
      * 
      */
-    public ListUsersBills createListUsersBills() {
-        return new ListUsersBills();
+    public IsLoggedInResponse createIsLoggedInResponse() {
+        return new IsLoggedInResponse();
     }
 
     /**
-     * Create an instance of {@link CalculateBillsForUser }
+     * Create an instance of {@link UnregisterResponse }
      * 
      */
-    public CalculateBillsForUser createCalculateBillsForUser() {
-        return new CalculateBillsForUser();
+    public UnregisterResponse createUnregisterResponse() {
+        return new UnregisterResponse();
     }
 
     /**
-     * Create an instance of {@link PayBill }
+     * Create an instance of {@link IsLoggedIn }
      * 
      */
-    public PayBill createPayBill() {
-        return new PayBill();
+    public IsLoggedIn createIsLoggedIn() {
+        return new IsLoggedIn();
     }
 
     /**
-     * Create an instance of {@link GetBillResponse }
+     * Create an instance of {@link Unregister }
      * 
      */
-    public GetBillResponse createGetBillResponse() {
-        return new GetBillResponse();
+    public Unregister createUnregister() {
+        return new Unregister();
     }
 
     /**
-     * Create an instance of {@link PayBillResponse }
+     * Create an instance of {@link ValidateLogin }
      * 
      */
-    public PayBillResponse createPayBillResponse() {
-        return new PayBillResponse();
+    public ValidateLogin createValidateLogin() {
+        return new ValidateLogin();
+    }
+
+    /**
+     * Create an instance of {@link RegisterResponse }
+     * 
+     */
+    public RegisterResponse createRegisterResponse() {
+        return new RegisterResponse();
+    }
+
+    /**
+     * Create an instance of {@link ValidateLoginResponse }
+     * 
+     */
+    public ValidateLoginResponse createValidateLoginResponse() {
+        return new ValidateLoginResponse();
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "username", scope = CalculateBillsForUser.class)
-    public JAXBElement<String> createCalculateBillsForUserUsername(String value) {
-        return new JAXBElement<String>(_CalculateBillsForUserUsername_QNAME, String.class, CalculateBillsForUser.class, value);
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "username", scope = ValidateLogin.class)
+    public JAXBElement<String> createValidateLoginUsername(String value) {
+        return new JAXBElement<String>(_ValidateLoginUsername_QNAME, String.class, ValidateLogin.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "username", scope = ListUsersBills.class)
-    public JAXBElement<String> createListUsersBillsUsername(String value) {
-        return new JAXBElement<String>(_CalculateBillsForUserUsername_QNAME, String.class, ListUsersBills.class, value);
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "password", scope = ValidateLogin.class)
+    public JAXBElement<String> createValidateLoginPassword(String value) {
+        return new JAXBElement<String>(_ValidateLoginPassword_QNAME, String.class, ValidateLogin.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfint }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "ListUsersBillsResult", scope = ListUsersBillsResponse.class)
-    public JAXBElement<ArrayOfint> createListUsersBillsResponseListUsersBillsResult(ArrayOfint value) {
-        return new JAXBElement<ArrayOfint>(_ListUsersBillsResponseListUsersBillsResult_QNAME, ArrayOfint.class, ListUsersBillsResponse.class, value);
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "getCompanyFromUsernameResult", scope = GetCompanyFromUsernameResponse.class)
+    public JAXBElement<String> createGetCompanyFromUsernameResponseGetCompanyFromUsernameResult(String value) {
+        return new JAXBElement<String>(_GetCompanyFromUsernameResponseGetCompanyFromUsernameResult_QNAME, String.class, GetCompanyFromUsernameResponse.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BillDetails }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetBillResult", scope = GetBillResponse.class)
-    public JAXBElement<BillDetails> createGetBillResponseGetBillResult(BillDetails value) {
-        return new JAXBElement<BillDetails>(_GetBillResponseGetBillResult_QNAME, BillDetails.class, GetBillResponse.class, value);
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "company", scope = Register.class)
+    public JAXBElement<String> createRegisterCompany(String value) {
+        return new JAXBElement<String>(_RegisterCompany_QNAME, String.class, Register.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "email", scope = Register.class)
+    public JAXBElement<String> createRegisterEmail(String value) {
+        return new JAXBElement<String>(_RegisterEmail_QNAME, String.class, Register.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "username", scope = Register.class)
+    public JAXBElement<String> createRegisterUsername(String value) {
+        return new JAXBElement<String>(_ValidateLoginUsername_QNAME, String.class, Register.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "password", scope = Register.class)
+    public JAXBElement<String> createRegisterPassword(String value) {
+        return new JAXBElement<String>(_ValidateLoginPassword_QNAME, String.class, Register.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "firstname", scope = Register.class)
+    public JAXBElement<String> createRegisterFirstname(String value) {
+        return new JAXBElement<String>(_RegisterFirstname_QNAME, String.class, Register.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "creditcard", scope = Register.class)
+    public JAXBElement<String> createRegisterCreditcard(String value) {
+        return new JAXBElement<String>(_RegisterCreditcard_QNAME, String.class, Register.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "lastname", scope = Register.class)
+    public JAXBElement<String> createRegisterLastname(String value) {
+        return new JAXBElement<String>(_RegisterLastname_QNAME, String.class, Register.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "username", scope = Unregister.class)
+    public JAXBElement<String> createUnregisterUsername(String value) {
+        return new JAXBElement<String>(_ValidateLoginUsername_QNAME, String.class, Unregister.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "username", scope = GetCompanyFromUsername.class)
+    public JAXBElement<String> createGetCompanyFromUsernameUsername(String value) {
+        return new JAXBElement<String>(_ValidateLoginUsername_QNAME, String.class, GetCompanyFromUsername.class, value);
     }
 
 }

@@ -12,6 +12,10 @@ import org.eclipse.bpel.sample3.RegisterUser;
 import org.eclipse.bpel.sample3.RegisterUserPortType;
 import org.eclipse.bpel.sample3.RegisterUserRequest;
 import org.eclipse.bpel.sample3.RegisterUserResponse;
+import org.eclipse.bpel.validatelogin.ValidateLogin;
+import org.eclipse.bpel.validatelogin.ValidateLoginPortType;
+import org.eclipse.bpel.validatelogin.ValidateLoginRequest;
+import org.eclipse.bpel.validatelogin.ValidateLoginResponse;
 import org.springframework.stereotype.Component;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
@@ -25,41 +29,27 @@ import java.net.URLConnection;
 @Component
 public class ServiceReader {
 
-    public User loginFromBPELService(String username, String password) throws Exception {
+    public boolean loginFromBPELService(String username, String password) throws Exception {
 
-        User user;
-        URL url;
-        URLConnection connection;
+        ValidateLogin validateLogin = new ValidateLogin();
+        ValidateLoginPortType valPortType = validateLogin.getPort(ValidateLoginPortType.class);
+        ValidateLoginRequest request = new ValidateLoginRequest();
+        
+        request.setUsername(username);
+        request.setPassword(password);
+        
+        ValidateLoginResponse response = valPortType.process(request);
+        
+        boolean loginOk = false;
+        
+        try {
+			Boolean.parseBoolean(response.getResult());
+		} catch (NumberFormatException nfe) {
+			System.out.println(nfe);
+		}
+		
+		return loginOk;
 
-        url = new URL("http://localhost:8080/bpelServiceLogin?username=" + username + "&password=" + password);
-        connection = url.openConnection();
-
-        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-        String inputLine;
-        String finalXmlString = new String();
-
-        while ((inputLine = in.readLine()) != null)
-            finalXmlString += inputLine;
-
-        in.close();
-
-
-        // parse user from xml file
-
-        JAXBContext jaxbContext = JAXBContext.newInstance(UserXml.class);
-        Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-
-        StringReader reader = new StringReader(finalXmlString);
-        UserXml userxml = (UserXml) unmarshaller.unmarshal(reader);
-
-
-        // Get mapping instance and convert
-        Mapper mapper = DozerBeanMapperSingletonWrapper.getInstance();
-        // Convert source to destination object
-        user = mapper.map(userxml, User.class);
-
-
-        return user;
     }
 
     public boolean registerFromBPELService(User user) throws Exception {

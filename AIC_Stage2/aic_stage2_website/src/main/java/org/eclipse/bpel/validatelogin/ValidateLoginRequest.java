@@ -1,10 +1,9 @@
 
-package org.tempuri;
+package org.eclipse.bpel.validatelogin;
 
-import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -19,8 +18,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="username" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="password" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="username" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="password" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -34,23 +33,23 @@ import javax.xml.bind.annotation.XmlType;
     "username",
     "password"
 })
-@XmlRootElement(name = "validateLogin")
-public class ValidateLogin {
+@XmlRootElement(name = "validateLoginRequest")
+public class ValidateLoginRequest {
 
-    @XmlElementRef(name = "username", namespace = "http://tempuri.org/", type = JAXBElement.class, required = false)
-    protected JAXBElement<String> username;
-    @XmlElementRef(name = "password", namespace = "http://tempuri.org/", type = JAXBElement.class, required = false)
-    protected JAXBElement<String> password;
+    @XmlElement(required = true)
+    protected String username;
+    @XmlElement(required = true)
+    protected String password;
 
     /**
      * Gets the value of the username property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getUsername() {
+    public String getUsername() {
         return username;
     }
 
@@ -59,10 +58,10 @@ public class ValidateLogin {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setUsername(JAXBElement<String> value) {
+    public void setUsername(String value) {
         this.username = value;
     }
 
@@ -71,10 +70,10 @@ public class ValidateLogin {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getPassword() {
+    public String getPassword() {
         return password;
     }
 
@@ -83,10 +82,10 @@ public class ValidateLogin {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setPassword(JAXBElement<String> value) {
+    public void setPassword(String value) {
         this.password = value;
     }
 

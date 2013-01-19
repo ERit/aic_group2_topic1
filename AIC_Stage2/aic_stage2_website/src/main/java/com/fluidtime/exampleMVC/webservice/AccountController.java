@@ -26,17 +26,21 @@ public class AccountController {
     public String login(Model model, HttpServletRequest request, @RequestParam(required = true) String username,
                         @RequestParam(required = true) String password) {
 
-        User user = null;
+        boolean loginOk = false;
 
         try {
-            user = loginService.getLoginFromBPELService(username, password);
+            loginOk = loginService.getLoginFromBPELService(username, password);
         } catch (LoginFailedException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        if (user != null) {
+        User user = new User();
+        user.setName(username);
+        user.setPassword(password);
+        
+        if (loginOk) {
 
             session = request.getSession();
             session.setAttribute("user", user);
