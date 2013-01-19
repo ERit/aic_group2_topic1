@@ -2,4 +2,3 @@ I:\Workspace\aic_group2_topic1\AIC_Stage1\AuthenticatorService\bin\Authenticator
 I:\Workspace\aic_group2_topic1\AIC_Stage1\AuthenticatorService\bin\AuthenticatorService.pdb
 I:\Workspace\aic_group2_topic1\AIC_Stage1\AuthenticatorService\obj\Debug\AuthenticatorService.dll
 I:\Workspace\aic_group2_topic1\AIC_Stage1\AuthenticatorService\obj\Debug\AuthenticatorService.pdb
-I:\Workspace\aic_group2_topic1\AIC_Stage1\AuthenticatorService\obj\Debug\AuthenticatorService.csprojResolveAssemblyReference.cache
