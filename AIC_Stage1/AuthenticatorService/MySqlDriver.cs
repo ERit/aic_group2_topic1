@@ -26,8 +26,8 @@ namespace AuthenticatorService
 		{
 			string myConnectionString = "SERVER=localhost;" +
 				"DATABASE=aic_group2_topic1;" +
-					"UID=root;" +
-					"PASSWORD=root;";
+					"UID=aic;" +
+					"PASSWORD=aic2012;";
 
 			connection = new MySqlConnection(myConnectionString);
 			connection.Open();
