@@ -1467,7 +1467,7 @@ h3 {
         <form name="form1" method="post" action="<%=request.getContextPath()%>/Statistics">
             <fieldset class="form">
                 <button type="button" class="positive" name="statistic" onclick="openStatistic()">
-                Watch sentiment analysis for "${user.getCompany()}"
+                Watch sentiment analysis
                 </button>
                 <br><br>
                 <button type="button" class="positive" name="billing" onclick="openBilling()">

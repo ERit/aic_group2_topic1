@@ -1448,7 +1448,7 @@ h3 {
         <form name="form1" method="post" action="<%=request.getContextPath()%>/Statistics">
             <fieldset class="form">
                 <p>
-                    Company "${user.getCompany()}" got the following result:
+                    Your company got the following result:
 
                 <div style="text-align: center;">
 
