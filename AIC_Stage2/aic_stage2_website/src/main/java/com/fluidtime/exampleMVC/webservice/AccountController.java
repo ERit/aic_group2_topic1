@@ -42,6 +42,7 @@ public class AccountController {
         
         if (loginOk) {
 
+
             session = request.getSession();
             session.setAttribute("user", user);
 
@@ -49,8 +50,9 @@ public class AccountController {
 
             return "Overview";
         } else {
+
             model.addAttribute("user", null);
-            return "Login";
+            return "Index";
         }
 
 

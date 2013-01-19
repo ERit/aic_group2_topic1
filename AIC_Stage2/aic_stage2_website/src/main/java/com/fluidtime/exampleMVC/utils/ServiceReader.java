@@ -43,11 +43,11 @@ public class ServiceReader {
         boolean loginOk = false;
         
         try {
-			Boolean.parseBoolean(response.getResult());
+			loginOk = Boolean.parseBoolean(response.getResult());
 		} catch (NumberFormatException nfe) {
 			System.out.println(nfe);
 		}
-		
+
 		return loginOk;
 
     }
@@ -71,7 +71,7 @@ public class ServiceReader {
 		boolean regOk = false;
 		
 		try {
-			Boolean.parseBoolean(regResponse.getResult());
+			regOk = Boolean.parseBoolean(regResponse.getResult());
 		} catch (NumberFormatException nfe) {
 			System.out.println(nfe);
 		}
